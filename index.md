@@ -15,7 +15,7 @@ logoImg: "/img/logo-python.png"
 
 # Manual de introducción a Python
 
-Autor [Alfredo Sánchez Alberca](http://aprendeconalf.es)
+Autor: [Alfredo Sánchez Alberca](http://aprendeconalf.es) (asalber@ceu.es)
 
 <img data-src="img/logo-python.png" alt="Logo de Python">
 
