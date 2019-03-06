@@ -268,16 +268,27 @@ span.footnote {
 
 /* ROTATE TEXT */
 td.rotate {
-/* Something you can count on */
-height: 140px;
-white-space: nowrap;
+    /* Something you can count on */
+    height: 140px;
+    white-space: nowrap;
 }
 
-td.rotate > div {
-transform: 
-    /* Magic Numbers */
-    translate(0px, 120px)
-    /* 45 is really 360 - 45 */
-    rotate(-90deg);
-width: 30px;
+td.rotate>div {
+    transform:
+        /* Magic Numbers */
+        translate(0px, 120px)
+        /* 45 is really 360 - 45 */
+        rotate(-90deg);
+    width: 30px;
+}
+
+/* Left-justified paragraphs */
+.reveal p {
+    text-align: left;
+}
+
+/* Add fontawesome */
+.reveal i {
+    font-family: 'FontAwesome';
+    font-style: normal;
 }
