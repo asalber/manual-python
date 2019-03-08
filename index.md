@@ -17,10 +17,9 @@ logoImg: "/img/logo-python.png"
 
 # Manual de introducción a Python
 
-
 <div style="text-align:center">
-Autor: [Alfredo Sánchez Alberca](http://aprendeconalf.es) ([asalber@ceu.es](mailto:asalber@ceu.es))
-<br>
+Autor: Alfredo Sánchez Alberca ([asalber@ceu.es](mailto:asalber@ceu.es))  
+http://aprendeconalf.es  
 <img data-src="img/logo-python.png" alt="Logo de Python">
 </div>
 
@@ -57,7 +56,7 @@ Se ejecuta cada instrucción que introduce el usuario de manera interactiva.
 ```sh
 > python
 >>> name = "Alf"
->>> print("Hola " + name)
+>>> print("Hola ", name)
 Hola Alf
 ```
 
@@ -70,7 +69,7 @@ Se leen y se ejecutan una a una todas las instrucciones del fichero.
 ```python
 # Fichero hola.py
 name = "Alf"
-print("Hola " + name)
+print("Hola ", name)
 ```
 
 ```sh
@@ -83,7 +82,7 @@ También se puede hacer el fichero ejecutable indicando en la primera línea la 
 ```{python}
 #!/usr/bin/python3
 name = "Alf"
-print("Hola " + name)
+print("Hola", name)
 ```
 
 ```sh
@@ -228,7 +227,6 @@ Contiene únicamente dos elementos `True` y `False` que representan los valores 
 
 - Operadores lógicos:  `==` (igual que), `>` (mayor), `<` (menor), `>=` (mayor o igual que), `<=` (menor o igual que), `!=` (distinto de), `not` (negación), `and` (conjunción), `or` (disyunción).
 
-
 ```python
 >>> True == False
 False
@@ -270,21 +268,21 @@ True
 Las siguientes funciones convierten un dato de un tipo en otro, siempre y cuando la conversión sea posible.
 
 - `int()` convierte a entero.  
-**Ejemplo**. `int('12')` <i class="fas fa-arrow-right"></i> `12`  
-`int(True)` <i class="fas fa-arrow-right"></i> `1`   
-`int('c')` <i class="fas fa-arrow-right"></i> Error
+**Ejemplo**. `int('12')` <i class="fa fa-arrow-right"></i> `12`  
+`int(True)` <i class="fa fa-arrow-right"></i> `1`   
+`int('c')` <i class="fa fa-arrow-right"></i> Error
 - `float()` convierte a real.  
-**Ejemplo**. `float('3.14')` <i class="fas fa-arrow-right"></i> `3.14`  
-`float(True)` <i class="fas fa-arrow-right"></i> `1.0`  
-`float('III')` <i class="fas fa-arrow-right"></i> Error
+**Ejemplo**. `float('3.14')` <i class="fa fa-arrow-right"></i> `3.14`  
+`float(True)` <i class="fa fa-arrow-right"></i> `1.0`  
+`float('III')` <i class="fa fa-arrow-right"></i> Error
 - `str()` convierte a cadena.  
-**Ejemplo**. `str(3.14)` <i class="fas fa-arrow-right"></i> `'3.14'`  
-`str(True)` <i class="fas fa-arrow-right"></i> `'True'`  
+**Ejemplo**. `str(3.14)` <i class="fa fa-arrow-right"></i> `'3.14'`  
+`str(True)` <i class="fa fa-arrow-right"></i> `'True'`  
 - `bool()` convierte a lógico.  
-**Ejemplo**. `bool('0')` <i class="fas fa-arrow-right"></i> `False`  
-`bool('3.14')` <i class="fas fa-arrow-right"></i> `True`  
-`bool('')` <i class="fas fa-arrow-right"></i> `False`   
-`bool('Hola')` <i class="fas fa-arrow-right"></i> `True`
+**Ejemplo**. `bool('0')` <i class="fa fa-arrow-right"></i> `False`  
+`bool('3.14')` <i class="fa fa-arrow-right"></i> `True`  
+`bool('')` <i class="fa fa-arrow-right"></i> `False`   
+`bool('Hola')` <i class="fa fa-arrow-right"></i> `True`
 
 ---
 
@@ -292,15 +290,14 @@ Las siguientes funciones convierten un dato de un tipo en otro, siempre y cuando
 
 Una variable es un identificador ligado a algún valor.
 
-Reglas para nombrarlas: 
+Reglas para nombrarlas:
 
 - Comienzan siempre por una letra, seguida de otras letras o números.
 - No se pueden utilizarse palabras reservadas del lenguaje.
 
 A diferencia de otros lenguajes no tienen asociado un tipo y no es necesario declararlas antes de usarlas (tipado dinámico).
 
-Para asignar un valor a una variable se utiliza el operador `=`.
-
+Para asignar un valor a una variable se utiliza el operador `=` y para borrar una variable se utiliza la instrucción `del`.
 
 ```python
 lenguaje = 'Python'
@@ -314,19 +311,68 @@ a, b = b, a
 x += 2
 # Decremento (equivale a x = x - 1)
 x -= 1
+# Valor no definido
+x = None
+del x
 ```
+
+---
+
+## Entrada por terminal
+#### `input()`
+
+Para asignar a una variable un valor introducido por el usuario en la consola se utiliza la instrucción
+
+>`input(mensaje)`  
+
+donde `mensaje` es un mensaje que se muestra al usuario solicitándole que introduzca un valor.
+
+<i class="far fa-exclamation-triangle"></i> _El valor obtenido siempre es una cadena, incluso si el usuario introduce un dato numérico._
+
+```python
+>>> language = input('¿Cuál es tu lenguaje favorito? ')
+¿Cuál es tu lenguaje favorito? Python
+>>> language
+'Python'
+>>> age = input('¿Cuál es tu edad? ')
+¿Cuál es tu edad? 20
+>>> age
+'20'
+```
+
+---
+
+### Salida por terminal
+#### `print()`
+
+Para mostrar un dato por la terminal se utiliza la instrucción 
+
+> `print(dato1, ..., sep=' ', end='\n', file=sys.stdout`)
+
+donde
+
+- `dato1, ...` son los datos a imprimir y pueden indicarse tantos como se quieran separados por comas.
+- `sep` establece el separador entre los datos, que por defecto es un espacio en blanco `' '`.
+- `end` indica la cadena final de la impresión, que por defecto es un cambio de línea `\n`.
+- `file` indica la dirección del flujo de salida, que por defecto es la salida estándar `sys.stdout`.
 
 --
 
-### Entrada por consola
-
-Para asignar a una variable un valor introducido por el usuario en la consola se utiliza la instrucción `input(mensaje)`  donde `mensaje` es un mensaje que se muestra al usuario solicitándole que introduzca un valor.
+### Salida por terminal
+#### `print()`
 
 ```python
->>> lenguaje = input('¿Cuál es tu lenguaje favorito? ')
-¿Cuál es tu lenguaje favorito? Python
->>> lenguaje
-'Python'
+>>> print('Hola')
+Hola
+>>> name = 'Alf'
+>>> print('Hola', name)
+Hola Alf
+>>> print('El valor de pi es', 3.1415)
+El valor de pi es 3.1415
+>>> print('Hola', name, sep='')
+HolaAlf
+>>> print('Hola', name, end='!\n')
+Hola Alf!
 ```
 
 ---
@@ -358,7 +404,7 @@ Se caracterizan por:
 
 Se accede a los elementos de una lista mediante un índice que indica la posición de cada elemento entre corchetes. Se utilizan los mismos operadores de acceso que para cadenas de caracteres.
 
-**¡Ojo!** El índice del primer elemento de la lista es 0. 
+<i class="far fa-exclamation-triangle"></i> _El índice del primer elemento de la lista es 0._
 
 |      Lista      | `'P'` | `'y'` | `'t'` | `'h'` | `'o'` | `'n'` |
 | :-------------: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -381,9 +427,9 @@ IndexError: list index out of range
 
 --
 
-### Operaciones con listas
+### Sublistas
 
-- **Sublistas**: `l[i:j:k]` sublista desde el elemento de `l` con el índice `i` hasta el elemento anterior al índice `j`, tomando elementos cada `k`.
+- `l[i:j:k]`: Devuelve la sublista desde el elemento de `l` con el índice `i` hasta el elemento anterior al índice `j`, tomando elementos cada `k`.
 
 ```python
 >>> a = ['P', 'y', 't', 'h', 'o', 'n']
@@ -401,9 +447,119 @@ IndexError: list index out of range
 
 --
 
+### Operaciones que no modifican listas
+
+- `len(l)`: Devuelve el número de elementos de la lista `l`.
+- `min(l)`: Devuelve el mínimo elemento de la lista `l` siempre que los datos sean comparables.
+- `max(l)`: Devuelve el máximo elemento de la lista `l` siempre que los datos sean comparables.
+- `sum(l)`: Devuelve la suma de los elementos de la lista `l`, siempre que los datos se puedan sumar.
+- `dato in l`: Devuelve `True` si el dato pertenece a la lista `l` y `False` en caso contrario.
+- `l.index(dato)`: Devuelve la posición que ocupa en la lista `l` el primer elemento con valor `dato`.
+- `l.count(dato)`: Devuelve el número de veces que el valor `dato` está contenido en la lista `l`.
+- `all(l)`: Devuelve `True` si todos los elementos de la lista `l` son `True` y `False` en caso contrario.
+- `any(l)`: Devuelve `True` si algún elemento de la lista `l` es `True` y `False` en caso contrario.
+
+--
+
 ### Operaciones con listas
 
-- **Concatenación de listas**: `l1 + l2`
+```python
+>>> a = [1, 2, 2, 3]
+>>> len(a)
+4
+>>> min(a)
+1
+>>> max(a)
+3
+>>> sum(a)
+8
+>>> 3 in a
+True
+>>> a.index(2)
+1
+>>> a.count(2)
+2
+>>> all(a)
+True
+>>> any([0, False, 3<2])
+False
+```
+
+--
+
+### Operaciones que modifican listas
+
+- `l1 + l2`: Crea una nueva lista concatenan los elementos de la listas `l1` y `l2`.
+- `l.append(dato)`: Añade `dato` al final de la lista `l`. 
+- `l.extend(sequencia)`: Añade los datos de `sequencia` al final de la lista `l`.
+- `l.insert(índice, dato)`: Inserta `dato` en la posición `índice` de la lista `l` y desplaza los elementos una posición a partir de la posición `índice`.
+- `l.remove(dato)`: Elimina el primer elemento con valor `dato` en la lista `l` y desplaza los que están por detrás de él una posición hacia delante.
+- `l.pop([índice])`: Devuelve el dato en la posición `índice` y lo elimina de la lista `l`, desplazando los elementos por detrás de él una posición hacia delante.
+- `l.sort()`: Ordena los elementos de la lista `l` de acuerdo al orden predefinido, siempre que los elementos sean comparables.
+- `l.reverse()`: invierte el orden de los elementos de la lista `l`.
+
+--
+
+### Operaciones que modifican listas
+
+```python
+>>> a = [1, 3]
+>>> b = [2 , 4, 6]
+>>> a.append(5)
+>>> a
+[1, 3, 5]
+>>> a.remove(3)
+>>> a
+[1, 5]
+>>> a.insert(1, 3)
+>>> a
+[1, 3, 5]
+>>> b.pop()
+6
+>>> c = a + b
+>>> c
+[1, 3, 5, 2, 4]
+>>> c.sort()
+>>> c
+[1, 2, 3, 4, 5]
+>>> c.reverse()
+>>> c
+[5, 4, 3, 2, 1]
+```
+
+---
+
+## Tuplas
+
+Secuencias ordenadas de objetos de distintos tipos.
+
+Se construyen poniendo los elementos entre corchetes `(`  `)` separados por comas.
+
+Se caracterizan por:
+
+- Tienen orden.
+- Pueden contener elementos de distintos tipos.
+- Son inmutables, es decir, no pueden alterarse durante la ejecución de un programa.
+
+Se usan habitualmente para representar colecciones de datos una determinada estructura semántica.
+
+```python
+# Tupla vacía
+[]
+# Tupla con elementos de distintos tipos
+(1, "dos", True)
+# Tuplas anidadas
+(1, (2, 3), 4)
+```
+
+--
+
+### Operaciones con tuplas
+
+El acceso a los elementos de una tupla se realiza del mismo modo que en las listas.
+También se pueden obtener subtuplas de la misma manera que las sublistas.
+
+Las operaciones de listas que no modifican la lista también son aplicables a las tuplas.
 
 ---
 
