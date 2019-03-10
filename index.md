@@ -380,7 +380,7 @@ Hola Alf!
 ## Concicionales
 #### `if`
 
-`if condición1:`  
+> `if condición1:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
 `elif condición2:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
@@ -394,11 +394,11 @@ Pueden aparecer varios bloques `elif` pero solo uno `else` al final.
 
 <i class="far fa-exclamation-triangle"></i> _Los bloques de código deben estar indentados por 4 espacios._
 
-La instrucción condicional permite evaluar el estado del programa y tomar decisiones sobre qué código ejecutar en función del mismo.
-
 --
 
 ### Condicionales
+
+La instrucción condicional permite evaluar el estado del programa y tomar decisiones sobre qué código ejecutar en función del mismo.
 
 ```python
 >>> edad = 14
@@ -426,7 +426,7 @@ Activo
 ## Bucles condicionales
 #### `while`
 
-`while condición:`  
+> `while condición:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
 
 Repite la ejecución del bloque de código mientras la expresión lógica `condición` sea cierta.
@@ -471,7 +471,7 @@ Introduce un número: 0
 ## Bucles iterativos
 #### `for`
 
-`for i in secuencia:`  
+> `for i in secuencia:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
 
 Repite la ejecución del bloque de código para cada elemento de la secuencia `secuencia`, asignado dicho elemento a `i` en cada repetición.
