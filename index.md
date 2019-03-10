@@ -136,10 +136,10 @@ Estos datos son inmutables, es decir, su valor es constante y no puede cambiar.
 
 - **Listas** (lists): Colecciones de objetos que representan secuencias ordenadas de objetos de distintos tipos. Se representan con corchetes y los elementos se separan por comas.  
 **Ejemplo**. [1, "dos", [3, 4], True].
-- **Diccionarios** (dictionaries): Colecciones de objetos con una clave asociada. Se representan con llaves, los pares separados por comas y cada par contiene una clave y un objeto asociado separados por dos puntos.  
-**Ejemplo**. {'pi':3.1416, 'e':2.718}.
 - **Tuplas** (tuples). Colecciones de objetos que representan secuencias ordenadas de objetos de distintos tipos. A diferencia de las listas son inmutables, es decir, que no cambian durante la ejecución. Se representan mediante paréntesis y los elementos se separan por comas.  
 **Ejemplo**. (1, 'dos', 3)
+- **Diccionarios** (dictionaries): Colecciones de objetos con una clave asociada. Se representan con llaves, los pares separados por comas y cada par contiene una clave y un objeto asociado separados por dos puntos.  
+**Ejemplo**. {'pi':3.1416, 'e':2.718}.
 
 --
 
@@ -379,7 +379,7 @@ Hola Alf!
 
 ## Listas
 
-Secuencias ordenadas de objetos de distintos tipos.
+Una **lista** es una secuencias ordenadas de objetos de distintos tipos.
 
 Se construyen poniendo los elementos entre corchetes `[`  `]` separados por comas.
 
@@ -402,7 +402,9 @@ Se caracterizan por:
 
 ### Acceso a los elementos de una lista
 
-Se accede a los elementos de una lista mediante un índice que indica la posición de cada elemento entre corchetes. Se utilizan los mismos operadores de acceso que para cadenas de caracteres.
+Se utilizan los mismos operadores de acceso que para cadenas de caracteres.
+
+- `l[i]` devuelve el elemento de la lista `l` con el índice `i`.
 
 <i class="far fa-exclamation-triangle"></i> _El índice del primer elemento de la lista es 0._
 
@@ -447,13 +449,13 @@ IndexError: list index out of range
 
 --
 
-### Operaciones que no modifican listas
+### Operaciones que no modifican una lista
 
 - `len(l)`: Devuelve el número de elementos de la lista `l`.
 - `min(l)`: Devuelve el mínimo elemento de la lista `l` siempre que los datos sean comparables.
 - `max(l)`: Devuelve el máximo elemento de la lista `l` siempre que los datos sean comparables.
 - `sum(l)`: Devuelve la suma de los elementos de la lista `l`, siempre que los datos se puedan sumar.
-- `dato in l`: Devuelve `True` si el dato pertenece a la lista `l` y `False` en caso contrario.
+- `dato in l`: Devuelve `True` si el dato `dato` pertenece a la lista `l` y `False` en caso contrario.
 - `l.index(dato)`: Devuelve la posición que ocupa en la lista `l` el primer elemento con valor `dato`.
 - `l.count(dato)`: Devuelve el número de veces que el valor `dato` está contenido en la lista `l`.
 - `all(l)`: Devuelve `True` si todos los elementos de la lista `l` son `True` y `False` en caso contrario.
@@ -461,7 +463,7 @@ IndexError: list index out of range
 
 --
 
-### Operaciones con listas
+### Operaciones que no modifican una lista
 
 ```python
 >>> a = [1, 2, 2, 3]
@@ -487,7 +489,7 @@ False
 
 --
 
-### Operaciones que modifican listas
+### Operaciones que modifican una lista
 
 - `l1 + l2`: Crea una nueva lista concatenan los elementos de la listas `l1` y `l2`.
 - `l.append(dato)`: Añade `dato` al final de la lista `l`. 
@@ -500,7 +502,7 @@ False
 
 --
 
-### Operaciones que modifican listas
+### Operaciones que modifican una lista
 
 ```python
 >>> a = [1, 3]
@@ -531,7 +533,7 @@ False
 
 ## Tuplas
 
-Secuencias ordenadas de objetos de distintos tipos.
+Una **tupla** es una secuencias ordenadas de objetos de distintos tipos.
 
 Se construyen poniendo los elementos entre corchetes `(`  `)` separados por comas.
 
@@ -541,15 +543,17 @@ Se caracterizan por:
 - Pueden contener elementos de distintos tipos.
 - Son inmutables, es decir, no pueden alterarse durante la ejecución de un programa.
 
-Se usan habitualmente para representar colecciones de datos una determinada estructura semántica.
+Se usan habitualmente para representar colecciones de datos una determinada estructura semántica, como por ejemplo un vector o una matriz.
 
 ```python
 # Tupla vacía
 []
 # Tupla con elementos de distintos tipos
 (1, "dos", True)
-# Tuplas anidadas
-(1, (2, 3), 4)
+# Vector
+(1, 2, 3)
+# Matriz
+((1, 2, 3), (4, 5, 6))
 ```
 
 --
@@ -561,9 +565,144 @@ También se pueden obtener subtuplas de la misma manera que las sublistas.
 
 Las operaciones de listas que no modifican la lista también son aplicables a las tuplas.
 
+```python
+>>> a = (1, 2, 3)
+>>> a[1]
+2
+>>> len(a)
+3
+>>> a.index(3)
+2
+>>> 0 in a
+False
+>>> b = ((1, 2, 3), (4, 5, 6))
+>>> b[1]
+(4, 5, 6)
+>>> b[1][2]
+6
+```
+
+---
+
+## Diccionarios
+
+Un diccionario es una colección de pares formados por una _clave_ y un _valor_ asociado a la clave.
+
+Se construyen poniendo los pares entre llaves `{` y `}` separados por comas, y separando la clave del valor con dos puntos `:`.
+
+Se caracterizan por:
+
+- No tienen orden.
+- Pueden contener elementos de distintos tipos.
+- Son mutables, es decir, pueden alterarse durante la ejecución de un programa.
+
+```python
+# Diccionario vacío
+{}
+# Diccionario con elementos de distintos tipos
+{'nombre':'Alfredo', 'despacho': 218, 'email':'asalber@ceu.es'}
+# Diccionarios anidados
+{'nombre_completo':{'nombre': 'Alfredo', 'Apellidos': 'Sánchez Alberca'}}
+```
+
+--
+
+### Acceso a los elementos de un diccionario
+
+- `d[clave]` devuelve el valor del diccionario `d` asociado a la clave `clave`. Si en el diccionario no existe esa clave devuelve un error.
+- `d.get(clave, valor)` devuelve el valor del diccionario `d` asociado a la clave `clave`. Si en el diccionario no existe esa clave devuelve `valor`, y si no se especifica un valor por defecto devuelve `None`.
+
+```python
+>>> a = {'nombre':'Alfredo', 'despacho': 218, 'email':'asalber@ceu.es'}
+>>> a['nombre']
+'Alfredo'
+>>> a['despacho'] = 210
+>>> a
+{'nombre':'Alfredo', 'despacho': 218, 'email':'asalber@ceu.es'}
+>>> a.get('email')
+'asalber@ceu.es'
+>>> a.get('universidad', 'CEU')
+'CEU'
+```
+
+--
+
+### Operaciones que no modifican un diccionario
+
+- `len(d)`: Devuelve el número de elementos del diccionario `d`.
+- `min(d)`: Devuelve la mínima clave del diccionario `d` siempre que las claves sean comparables.
+- `max(d)`: Devuelve la máxima clave del diccionario `d` siempre que las claves sean comparables.
+- `sum(d)`: Devuelve la suma de las claves del diccionario `d`, siempre que las claves se puedan sumar.
+- `clave in d`: Devuelve `True` si la clave `clave` pertenece al diccionario `d` y `False` en caso contrario.
+- `d.keys()`: Devuelve un iterador sobre las claves de un diccionario.
+- `d.values()`: Devuelve un iterador sobre los valores de un diccionario.
+- `d.items()`: Devuelve un iterador sobre los pares clave-valor de un diccionario.
+
+--
+
+### Operaciones que no modifican un diccionario
+
+```python
+>>> a = {'nombre':'Alfredo', 'despacho': 218, 'email':'asalber@ceu.es'}
+>>> len(a)
+3
+>>> min(a)
+'despacho'
+>>> 'email' in a
+True
+>>> a.keys()
+dict_keys(['nombre', 'despacho', 'email'])
+>>> a.values()
+dict_values(['Alfredo', 218, 'asalber@ceu.es'])
+>>> a.items()
+dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es')])
+```
+
+--
+
+### Operaciones que modifican un diccionario
+
+- `d[clave] = valor`: Añade al diccionario `d` el par formado por la clave `clave` y el valor `valor`.
+- `d.update(d2)`. Añade los pares del diccionario `d2` al diccionario `d`. 
+- `d.pop(clave, alternativo)`: Devuelve del valor asociado a la clave `clave` del diccionario `d` y si la clave no está devuelve el valor `alternativo`.
+- `d.popitem()`: Devuelve la tupla formada por la clave y el valor del último par añadido al diccionario `d`.
+- `del d[clave]`: Elimina del diccionario `d` el par con la clave `clave`.
+- `d.clear()`: Elimina todos los pares del diccionario `d` de manera que se queda vacío.
+
+--
+
+### Operaciones que modifican un diccionario
+
+```python
+>>> a = {'nombre':'Alfredo', 'despacho': 218, 'email':'asalber@ceu.es'}
+>>> a['universidad'] = 'CEU'
+>>> a
+{'nombre': 'Alfredo', 'despacho': 218, 'email': 'asalber@ceu.es', 'universidad': 'CEU'}
+>>> a.pop('despacho')
+218
+>>> a
+{'nombre': 'Alfredo', 'email': 'asalber@ceu.es', 'universidad': 'CEU'}
+>>> a.popitem()
+('universidad', 'CEU')
+>>> a
+{'nombre': 'Alfredo', 'email': 'asalber@ceu.es'}
+>>> del a['email']
+>>> a
+{'nombre': 'Alfredo'}
+>>> a.clear()
+>>> a
+{}
+```
+
 ---
 
 ## Referencias
 
 - [Python](https://www.python.org/) Sitio web de Python.
-- 
+- [Python tutor] Sitio web que permite visualizar la ejecución el código Python.
+- [Tutorial de Python](https://www.tutorialpython.com/) Tutoría rápido de python.
+- [Python para todos](http://mundogeek.net/tutorial-python/) Libro de introducción a Python con muchos ejemplos. Es de licencia libre.
+- [Python para principiantes](https://www.safecreative.org/work/1207302042960-curso-python-para-principiantes) Libro de introducción Python que abarca orientación a objetos. Es de licencia libre.
+- [Python crash course](https://ehmatthes.github.io/pcc/) Libro de introducción a Python gratuito.
+- [Think python 2e](http://greenteapress.com/wp/think-python-2e/). Libro de introducción a Python que abarca también algoritmos, estructuras de datos y gráficos. Es de licencia libre.
+- [Learning Python](http://shop.oreilly.com/product/0636920028154.do) Libro de introducción a Python con enfoque de programación orientada a objetos.
