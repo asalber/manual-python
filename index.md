@@ -377,6 +377,142 @@ Hola Alf!
 
 ---
 
+## Concicionales
+#### `if`
+
+`if condición1:`  
+&ensp;&ensp;&ensp;&ensp;_`bloque código`_  
+`elif condición2:`  
+&ensp;&ensp;&ensp;&ensp;_`bloque código`_  
+...  
+`else:`  
+&ensp;&ensp;&ensp;&ensp;_`bloque código`_
+
+Evalúa la expresión lógica `condición1` y ejecuta el primer bloque de código si es `True`; si no, evalúa la siguientes condiciones hasta llegar a la primera que es `True` y ejecuta el bloque de código asociado. Si ninguna condición es `True` ejecuta el bloque de código después de `else:`.
+
+Pueden aparecer varios bloques `elif` pero solo uno `else` al final.
+
+<i class="far fa-exclamation-triangle"></i> _Los bloques de código deben estar indentados por 4 espacios._
+
+La instrucción condicional permite evaluar el estado del programa y tomar decisiones sobre qué código ejecutar en función del mismo.
+
+--
+
+### Condicionales
+
+```python
+>>> edad = 14
+>>> if edad <= 18 : 
+...     print('Menor')
+... elif edad > 65:
+...     print('Jubilado')
+... else:
+...     print('Activo')
+...
+Menor
+>>> age = 20
+>>> if edad <= 18 : 
+...     print('Menor')
+... elif edad > 65:
+...     print('Jubilado')
+... else:
+...     print('Activo')
+...
+Activo
+```
+
+---
+
+## Bucles condicionales
+#### `while`
+
+`while condición:`  
+&ensp;&ensp;&ensp;&ensp;_`bloque código`_  
+
+Repite la ejecución del bloque de código mientras la expresión lógica `condición` sea cierta.
+
+Se puede interrumpir en cualquier momento la ejecución del bloque de código con la instrucción `break`.
+
+<i class="far fa-exclamation-triangle"></i> _El bloque de código debe estar indentado por 4 espacios._
+
+--
+
+### Bucles condicionales
+
+```python
+>>> # Pregunta al usuario por un número hasta que introduce 0.
+>>> num = None
+>>> while num != 0:
+...     num = int(input('Introduce un número: '))
+... 
+Introduce un número: 2
+Introduce un número: 1
+Introduce un número: 0
+>>> 
+```
+
+Alternativa:
+
+```python
+>>> # Pregunta al usuario por un número hasta que introduce 0.
+>>> while True:
+...     num = int(input('Introduce un número: '))
+...     if num == 0:
+...         break
+...
+Introduce un número: 2
+Introduce un número: 1
+Introduce un número: 0
+>>>
+```
+
+---
+
+## Bucles iterativos
+#### `for`
+
+`for i in secuencia:`  
+&ensp;&ensp;&ensp;&ensp;_`bloque código`_  
+
+Repite la ejecución del bloque de código para cada elemento de la secuencia `secuencia`, asignado dicho elemento a `i` en cada repetición.
+
+Se puede interrumpir en cualquier momento la ejecución del bloque de código con la instrucción `break` o saltar la ejecución para un determinado elemento de la secuencia con la instrucción `continue`.
+
+<i class="far fa-exclamation-triangle"></i> _El bloque de código debe estar indentado por 4 espacios._
+
+Se utiliza fundamentalmente para recorrer colecciones de objetos como cadenas, listas, tuplas o diccionarios.
+
+--
+
+### Bucles iterativos
+
+A menudo se usan con la instrucción `range`:
+
+- `range(fin)`: Genera una secuencia de números enteros desde 0 hasta `fin-1`.
+- `range(inicio, fin, salto)`: Genera una secuencia de números enteros desde `inicio` hasta `fin-1` con un incremento de `salto`.
+
+```python
+>>> palabra = 'Python'
+>>> for letra in palabra:
+...     print(letra)
+... 
+P
+y
+t
+h
+o
+n
+```
+
+```python
+>>> for i in range(1, 10, 2):
+...     print(i, end=", ")
+...
+1, 3, 5, 7, 9, >>>
+```
+
+---
+
 ## Listas
 
 Una **lista** es una secuencias ordenadas de objetos de distintos tipos.
