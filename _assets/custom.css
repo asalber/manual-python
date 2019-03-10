@@ -292,3 +292,8 @@ td.rotate>div {
     font-family: 'FontAwesome';
     font-style: normal;
 }
+
+/* Make blokquotes wider */
+.reveal blockquote {
+    width: 95%;
+}
