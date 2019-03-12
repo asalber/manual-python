@@ -1,19 +1,23 @@
----
-title: Manual de Python
-separator: '^\r?\n---\r?\n$'
-verticalSeparator: '^\r?\n--\r?\n$'
-author: Alfredo Sánchez Alberca
-theme: black
-customTheme : custom
-css: custom.css
-highlightTheme: monokai
-revealOptions:
-    transition: convex
-    center: true
-logoImg: "/img/logo-python.png"
----
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <title>Manual de Python</title>
+        <link rel="stylesheet" href="./css/reveal.css">
+        <link rel="stylesheet" href="./css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="./css/highlight/monokai.css">
+        <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">
+        <link rel="stylesheet" href="./_assets/custom.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides"><section  data-markdown><script type="text/template">
 
 # Manual de introducción a Python
 
@@ -22,9 +26,7 @@ Autor: Alfredo Sánchez Alberca ([asalber@ceu.es](mailto:asalber@ceu.es))
 http://aprendeconalf.es  
 <img data-src="img/logo-python.png" alt="Logo de Python">
 </div>
-
----
-
+</script></section><section  data-markdown><script type="text/template">
 ## ¿Qué es Python?
 
 [Python](https://www.python.org/) es un lenguaje de programación de alto nivel multiparadigma que permite:
@@ -33,9 +35,7 @@ http://aprendeconalf.es
 - Programación orientada a objetos
 
 Fue creado por Guido van Rossum en 1990 aunque actualmente es desarrollado y mantenido por la [Python Software Foundation](https://www.python.org/psf-landing/)
-
----
-
+</script></section><section  data-markdown><script type="text/template">
 ## Principales ventajas de Python
 
 - Es de código abierto (certificado por la OSI).
@@ -44,9 +44,7 @@ Fue creado por Guido van Rossum en 1990 aunque actualmente es desarrollado y man
 - Es un lenguaje maduro (29 años).
 - Es fácilmente extensible e integrable en otros lenguajes (C, java).
 - Esta mantenido por una gran comunidad de desarrolladores y hay multitud de recursos para su aprendizaje.
-
----
-
+</script></section><section ><section data-markdown><script type="text/template">
 ## Tipos de ejecución
 
 ### Interpretado en la consola de Python
@@ -59,9 +57,7 @@ Se ejecuta cada instrucción que introduce el usuario de manera interactiva.
 >>> print("Hola ", name)
 Hola Alf
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Interpretado en fichero
 
 Se leen y se ejecutan una a una todas las instrucciones del fichero.
@@ -90,9 +86,7 @@ print("Hola", name)
 > ./hola.py
 Hola Alf
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Compilado a bytecode
 
 ```python
@@ -117,21 +111,17 @@ Hay distintos paquetes que permiten compilar a un ejecutable del sistema operati
 > ./dist/hola/hola
 Hola Alf
 ```
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## Tipos de datos primitivos simples
 
-- **Números** (numbers): Secuencia de dígitos (pueden incluir el - para negativos y el . para decimales) que representan números.  
+- **Números** (numbers): Cadenas de dígitos (pueden incluir el - para negativos y el . para decimales) que representan números.  
 **Ejemplo**. 0, -1, 3.1415.
-- **Cadenas** (strings): Secuencia de caracteres alfanuméricos que representan texto. Se escriben entre comillas simples o dobles.  
+- **Cadenas** (strings): Cadenas de caracteres alfanuméricos que representan texto. Se representan entre comillas simples o dobles.  
 **Ejemplo**. 'Hola', "Adiós".
 - **Booleanos** (boolean): Contiene únicamente dos elementos `True` y `False` que representan los valores lógicos verdadero y falso respectivamente.
 
 Estos datos son inmutables, es decir, su valor es constante y no puede cambiar.
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ## Tipos de datos primitivos compuestos (contenedores)
 
 - **Listas** (lists): Colecciones de objetos que representan secuencias ordenadas de objetos de distintos tipos. Se representan con corchetes y los elementos se separan por comas.  
@@ -140,9 +130,7 @@ Estos datos son inmutables, es decir, su valor es constante y no puede cambiar.
 **Ejemplo**. (1, 'dos', 3)
 - **Diccionarios** (dictionaries): Colecciones de objetos con una clave asociada. Se representan con llaves, los pares separados por comas y cada par contiene una clave y un objeto asociado separados por dos puntos.  
 **Ejemplo**. {'pi':3.1416, 'e':2.718}.
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ## Clase de un dato
 #### `type()`
 
@@ -160,240 +148,78 @@ La clase a la que pertenece un dato se obtiene con el comando `type()`
 >>>type((1, 'dos', 3))
 <class 'tuple'>
 ```
-
----
-
+</script></section></section><section  data-markdown><script type="text/template">
 ## Números (clases `int` y `float`)
 
-Secuencia de dígitos (pueden incluir el - para negativos y el . para decimales) que representan números.
 Pueden ser enteros (`int`) o reales (`float`).
 
 ```python
 >>> type(1)
 <class 'int'>
->>> type(-2)
-<class 'int'>
 >>> type(2.3)
 <class 'float'>
 ```
 
---
-
-### Operadores aritméticos
-
-- Operadores aritméticos: `+` (suma), `-` (resta), `*` (producto), `/` (cociente), `//` (cociente división entera), `%` (resto división entera), `**` (potencia).
-
-Orden de prioridad de evaluación:
-
-|       |                        |
-| :---: | :--------------------: |
-|   1   | Funciones predefinidas |
-|   2   |       Potencias        |
-|   3   | Productos y cocientes  |
-|   4   |     Sumas y restas     |
-|       |                        |
-
-Se puede saltar el orden de evaluación utilizando paréntesis `( )`.
+- Operadores aritméticos: `+` (suma), `-` (resta), `*` (producto), `/` (cociente), `//` (cociente división entera), `%` (resto división entera).
+- Operadores lógicos: `==` (igual que), `>` (mayor que), `<` (menor que), `>=` (mayor o igual que), `<=` (menor o igual que), `!=` (distinto de).
 
 ```python
 >>> 2+3
 5
->>> 5*-2
--10
+>>> 5*2
+10
 >>> 5/2
 2.5
 >>> 5//2
 2
->>> (2+3)**2
-25
-```
-
---
-
-### Operadores lógicos con números
-
-Devuelven un valor lógico o booleano.
-
-- Operadores lógicos: `==` (igual que), `>` (mayor que), `<` (menor que), `>=` (mayor o igual que), `<=` (menor o igual que), `!=` (distinto de).
-
-```python
 >>> 3==3
 True
->>> 3.1<=3
+>>> 4<=3
 False
->>> -1!=1
-True
 ```
-
----
-
+</script></section><section  data-markdown><script type="text/template">
 ## Cadenas (clase `str`)
 
-Secuencia de caracteres alfanuméricos que representan texto. Se escriben entre comillas sencillas ' o dobles ".
+Se representan entre comillas sencillas ' o dobles ".
+
+- Operadores de cadenas: `s[i]` (carácter i+1-ésimo), `s[i:j]` (subcadena de la posición i+1 a la j), `+` (concatenación), `*` (copias concatenadas), `in` pertenencia, `not in` no pertenencia.
+- Operadores lógicos:  `==` (igual que), `>` (sucede), `<` (antecede), `>=` (sucede o igual que), `<=` (antecede o igual que), `!=` (distinto de). Utilizan el orden establecido en el código ASCII.
+- Funciones: `len` (longitud de la cadena), `min` (carácter menor), `max` (carácter mayor).
 
 ```python
-'Python'
-"123"
-'True'
-# Cadena vacía
-''
-# Cadena con un espacio en blanco
-' '
-# Cambio de línea
-'\n'
-# Tabulador
-'\t'
-```
-
---
-
-### Acceso a los elementos de una cadena
-
-Cada carácter tiene asociado un índice que permite acceder a él.
-
-|     Cadena      |  `P`  |  `y`  |  `t`  |  `h`  |  `o`  |  `n`  |
-| :-------------: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Índice positivo |   0   |   1   |   2   |   3   |   4   |   5   |
-| Índice negativo |  -6   |  -5   |  -4   |  -3   |  -2   |  -1   |
-
-- `c[i]` devuelve el carácter de la cadena `c` con el índice `i`.
-
-<i class="far fa-exclamation-triangle"></i> _El índice del primer carácter de la cadena es 0._
-
-También se pueden utilizar índices negativos para recorrer la cadena del final al principio.
-
-<i class="far fa-exclamation-triangle"></i> _El índice del último carácter de la cadena es -1._
-
-```python
->>> 'Python'[0]
-'P'
 >>> 'Python'[1]
 'y'
->>> 'Python'[-1]
-'n'
->>> 'Python'[6]
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-IndexError: string index out of range
-```
-
---
-
-### Subcadenas
-
-- `c[i:j:k]` : Devuelve la subcadena de `c` desde el carácter con el índice `i` hasta el carácter anterior al índice `j`, tomando caracteres cada `k`.
-
-```python
->>> 'Python'[1:4]
-'yth'
->>> 'Python'[1:1]
-''
->>> 'Python'[2:]
-'thon'
->>> 'Python'[:-2]
-'ytho'
->>> 'Python'[:]
-'Python'
->>> 'Python'[0:6:2]
-'Pto'
-```
-
---
-
-### Operaciones con cadenas
-
-- `c1 + c2` : Devuelve la cadena resultado de concatenar las cadenas `c1` y `c2`.
-- `c * n` : Devuelve la cadena resultado de concatenar `n` copias de la cadena `c`.
-- `c1 in c2` : Devuelve `True` si `c1` es una cadena concenida en `c2` y `False` en caso contrario.
-- `c1 not in c2` : Devuelve `True` si `c1` es una cadena no concenida en `c2` y `False` en caso contrario.
-
-
-
-```python
 >>> 'Me gusta ' + 'Python'
 'Me gusta Python'
->>> 'Python' * 3
+>>> 'Python' * 3 
 'PythonPythonPython'
->>> 'y' in 'Python'
-True
->>> 'tho' in 'Python'
-True
->>> 'to' not in 'Python'
-True
-```
-
---
-
-### Operaciones de comparación de cadenas
-
-- `c1 == c2` : Devuelve `True` si la cadena `c1` es igual que la cadena `c2` y `False` en caso contrario.
-- `c1 > c2` : Devuelve `True` si la cadena `c1` sucede a la cadena `c2` y `False` en caso contrario.
-- `c1 < c2` : Devuelve `True` si la cadena `c1` antecede a la cadena `c2` y `False` en caso contrario.
-- `c1 >= c2` : Devuelve `True` si la cadena `c1` sucede o es igual a la cadena `c2` y `False` en caso contrario.
-- `c1 <= c2` : Devuelve `True` si la cadena `c1` antecede o es igual a la cadena `c2` y `False` en caso contrario.
-- `c1 != c2` : Devuelve `True` si la cadena `c1` es distinta de la cadena `c2` y `False` en caso contrario.
-
- 
-<i class="far fa-exclamation-triangle"></i> _Utilizan el orden establecido en el [código ASCII](https://www.codigosascii.com/)_.
-
---
-
-### Operaciones de comparación de cadenas
-
-```python
->>> 'Python' == 'python'
-False
 >>> 'Python' < 'python'
 True
->>> 'a' > 'Z'
-True
->>> 'A' >= 'Z'
-False
->>> '' < 'Python'
-True
-```
-
---
-
-### Funciones de cadenas
-
-- `len(c)` : Devuelve el número de caracteres de la cadena `c`.
-- `min(c)` : Devuelve el carácter menor de la cadena `c`.
-- `max(c)` : Devuelve el carácter mayor de la cadena `c`.
-- `c.upper()` : Devuelve la cadena con los mismos caracteres que la cadena `c` pero en mayúsculas.
-- `c.lower()` : Devuelve la cadena con los mismos caracteres que la cadena `c` pero en minúsculas.
-- `c.title()` : Devuelve la cadena con los mismos caracteres que la cadena `c` con el primer carácter en mayúsculas y el resto en minúsculas.
-
-```python
 >>> len('Python')
 6
->>> min('Python')
-'P'
 >>> max('Python')
 'y'
->>> 'Python'.upper()
-'PYTHON'
 ```
-
----
-
+</script></section><section ><section data-markdown><script type="text/template">
 ## Datos lógicos o booleanos (clase `bool`)
 
 Contiene únicamente dos elementos `True` y `False` que representan los valores lógicos verdadero y falso respectivamente.
 
 `False` tiene asociado el valor 0 y `True` tiene asociado el valor 1.
 
---
+- Operadores lógicos:  `==` (igual que), `>` (mayor), `<` (menor), `>=` (mayor o igual que), `<=` (menor o igual que), `!=` (distinto de), `not` (negación), `and` (conjunción), `or` (disyunción).
 
-### Operaciones con valores lógicos
-
-- Operadores lógicos:  `==` (igual que), `>` (mayor), `<` (menor), `>=` (mayor o igual que), `<=` (menor o igual que), `!=` (distinto de).
-- `not b` (negación) : Devuelve `True` si el dato booleano `b` es `False` , y `False` en caso contrario.
-- `b1 and b2` : Devuelve `True` si los datos booleanos `b1` y `b2` son `True`, y `False` en caso contrario.
-- `b1 or b2` : Devuelve `True` si alguno de los datos booleanos `b1` o `b2` son `True`, y `False` en caso contrario.
-
---
-
+```python
+>>> True == False
+False
+>>> True != False
+True
+>>> True < False
+False
+>>> False <= True
+True
+```
+</script></section><section data-markdown><script type="text/template">
 ### Tabla de verdad
 
 |   `x`   |   `y`   | `not x` | `x and y` | `x or y` |
@@ -414,9 +240,7 @@ False
 >>> True and True
 True
 ```
-
----
-
+</script></section></section><section  data-markdown><script type="text/template">
 ## Conversión de datos primitivos simples
 
 Las siguientes funciones convierten un dato de un tipo en otro, siempre y cuando la conversión sea posible.
@@ -437,9 +261,7 @@ Las siguientes funciones convierten un dato de un tipo en otro, siempre y cuando
 `bool('3.14')` <i class="fa fa-arrow-right"></i> `True`  
 `bool('')` <i class="fa fa-arrow-right"></i> `False`   
 `bool('Hola')` <i class="fa fa-arrow-right"></i> `True`
-
----
-
+</script></section><section  data-markdown><script type="text/template">
 ## Variables
 
 Una variable es un identificador ligado a algún valor.
@@ -469,9 +291,7 @@ x -= 1
 x = None
 del x
 ```
-
----
-
+</script></section><section  data-markdown><script type="text/template">
 ## Entrada por terminal
 #### `input()`
 
@@ -493,9 +313,7 @@ donde `mensaje` es un mensaje que se muestra al usuario solicitándole que intro
 >>> age
 '20'
 ```
-
----
-
+</script></section><section ><section data-markdown><script type="text/template">
 ### Salida por terminal
 #### `print()`
 
@@ -509,9 +327,7 @@ donde
 - `sep` establece el separador entre los datos, que por defecto es un espacio en blanco `' '`.
 - `end` indica la cadena final de la impresión, que por defecto es un cambio de línea `\n`.
 - `file` indica la dirección del flujo de salida, que por defecto es la salida estándar `sys.stdout`.
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Salida por terminal
 #### `print()`
 
@@ -528,9 +344,7 @@ HolaAlf
 >>> print('Hola', name, end='!\n')
 Hola Alf!
 ```
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## Concicionales
 #### `if`
 
@@ -547,9 +361,7 @@ Evalúa la expresión lógica `condición1` y ejecuta el primer bloque de códig
 Pueden aparecer varios bloques `elif` pero solo uno `else` al final.
 
 <i class="far fa-exclamation-triangle"></i> _Los bloques de código deben estar indentados por 4 espacios._
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Condicionales
 
 La instrucción condicional permite evaluar el estado del programa y tomar decisiones sobre qué código ejecutar en función del mismo.
@@ -574,9 +386,7 @@ Menor
 ...
 Activo
 ```
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## Bucles condicionales
 #### `while`
 
@@ -588,9 +398,7 @@ Repite la ejecución del bloque de código mientras la expresión lógica `condi
 Se puede interrumpir en cualquier momento la ejecución del bloque de código con la instrucción `break`.
 
 <i class="far fa-exclamation-triangle"></i> _El bloque de código debe estar indentado por 4 espacios._
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Bucles condicionales
 
 ```python
@@ -619,9 +427,7 @@ Introduce un número: 1
 Introduce un número: 0
 >>>
 ```
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## Bucles iterativos
 #### `for`
 
@@ -635,15 +441,13 @@ Se puede interrumpir en cualquier momento la ejecución del bloque de código co
 <i class="far fa-exclamation-triangle"></i> _El bloque de código debe estar indentado por 4 espacios._
 
 Se utiliza fundamentalmente para recorrer colecciones de objetos como cadenas, listas, tuplas o diccionarios.
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Bucles iterativos
 
 A menudo se usan con la instrucción `range`:
 
-- `range(fin)` : Genera una secuencia de números enteros desde 0 hasta `fin-1`.
-- `range(inicio, fin, salto)` : Genera una secuencia de números enteros desde `inicio` hasta `fin-1` con un incremento de `salto`.
+- `range(fin)`: Genera una secuencia de números enteros desde 0 hasta `fin-1`.
+- `range(inicio, fin, salto)`: Genera una secuencia de números enteros desde `inicio` hasta `fin-1` con un incremento de `salto`.
 
 ```python
 >>> palabra = 'Python'
@@ -664,9 +468,7 @@ n
 ...
 1, 3, 5, 7, 9, >>>
 ```
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## Listas
 
 Una **lista** es una secuencias ordenadas de objetos de distintos tipos.
@@ -687,9 +489,7 @@ Se caracterizan por:
 # Listas anidadas
 [1, [2, 3], 4]
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Acceso a los elementos de una lista
 
 Se utilizan los mismos operadores de acceso que para cadenas de caracteres.
@@ -697,6 +497,11 @@ Se utilizan los mismos operadores de acceso que para cadenas de caracteres.
 - `l[i]` devuelve el elemento de la lista `l` con el índice `i`.
 
 <i class="far fa-exclamation-triangle"></i> _El índice del primer elemento de la lista es 0._
+
+|      Lista      | `'P'` | `'y'` | `'t'` | `'h'` | `'o'` | `'n'` |
+| :-------------: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Índice positivo |   0   |   1   |   2   |   3   |   4   |   5   |
+| Índice negativo |  -6   |  -5   |  -4   |  -3   |  -2   |  -1   |
 
 ```python
 >>> a = ['P', 'y', 't', 'h', 'o', 'n']
@@ -711,12 +516,10 @@ IndexError: list index out of range
 >>> a[-1]
 'n'
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Sublistas
 
-- `l[i:j:k]` : Devuelve la sublista desde el elemento de `l` con el índice `i` hasta el elemento anterior al índice `j`, tomando elementos cada `k`.
+- `l[i:j:k]`: Devuelve la sublista desde el elemento de `l` con el índice `i` hasta el elemento anterior al índice `j`, tomando elementos cada `k`.
 
 ```python
 >>> a = ['P', 'y', 't', 'h', 'o', 'n']
@@ -728,26 +531,22 @@ IndexError: list index out of range
 ['y', 't', 'h']
 >>> a[:]
 ['P', 'y', 't', 'h', 'o', 'n']
->>> a[0:6:2]
+>>> a[0,6,2]
 ['P', 't', 'o']
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Operaciones que no modifican una lista
 
-- `len(l)` : Devuelve el número de elementos de la lista `l`.
-- `min(l)` : Devuelve el mínimo elemento de la lista `l` siempre que los datos sean comparables.
-- `max(l)` : Devuelve el máximo elemento de la lista `l` siempre que los datos sean comparables.
-- `sum(l)` : Devuelve la suma de los elementos de la lista `l`, siempre que los datos se puedan sumar.
-- `dato in l` : Devuelve `True` si el dato `dato` pertenece a la lista `l` y `False` en caso contrario.
-- `l.index(dato)` : Devuelve la posición que ocupa en la lista `l` el primer elemento con valor `dato`.
-- `l.count(dato)` : Devuelve el número de veces que el valor `dato` está contenido en la lista `l`.
-- `all(l)` : Devuelve `True` si todos los elementos de la lista `l` son `True` y `False` en caso contrario.
-- `any(l)` : Devuelve `True` si algún elemento de la lista `l` es `True` y `False` en caso contrario.
-
---
-
+- `len(l)`: Devuelve el número de elementos de la lista `l`.
+- `min(l)`: Devuelve el mínimo elemento de la lista `l` siempre que los datos sean comparables.
+- `max(l)`: Devuelve el máximo elemento de la lista `l` siempre que los datos sean comparables.
+- `sum(l)`: Devuelve la suma de los elementos de la lista `l`, siempre que los datos se puedan sumar.
+- `dato in l`: Devuelve `True` si el dato `dato` pertenece a la lista `l` y `False` en caso contrario.
+- `l.index(dato)`: Devuelve la posición que ocupa en la lista `l` el primer elemento con valor `dato`.
+- `l.count(dato)`: Devuelve el número de veces que el valor `dato` está contenido en la lista `l`.
+- `all(l)`: Devuelve `True` si todos los elementos de la lista `l` son `True` y `False` en caso contrario.
+- `any(l)`: Devuelve `True` si algún elemento de la lista `l` es `True` y `False` en caso contrario.
+</script></section><section data-markdown><script type="text/template">
 ### Operaciones que no modifican una lista
 
 ```python
@@ -771,22 +570,18 @@ True
 >>> any([0, False, 3<2])
 False
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Operaciones que modifican una lista
 
-- `l1 + l2` : Crea una nueva lista concatenan los elementos de la listas `l1` y `l2`.
-- `l.append(dato)` : Añade `dato` al final de la lista `l`. 
-- `l.extend(sequencia)` : Añade los datos de `sequencia` al final de la lista `l`.
-- `l.insert(índice, dato)` : Inserta `dato` en la posición `índice` de la lista `l` y desplaza los elementos una posición a partir de la posición `índice`.
-- `l.remove(dato)` : Elimina el primer elemento con valor `dato` en la lista `l` y desplaza los que están por detrás de él una posición hacia delante.
-- `l.pop([índice])` : Devuelve el dato en la posición `índice` y lo elimina de la lista `l`, desplazando los elementos por detrás de él una posición hacia delante.
-- `l.sort()` : Ordena los elementos de la lista `l` de acuerdo al orden predefinido, siempre que los elementos sean comparables.
-- `l.reverse()` : invierte el orden de los elementos de la lista `l`.
-
---
-
+- `l1 + l2`: Crea una nueva lista concatenan los elementos de la listas `l1` y `l2`.
+- `l.append(dato)`: Añade `dato` al final de la lista `l`. 
+- `l.extend(sequencia)`: Añade los datos de `sequencia` al final de la lista `l`.
+- `l.insert(índice, dato)`: Inserta `dato` en la posición `índice` de la lista `l` y desplaza los elementos una posición a partir de la posición `índice`.
+- `l.remove(dato)`: Elimina el primer elemento con valor `dato` en la lista `l` y desplaza los que están por detrás de él una posición hacia delante.
+- `l.pop([índice])`: Devuelve el dato en la posición `índice` y lo elimina de la lista `l`, desplazando los elementos por detrás de él una posición hacia delante.
+- `l.sort()`: Ordena los elementos de la lista `l` de acuerdo al orden predefinido, siempre que los elementos sean comparables.
+- `l.reverse()`: invierte el orden de los elementos de la lista `l`.
+</script></section><section data-markdown><script type="text/template">
 ### Operaciones que modifican una lista
 
 ```python
@@ -813,9 +608,7 @@ False
 >>> c
 [5, 4, 3, 2, 1]
 ```
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## Tuplas
 
 Una **tupla** es una secuencias ordenadas de objetos de distintos tipos.
@@ -840,9 +633,7 @@ Se usan habitualmente para representar colecciones de datos una determinada estr
 # Matriz
 ((1, 2, 3), (4, 5, 6))
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Operaciones con tuplas
 
 El acceso a los elementos de una tupla se realiza del mismo modo que en las listas.
@@ -866,14 +657,12 @@ False
 >>> b[1][2]
 6
 ```
-
----
-
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## Diccionarios
 
 Un diccionario es una colección de pares formados por una _clave_ y un _valor_ asociado a la clave.
 
-Se construyen poniendo los pares entre llaves `{` y `}` separados por comas, y separando la clave del valor con dos puntos ` :`.
+Se construyen poniendo los pares entre llaves `{` y `}` separados por comas, y separando la clave del valor con dos puntos `:`.
 
 Se caracterizan por:
 
@@ -889,9 +678,7 @@ Se caracterizan por:
 # Diccionarios anidados
 {'nombre_completo':{'nombre': 'Alfredo', 'Apellidos': 'Sánchez Alberca'}}
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Acceso a los elementos de un diccionario
 
 - `d[clave]` devuelve el valor del diccionario `d` asociado a la clave `clave`. Si en el diccionario no existe esa clave devuelve un error.
@@ -909,22 +696,18 @@ Se caracterizan por:
 >>> a.get('universidad', 'CEU')
 'CEU'
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Operaciones que no modifican un diccionario
 
-- `len(d)` : Devuelve el número de elementos del diccionario `d`.
-- `min(d)` : Devuelve la mínima clave del diccionario `d` siempre que las claves sean comparables.
-- `max(d)` : Devuelve la máxima clave del diccionario `d` siempre que las claves sean comparables.
-- `sum(d)` : Devuelve la suma de las claves del diccionario `d`, siempre que las claves se puedan sumar.
-- `clave in d` : Devuelve `True` si la clave `clave` pertenece al diccionario `d` y `False` en caso contrario.
-- `d.keys()` : Devuelve un iterador sobre las claves de un diccionario.
-- `d.values()` : Devuelve un iterador sobre los valores de un diccionario.
-- `d.items()` : Devuelve un iterador sobre los pares clave-valor de un diccionario.
-
---
-
+- `len(d)`: Devuelve el número de elementos del diccionario `d`.
+- `min(d)`: Devuelve la mínima clave del diccionario `d` siempre que las claves sean comparables.
+- `max(d)`: Devuelve la máxima clave del diccionario `d` siempre que las claves sean comparables.
+- `sum(d)`: Devuelve la suma de las claves del diccionario `d`, siempre que las claves se puedan sumar.
+- `clave in d`: Devuelve `True` si la clave `clave` pertenece al diccionario `d` y `False` en caso contrario.
+- `d.keys()`: Devuelve un iterador sobre las claves de un diccionario.
+- `d.values()`: Devuelve un iterador sobre los valores de un diccionario.
+- `d.items()`: Devuelve un iterador sobre los pares clave-valor de un diccionario.
+</script></section><section data-markdown><script type="text/template">
 ### Operaciones que no modifican un diccionario
 
 ```python
@@ -942,20 +725,16 @@ dict_values(['Alfredo', 218, 'asalber@ceu.es'])
 >>> a.items()
 dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es')])
 ```
-
---
-
+</script></section><section data-markdown><script type="text/template">
 ### Operaciones que modifican un diccionario
 
-- `d[clave] = valor` : Añade al diccionario `d` el par formado por la clave `clave` y el valor `valor`.
+- `d[clave] = valor`: Añade al diccionario `d` el par formado por la clave `clave` y el valor `valor`.
 - `d.update(d2)`. Añade los pares del diccionario `d2` al diccionario `d`. 
-- `d.pop(clave, alternativo)` : Devuelve del valor asociado a la clave `clave` del diccionario `d` y si la clave no está devuelve el valor `alternativo`.
-- `d.popitem()` : Devuelve la tupla formada por la clave y el valor del último par añadido al diccionario `d`.
-- `del d[clave]` : Elimina del diccionario `d` el par con la clave `clave`.
-- `d.clear()` : Elimina todos los pares del diccionario `d` de manera que se queda vacío.
-
---
-
+- `d.pop(clave, alternativo)`: Devuelve del valor asociado a la clave `clave` del diccionario `d` y si la clave no está devuelve el valor `alternativo`.
+- `d.popitem()`: Devuelve la tupla formada por la clave y el valor del último par añadido al diccionario `d`.
+- `del d[clave]`: Elimina del diccionario `d` el par con la clave `clave`.
+- `d.clear()`: Elimina todos los pares del diccionario `d` de manera que se queda vacío.
+</script></section><section data-markdown><script type="text/template">
 ### Operaciones que modifican un diccionario
 
 ```python
@@ -978,9 +757,7 @@ dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es'
 >>> a
 {}
 ```
-
----
-
+</script></section></section><section  data-markdown><script type="text/template">
 ## Referencias
 
 - [Python](https://www.python.org/) Sitio web de Python.
@@ -991,3 +768,58 @@ dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es'
 - [Python crash course](https://ehmatthes.github.io/pcc/) Libro de introducción a Python gratuito.
 - [Think python 2e](http://greenteapress.com/wp/think-python-2e/). Libro de introducción a Python que abarca también algoritmos, estructuras de datos y gráficos. Es de licencia libre.
 - [Learning Python](http://shop.oreilly.com/product/0636920028154.do) Libro de introducción a Python con enfoque de programación orientada a objetos.
+</script></section></div>
+        </div>
+
+        <script src="./lib/js/head.min.js"></script>
+        <script src="./js/reveal.js"></script>
+
+        <script>
+            function extend() {
+              var target = {};
+              for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                  }
+                }
+              }
+              return target;
+            }
+
+            // Optional libraries used to extend on reveal.js
+            var deps = [
+              { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: './plugin/zoom-js/zoom.js', async: true },
+              { src: './plugin/notes/notes.js', async: true },
+              { src: './plugin/math/math.js', async: true },
+              { src: './plugin/menu/menu.js', async: true }
+            ];
+
+            // default options to init reveal.js
+            var defaultOptions = {
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'default', // none/fade/slide/convex/concave/zoom
+              dependencies: deps
+            };
+
+            // options from URL query string
+            var queryOptions = Reveal.getQueryHash() || {};
+
+            var options = {"transition":"convex","center":true};
+            options = extend(defaultOptions, options, queryOptions);
+        </script>
+
+
+        <script>
+          Reveal.initialize(options);
+        </script>
+    </body>
+</html>
