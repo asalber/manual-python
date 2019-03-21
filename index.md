@@ -333,7 +333,6 @@ True
 - `c1 <= c2` : Devuelve `True` si la cadena `c1` antecede o es igual a la cadena `c2` y `False` en caso contrario.
 - `c1 != c2` : Devuelve `True` si la cadena `c1` es distinta de la cadena `c2` y `False` en caso contrario.
 
- 
 <i class="far fa-exclamation-triangle"></i> _Utilizan el orden establecido en el [código ASCII](https://www.codigosascii.com/)_.
 
 --
@@ -363,6 +362,12 @@ True
 - `c.upper()` : Devuelve la cadena con los mismos caracteres que la cadena `c` pero en mayúsculas.
 - `c.lower()` : Devuelve la cadena con los mismos caracteres que la cadena `c` pero en minúsculas.
 - `c.title()` : Devuelve la cadena con los mismos caracteres que la cadena `c` con el primer carácter en mayúsculas y el resto en minúsculas.
+- `c.split(delimitador)` : Devuelve la lista formada por las subcadenas que resultan de partir la cadena `c` usando como delimitador la cadena `delimitador`.
+Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
+
+--
+
+## Funciones de cadenas
 
 ```python
 >>> len('Python')
@@ -373,6 +378,10 @@ True
 'y'
 >>> 'Python'.upper()
 'PYTHON'
+>>> 'A,B,C'.split(',')
+['A', 'B', 'C']
+>>> 'I love Python'.split()
+['I', 'love', 'Python']
 ```
 
 ---
@@ -681,7 +690,8 @@ Se caracterizan por:
 
 ```python
 # Lista vacía
-[]
+type([])
+<class 'list'>
 # Lista con elementos de distintos tipos
 [1, "dos", True]
 # Listas anidadas
@@ -832,7 +842,8 @@ Se usan habitualmente para representar colecciones de datos una determinada estr
 
 ```python
 # Tupla vacía
-[]
+type(())
+<class 'tuple'>
 # Tupla con elementos de distintos tipos
 (1, "dos", True)
 # Vector
@@ -873,7 +884,7 @@ False
 
 Un diccionario es una colección de pares formados por una _clave_ y un _valor_ asociado a la clave.
 
-Se construyen poniendo los pares entre llaves `{` y `}` separados por comas, y separando la clave del valor con dos puntos ` :`.
+Se construyen poniendo los pares entre llaves `{ }` separados por comas, y separando la clave del valor con dos puntos `:`.
 
 Se caracterizan por:
 
@@ -883,7 +894,8 @@ Se caracterizan por:
 
 ```python
 # Diccionario vacío
-{}
+type({})
+<class 'dict'>
 # Diccionario con elementos de distintos tipos
 {'nombre':'Alfredo', 'despacho': 218, 'email':'asalber@ceu.es'}
 # Diccionarios anidados
@@ -949,8 +961,8 @@ dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es'
 
 - `d[clave] = valor` : Añade al diccionario `d` el par formado por la clave `clave` y el valor `valor`.
 - `d.update(d2)`. Añade los pares del diccionario `d2` al diccionario `d`. 
-- `d.pop(clave, alternativo)` : Devuelve del valor asociado a la clave `clave` del diccionario `d` y si la clave no está devuelve el valor `alternativo`.
-- `d.popitem()` : Devuelve la tupla formada por la clave y el valor del último par añadido al diccionario `d`.
+- `d.pop(clave, alternativo)` : Devuelve del valor asociado a la clave `clave` del diccionario `d` y lo elimina del diccionario. Si la clave no está devuelve el valor `alternativo`.
+- `d.popitem()` : Devuelve la tupla formada por la clave y el valor del último par añadido al diccionario `d` y lo elimina del diccionario.
 - `del d[clave]` : Elimina del diccionario `d` el par con la clave `clave`.
 - `d.clear()` : Elimina todos los pares del diccionario `d` de manera que se queda vacío.
 
