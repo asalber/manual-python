@@ -824,6 +824,45 @@ False
 [5, 4, 3, 2, 1]
 ```
 
+--
+
+### Copia de listas
+
+Existen dos formas de copiar listas:
+
+- **Copia por referencia** `l1 = l2`: Asocia la la variable `l1` la misma lista que tiene asociada la variable `l2`, es decir, ambas variables apuntan a la misma dirección de memoria. Cualquier cambio que hagamos a través de `l1` o `l2` afectará a la misma lista.
+- **Copia por valor** `l1 = list(l2)`: Crea una copia de la lista asociada a `l2` en una dirección de memoria diferente y se la asocia a `l1`. Las variables apuntan a direcciones de memoria diferentes que contienen los mismos datos. Cualquier cambio que hagamos a través de `l1` no afectará a la lista de `l2` y viceversa.
+
+--
+
+### Copia de listas
+
+```python
+>>> a = [1, 2, 3]
+>>> # copia por referencia
+>>> b = a
+>>> b
+[1, 2, 3]
+>>> b.remove(2)
+>>> b
+[1, 3]
+>>> a
+[1, 3]
+```
+
+```python
+>>> a = [1, 2, 3]
+>>> # copia por referencia
+>>> b = list(a)
+>>> b
+[1, 2, 3]
+>>> b.remove(2)
+>>> b
+[1, 3]
+>>> a
+[1, 2, 3]
+```
+
 ---
 
 ## Tuplas
@@ -891,6 +930,7 @@ Se caracterizan por:
 - No tienen orden.
 - Pueden contener elementos de distintos tipos.
 - Son mutables, es decir, pueden alterarse durante la ejecución de un programa.
+- Las claves son únicas, es decir, no pueden repetirse en un mismo diccionario, y pueden ser de cualquier tipo de datos inmutable.
 
 ```python
 # Diccionario vacío
@@ -989,6 +1029,202 @@ dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es'
 >>> a.clear()
 >>> a
 {}
+```
+
+--
+
+### Copia de diccionarios
+
+Existen dos formas de copiar diccionarios:
+
+- **Copia por referencia** `d1 = d2`: Asocia la la variable `d1` el mismo diccionario que tiene asociado la variable `d2`, es decir, ambas variables apuntan a la misma dirección de memoria. Cualquier cambio que hagamos a través de `l1` o `l2` afectará al mismo diccionario.
+- **Copia por valor** `d1 = list(d2)`: Crea una copia del diccionario asociado a `d2` en una dirección de memoria diferente y se la asocia a `d1`. Las variables apuntan a direcciones de memoria diferentes que contienen los mismos datos. Cualquier cambio que hagamos a través de `l1` no afectará al diccionario de `l2` y viceversa.
+
+--
+
+### Copia de diccionarios
+
+```python
+>>> a = {1:'A', 2:'B', 3:'C'}
+>>> # copia por referencia
+>>> b = a
+>>> b
+{1:'A', 2:'B', 3:'C'}
+>>> b.pop(2)
+>>> b
+{1:'A', 3:'C'}
+>>> a
+{1:'A', 3:'C'}
+```
+
+```python
+>>> a = {1:'A', 2:'B', 3:'C'}
+>>> # copia por referencia
+>>> b = dict(a)
+>>> b
+{1:'A', 2:'B', 3:'C'}
+>>> b.pop(2)
+>>> b
+{1:'A', 3:'C'}
+>>> a
+{1:'A', 2:'B', 3:'C'}
+```
+
+---
+
+## Funciones
+#### `def`
+
+Una función es un bloque de código que tiene asociado un nombre, de manera que cada vez que se quiera ejecutar el bloque de código basta con invocar el nombre de la función.
+
+Para declarar una función se utiliza la siguiente sintaxis:
+
+> `def <nombre-funcion> (<parámetros>):`  
+&ensp;&ensp;&ensp;&ensp; _`bloque código`_  
+&ensp;&ensp;&ensp;&ensp; `return <objeto>`
+
+```python
+>>> def bienvenida():
+...     print('¡Bienvenido a Python!')
+...     return
+...
+>>> type(bienvenida)
+<class 'function'>
+>>> bienvenida()
+¡Bienvenido a Python!
+```
+
+--
+
+### Parámetros de una función
+
+Una función puede recibir valores cuando se invoca a través de unas variables conocidas como _parámetros_ que se definen entre paréntesis en la declaración de la función. En el cuerpo de la función se pueden usar estos parámetros como si fuesen variables.
+
+Los valores que se pasan a la función en una invocación concreta de ella se conocen como _argumentos_ y se asocian a los parámetros de la declaración de la función.
+
+```python
+>>> def bienvenida(nombre):
+...     print('¡Bienvenido a Python', nombre + '!')
+...     return
+...
+>>> bienvenida('Alf')
+¡Bienvenido a Python Alf!
+```
+
+--
+
+### Argumentos de la llamada a una función
+
+Los valores que se pasan a la función en una llamada o invocación concreta de ella se conocen como _argumentos_ y se asocian a los parámetros de la declaración de la función.
+
+Los argumentos se pueden indicar de dos formas:
+
+- **Argumentos posicionales**: Se asocian a los parámetros de la función en el mismo orden que aparecen en la definición de la función.
+- **Argumentos por nombre**: Se indica explícitamente el nombre del parámetro al que se asocia un argumento de la forma `parametro = argumento`.
+
+```python
+>>> def bienvenida(nombre, apellido):
+...     print('¡Bienvenido a Python', nombre, apellido + '!')
+...     return
+...
+>>> bienvenida('Alfredo', 'Sánchez)
+¡Bienvenido a Python Alfredo Sánchez!
+>>> bienvenida(apellido = 'Sánchez', nombre = 'Alfredo')
+¡Bienvenido a Python Alfredo Sánchez!
+```
+
+--
+
+### Retorno de una función
+
+Una función puede devolver un objeto de cualquier tipo tras su invocación. Para ello el objeto a devolver debe escribirse detrás de la palabra reservada `return`. Si no se indica ningún objeto, la función no devolverá nada.
+
+```python
+>>> def area_triangulo(base, altura):
+...     return base * altura / 2
+...
+>>> area_triangulo(2, 3)
+3
+>>> area_triangulo(4, 5)
+10
+```
+
+--
+
+## Argumentos por defecto
+
+En la definición de una función se puede asignar a cada parámetro un argumento por defecto, de manera que si se invoca la función sin proporcionar ningún argumento para ese parámetro, se utiliza el argumento por defecto.
+
+```python
+>>> def bienvenida(nombre, lenguaje = 'Python'):
+...     print('¡Bienvenido a', lenguaje, nombre + '!')
+...     return
+...
+>>> bienvenida('Alf')
+¡Bienvenido a Python Alf!
+>>> bienvenida('Alf', 'Java')
+¡Bienvenido a Java Alf!
+```
+
+--
+
+## Pasar un número indeterminado de argumentos
+
+Por último, es posible pasar un número variable de argumentos a un parámetro. Esto se puede hacer de dos formas:
+
+- `*parametro`: Se antepone un asterisco al nombre del parámetro y en la invocación de la función se pasa el número variable de argumentos separados por comas. Los argumentos se guardan en una lista que se asocia al parámetro.
+- `**parametro`: Se anteponen dos asteriscos al nombre del parámetro y en la invocación de la función se pasa el número variable de argumentos por pares `nombre = valor`, separados por comas. Los argumentos se guardan en un diccionario que se asocia al parámetro.
+
+
+```python
+>>> def menu(*platos):
+...     print('Hoy tenemos: ', end='')
+...     for plato in platos:
+...         print(plato, end=', ')
+...     return
+...
+>>> menu('pasta', 'pizza', 'ensalada')
+Hoy tenemos: pasta, pizza, ensalada,
+```
+
+--
+
+## Ámbito de los parámetros y variables de una función
+
+Tanto los parámetros como las variables definidas dentro del cuerpo de una función solo están accesibles dentro de la función, es decir, cuando termina la ejecución de la función estas variables desaparecen y no son accesibles desde fuera de la función.
+
+```python
+>>> def bienvenida(nombre):
+...     lenguaje = 'Python'
+...     print('¡Bienvenido a', lenguaje, nombre + '!')
+...     return
+...
+>>> bienvenida('Alf')
+¡Bienvenido a Python Alf!
+>>> lenguaje
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lenguaje' is not defined
+```
+
+--
+
+## Ámbito de los parámetros y variables de una función
+
+Si dentro de la función se utiliza una variable o parámetro que también existe fuera de ella, durante la ejecución de la función la variable externa queda eclipsada por la variable interna y no es accesible hasta que finaliza la ejecución de la función.
+
+
+```python
+>>> lenguaje = 'Java'
+>>> def bienvenida():
+...     lenguaje = 'Python'
+...     print('¡Bienvenido a', lenguaje + '!')
+...     return
+...
+>>> bienvenida()
+¡Bienvenido a Python!
+>>> print(lenguaje)
+Java
 ```
 
 ---
