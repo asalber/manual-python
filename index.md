@@ -1190,8 +1190,9 @@ Hoy tenemos: pasta, pizza, ensalada,
 --
 
 ## Ámbito de los parámetros y variables de una función
+Los parámetros y las variables declaradas dentro de una función son de **ámbito local**, mientras que las definidas fuera de ella son de ámbito **ámbito global**.
 
-Tanto los parámetros como las variables definidas dentro del cuerpo de una función solo están accesibles dentro de la función, es decir, cuando termina la ejecución de la función estas variables desaparecen y no son accesibles desde fuera de la función.
+Tanto los parámetros como las variables del ámbito local de una función sólo están accesibles durante la ejecución de la función, es decir, cuando termina la ejecución de la función estas variables desaparecen y no son accesibles desde fuera de la función.
 
 ```python
 >>> def bienvenida(nombre):
@@ -1210,9 +1211,7 @@ NameError: name 'lenguaje' is not defined
 --
 
 ## Ámbito de los parámetros y variables de una función
-
-Si dentro de la función se utiliza una variable o parámetro que también existe fuera de ella, durante la ejecución de la función la variable externa queda eclipsada por la variable interna y no es accesible hasta que finaliza la ejecución de la función.
-
+Si en el ámbito local de una función existe una variable que también existe en el ámbito global, durante la ejecución de la función la variable global queda eclipsada por la variable local y no es accesible hasta que finaliza la ejecución de la función.
 
 ```python
 >>> lenguaje = 'Java'
@@ -1225,6 +1224,248 @@ Si dentro de la función se utiliza una variable o parámetro que también exist
 ¡Bienvenido a Python!
 >>> print(lenguaje)
 Java
+```
+
+--
+
+## Paso de argumentos por referencia
+
+En Python el paso de argumentos a una función es siempre por referencia, es decir, se pasa una referencia al objeto del argumento, de manera que cualquier cambio que se haga dentro de la función mediante el parámetro asociado afectará al objeto original, siempre y cuando este sea mutable.
+
+```python
+>>> primer_curso = ['Matemáticas', 'Física']
+>>> def añade_asignatura(curso, asignatura):
+...     curso.append(asignatura)
+...     return
+...
+>>> añade_asignatura(primer_curso, 'Química')
+>>> print(primer_curso)
+['Matemáticas', 'Física', 'Química']
+```
+
+--
+
+## Documentación de funciones
+
+Una práctica muy recomendable cuando se define una función es describir lo que la función hace en un comentario.
+
+En Python esto se hace con un **docstring** que es un tipo de comentario especial se hace en la línea siguiente al encabezado de la función entre tres comillas dobles `"""`.
+
+Después se puede acceder a la documentación de la función con la función `help(<nombre-función>)`.
+
+```python
+>>> def area_triangulo(base, altura):
+... """Función que calcula el área de un triángulo.
+...
+... Parámetros:
+...     - base: La base del triángulo.
+...     - altura: La altura del triángulo.
+... Resultado:
+...     El área del triángulo con la base y altura especificadas.
+... """
+...     return base * altura / 2
+...
+>>> help(area_triangulo)
+area_triangulo(base, altura)
+    Función que calcula el área de un triángulo.
+
+    Parámetros:
+        - base: La base del triángulo.
+        - altura: La altura del triángulo.
+    Resultado:
+        El área del triángulo con la base y altura especificadas.
+```
+
+---
+
+## Funciones recursivas
+
+Una función recursiva es una función que en su cuerpo contiene una llama a si misma.
+
+La recursión es una práctica común en la mayoría de los lenguajes de programación ya que permite resolver las tareas recursivas de manera más natural.
+
+Para garantizar el final de una función recursiva, las sucesivas llamadas tienen que reducir el grado de complejidad del problema, hasta que este pueda resolverse directamente sin necesidad de volver a llamar a la función.
+
+```python
+>>> def factorial(n):
+...     if n == 0:
+...         return 1
+...     else:
+...         return n * factorial(n-1)
+...
+>>> f(5)
+120
+```
+
+--
+
+### Funciones recursivas múltiples
+
+Una función recursiva puede invocarse a si misma tantas veces como quiera en su cuerpo.
+
+```python
+>>> def fibonacci(n):
+...     if n <= 1:
+...         return n
+...     else:
+...         return fibonacci(n - 1) + fibonacci(n - 2)
+...
+>>> fibonacci(6)
+8
+```
+
+--
+
+### Los riesgos de la recursión
+
+Aunque la recursión permite resolver las tareas recursivas de forma más natural, hay que tener cuidado con ella porque suele consumir bastante memoria, ya que cada llamada a la función crea un nuevo ámbito local con las variables y los parámetros de la función.
+
+En muchos casos es más eficiente resolver la tarea recursiva de forma iterativa usando bucles.
+
+```python
+>>> def fibonacci(n):
+...     a, b = 0, 1
+...     for i in range(n):
+...         a, b = b, a + b
+...     return a
+...
+>>> fibonacci(6)
+8
+```
+
+---
+
+## Importación de funciones
+#### `import`
+
+Las funciones definidas en un programa o módulo de Python pueden ser importadas y reutilizadas en otros programas.
+
+Existen varias formas de importar módulos y funciones:
+
+- `import M` : Importa el módulo `M` y crea una referencia a él, de manera que pueden invocarse un objeto o función `f` definida en él mediante la sintaxis `M.f`.
+
+- `import M as N` : Importa el módulo `M` y crea una referencia `N` a él, de manera que pueden invocarse un objeto o función `f` definida en él mediante la sintaxis `N.f`. Esta forma es similar a la anterior, pero tiene se suele usar cuando el nombre del módulo es muy largo para utilizar un alias más corto.
+
+--
+
+### Importación de funciones
+#### `from import`
+
+- `from M import *` : Importa el módulo `M` y crea referencias a todos los objetos públicos (aquellos que no empiezan por el carácter `_`) definidos en el módulo. De esta manera para invocar un objeto del módulo no hace falta precederlo por el nombre del módulo, basta con escribir su nombre.
+  
+- `from M import f, g, ...` : Importa el módulo `M` y crea referencias a los objetos `f, g, ...`, de manera que pueden ser invocados por su nombre.
+
+--
+
+### Importación de funciones
+
+```python
+>>> import calendar
+>>> print(calendar.month(2019, 4))
+April 2019
+Mo Tu We Th Fr Sa Su
+ 1  2  3  4  5  6  7
+ 8  9 10 11 12 13 14
+15 16 17 18 19 20 21
+22 23 24 25 26 27 28
+29 30
+```
+
+```python
+>>> from math import *
+>>> cos(pi)
+-1.0
+```
+
+--
+
+### Módulos de la librería estándar más importantes
+
+No necesitan instalarse porque vienen incluidos en la distribución de Python.
+
+- [sys](https://docs.python.org/3/library/sys.html): Funciones y parámetros específicos del sistema operativo.
+- [os](https://docs.python.org/3/library/os.html): Interfaz con el sistema operativo.
+- [os.path](https://docs.python.org/3/library/os.path.html): Funciones de acceso a las rutas del sistema.
+- [io](https://docs.python.org/3/library/io.html): Funciones para manejo de flujos de datos y ficheros.
+- [string](https://docs.python.org/3/library/string.html): Funciones con cadenas de caracteres.
+- [datetime](https://docs.python.org/3/library/datetime.html): Funciones para fechas y tiempos.
+- [math](https://docs.python.org/3/library/math.html): Funciones y constantes matemáticas.
+- [statistics](https://docs.python.org/3/library/statistics.html): Funciones estadísticas.
+- [random](https://docs.python.org/3/library/random.html): Generación de números pseudo-aleatorios.
+
+--
+
+## Otros módulos imprescindibles
+
+Necesitan instalarse.
+
+- [NumPy](https://www.numpy.org/): Funciones matemáticas avanzadas y arrays.
+- [SciPy](https://www.scipy.org/): Más funciones matemáticas para aplicaciones científicas.
+- [matplotlib](https://matplotlib.org/): Análisis y representación gráfica de datos.
+- [Pandas](https://pandas.pydata.org/): Funciones para el manejo y análisis de estructuras de datos.
+- [Request](http://www.python-requests.org/en/master/): Acceso a internet por http.
+
+---
+
+## Programación funcional
+
+En Python las funciones son objetos de primera clase, es decir, que pueden pasarse como argumentos de una función, al igual que el resto de los tipos de datos.
+
+```python
+>>> def aplica(funcion, argumento):
+...     return funcion(argumento)
+...
+>>> def cuadrado(n):
+...     return n*n
+...
+>>> def cubo(n):
+...     return n**3
+...
+>>> aplica(cuadrado, 5)
+25
+>>> aplica(cubo, 5)
+125
+```
+
+--
+
+## Funciones anónimas
+#### `lambda`
+
+Existe un tipo especial de funciones que no tienen nombre asociado y se conocen como **funciones anónimas** o **funciones lambda**.
+
+La sintaxis para definir una función anónima es
+
+> `lambda <parámetros> : <expresión>`
+
+Estas funciones se suelen asociar a una variable o parámetro desde la que hacer la llamada.
+
+```python
+>>> area = lambda base, altura : base * altura
+>>> area(4, 5)
+10
+```
+
+--
+
+### Aplicar una función a todos los elementos de una secuencia
+#### `map`
+
+`map(f, l)` : Devuelve una lista con los resultados de aplicar la función `f` a los elementos de `l`. Si la función `f` requiere `n` argumentos entonces deben pasarse `n` listas con los argumentos.
+
+```python
+>>> def cuadrado(n):
+...     return n*n
+...
+>>> list(map(cuadrado, [1, 2, 3])
+[1, 4, 9]
+```
+```python
+>>> def cuadrado(n):
+...     return n*n
+...
+>>> list(map(cuadrado, [1, 2, 3])
+[1, 4, 9]
 ```
 
 ---
