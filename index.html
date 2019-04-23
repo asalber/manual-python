@@ -12,8 +12,6 @@
         <link rel="stylesheet" href="./_assets/custom.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-
-
     </head>
     <body>
 
@@ -1132,7 +1130,7 @@ En Python el paso de argumentos a una función es siempre por referencia, es dec
 
 Una práctica muy recomendable cuando se define una función es describir lo que la función hace en un comentario.
 
-En Python esto se hace con un **docstring** que es un tipo de comentario especial se hace en la línea siguiente al encabezado de la función entre tres comillas dobles `"""`.
+En Python esto se hace con un **docstring** que es un tipo de comentario especial se hace en la línea siguiente al encabezado de la función entre tres comillas simples `'''` o dobles `"""`.
 
 Después se puede acceder a la documentación de la función con la función `help(<nombre-función>)`.
 
@@ -1292,7 +1290,7 @@ En Python las funciones son objetos de primera clase, es decir, que pueden pasar
 125
 ```
 </script></section><section data-markdown><script type="text/template">
-## Funciones anónimas
+### Funciones anónimas
 #### `lambda`
 
 Existe un tipo especial de funciones que no tienen nombre asociado y se conocen como **funciones anónimas** o **funciones lambda**.
@@ -1309,30 +1307,350 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 10
 ```
 </script></section><section data-markdown><script type="text/template">
-### Aplicar una función a todos los elementos de una secuencia
+### Aplicar una función a todos los elementos de una colección iterable
 #### `map`
 
-`map(f, l)` : Devuelve una lista con los resultados de aplicar la función `f` a los elementos de `l`. Si la función `f` requiere `n` argumentos entonces deben pasarse `n` listas con los argumentos.
+`map(f, c)` : Devuelve una objeto iterable con los resultados de aplicar la función `f` a los elementos de la colección `c`. Si la función `f` requiere `n` argumentos entonces deben pasarse `n` colecciones con los argumentos. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones `list()`, `tuple()` o `dic()` respectivamente.
 
 ```python
 >>> def cuadrado(n):
-...     return n*n
+...     return n * n
 ...
 >>> list(map(cuadrado, [1, 2, 3])
 [1, 4, 9]
 ```
 ```python
->>> def cuadrado(n):
-...     return n*n
+>>> def rectangulo(a, b):
+...     return a * b
 ...
->>> list(map(cuadrado, [1, 2, 3])
-[1, 4, 9]
+>>> tuple(map(rectangulo, (1, 2, 3), (4, 5, 6)))
+(4, 10, 18)
 ```
+</script></section><section data-markdown><script type="text/template">
+### Filtrar los elementos de una colección iterable
+#### filter
+
+`filter(f, c)` : Devuelve una objeto iterable con los elementos de la colección `c` que devuelven `True` al aplicarles la función `f`. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones `list()`, `tuple()` o `dic()` respectivamente.
+
+<i class="far fa-exclamation-triangle"></i> `f` debe ser una función que recibe un argumento y devuelve un valor booleano.
+
+```python
+>>> def par(n):
+...     return n % 2 == 0
+...
+>>> list(filter(par, range(10))
+[0, 2, 4, 6, 8]
+```
+</script></section><section data-markdown><script type="text/template">
+### Combinar los elementos de varias colecciones iterables
+#### `zip`
+
+`zip(c1, c2, ...)` : Devuelve un objeto iterable cuyos elementos son tuplas formadas por los elementos que ocupan la misma posición en las colecciones `c1`, `c2`, etc. El número de elementos de las tuplas es el número de colecciones que se pasen. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones `list()`, `tuple()` o `dic()` respectivamente.
+
+```python
+>>> asignaturas = ['Matemáticas', 'Física', 'Química', 'Economía']
+>>> notas = [6.0, 3.5, 7.5, 8.0]
+>>> list(zip(asignaturas, notas))
+[('Matemáticas', 6.0), ('Física', 3.5), ('Química', 7.5), ('Economía', 8.0)]
+>>> dict(zip(asignaturas, notas[:3]))
+{'Matemáticas': 6.0, 'Física': 3.5, 'Química': 7.5}
+```
+</script></section><section data-markdown><script type="text/template">
+### Operar todos los elementos de una secuencia
+#### `reduce`
+
+`reduce(f, l)` : Aplicar la función `f` a los dos primeros elementos de la secuencia `l`. Con el valor obtenido vuelve a aplicar la función `f` a ese valor y el siguiente de la secuencia, y así hasta que no quedan más elementos en la lista. Devuelve el valor resultado de la última aplicación de la función `f`.
+
+La función `reduce` está definida en el módulo `functools`.
+
+```python
+>>> from functools import reduce
+>>> def producto(n, m):
+...     return n * m
+...
+>>> reduce(producto, range(1, 5))
+24
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Comprensión de colecciones
+
+En muchas aplicaciones es habitual aplicar una función o realizar una operación con los elementos de una colección (lista, tupla o diccionario) y obtener una nueva colección de elementos transformados. Aunque esto se puede hacer recorriendo la secuencia con un bucle iterativo, y en programación funcional mediante la función `map`, Python incorpora un mecanismo muy potente que permite esto mismo de manera más simple.
+</script></section><section data-markdown><script type="text/template">
+### Comprensión de listas
+
+> [_expresion_ **for** _variable_ **in** _lista_ **if** _condicion_]
+
+Esta instrucción genera la lista cuyos elementos son el resultado de evaluar la expresión _expresion_, para cada valor que toma la variable _variable_, donde _variable_ toma todos los valores de la lista _lista_ que cumplen la condición _condición_.
+
+```python
+>>> [x ** 2 for x in range(10)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> [x for x in range(10) if x % 2 == 0]
+[0, 2, 4, 6, 8]
+>>> [x ** 2 for x in range(10) if x % 2 == 0]
+[0, 4, 16, 36, 64]
+>>> notas = {'Carmen':5, 'Antonio':4, 'Juan':8, 'Mónica':9, 'María': 6, 'Pablo':3}
+>>> [nombre for (nombre, nota) in notas.items() if nota >= 5]
+['Carmen', 'Juan', 'Mónica', 'María']
+```
+</script></section><section data-markdown><script type="text/template">
+### Comprensión de diccionarios
+
+> {_expresion-clave_:_expresion-valor_ **for** _variables_ **in** _lista_ **if** _condicion_}
+
+Esta instrucción genera el diccionario formado por los pares cuyas claves son el resultado de evaluar la expresión _expresion-clave_ y cuyos valores son el resultado de evaluar la expresión _expresion-valor_, para cada valor que toma la variable _variable_, donde _variable_ toma todos los valores de la lista _lista_ que cumplen la condición _condición_.
+
+```python
+>>> {palabra:len(palabra) for palabra in ['I', 'love', 'Python']}
+{'I': 1, 'love': 4, 'Python': 6}
+>>> notas = {'Carmen':5, 'Antonio':4, 'Juan':8, 'Mónica':9, 'María': 6, 'Pablo':3}
+>>> {nombre: nota +1 for (nombre, nota) in notas.items() if nota >= 5])
+{'Carmen': 6, 'Juan': 9, 'Mónica': 10, 'María': 7}
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## El módulo Matplotlib
+
+[Matplotlib](https://matplotlib.org/) es un módulo de Python especializado en la creación de gráficos en dos dimensiones.
+Permite crear y personalizar los tipos de gráficos más comunes, entre ellos:
+
+- Diagramas de barras
+- Histograma
+- Diagramas de sectores
+- Diagramas de caja y bigotes
+- Diagramas de violín
+- Diagramas de dispersión o puntos
+- Diagramas de lineas
+- Diagramas de areas
+- Diagramas de contorno
+- Mapas de color
+
+y combinaciones de todos ellos.
+
+En la siguiente [galería de gráficos](https://matplotlib.org/gallery/index.html) pueden apreciarse todos los tipos de gráficos que pueden crearse con esta librería.
+</script></section><section data-markdown><script type="text/template">
+### Creación de gráficos con matplotlib
+
+Para crear un gráfico con matplotlib es habitual seguir los siguientes pasos:
+
+
+1. Importar el módulo `pyplot`.
+
+2. Definir la figura que contendrá el gráfico, que es la region (ventana o página) donde se dibujará. Para ello se utiliza la función `figure()`.
+
+3. Definir los ejes sobre los que se dibujarán los datos. Para ello se utiliza la función `add_axes()` o bien `add_subplot()`.
+  
+4. Dibujar los datos sobre los ejes. Para ello se utilizan distintas funciones dependiendo del tipo de gráfico que se quiera.
+
+5. Personalizar el gráfico. Para ello existen multitud de funciones que permiten añadir un título, una leyenda, una rejilla, cambiar colores o personalizar los ejes.
+
+6. Guardar el gráfico. Para ello se utiliza la función `savefig()`.
+
+7. Mostrar el gráfico. Para ello se utiliza la función `show()`.
+</script></section><section data-markdown><script type="text/template">
+### Creación de gráficos con matplotlib
+
+```python
+# Importar el módulo pyplot con el alias plt
+import matplotlib.pyplot as plt
+# Crear la figura
+fig = plt.figure()
+# Crear los ejes
+ax = fig.add_subplot(111)
+# Dibujar puntos
+ax.scatter(x = [1, 2, 3], y = [3, 2, 1])
+# Guardar el gráfico en formato png
+plt.savefig('diagrama-dispersion.png')
+# Mostrar el gráfico
+plt.show()
+```
+
+<img src="img/diagrama-dispersion.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Diagramas de barras verticales
+
+- `bar(x, y)`: Dibuja un diagrama de barras verticales donde `x` es una lista con la posición de las barras en el eje X, e `y` es una lista con la altura de las barras en el eje Y.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.bar([1, 2, 3], [3, 2, 1])
+plt.show()
+```
+
+<img src="img/diagrama-barras.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Diagramas de barras horizontales
+
+- `barh(x, y)`: Dibuja un diagrama de barras horizontales donde `x` es una lista con la posición de las barras en el eje Y, y `x` es una lista con la longitud de las barras en el eje X.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.barh([1, 2, 3], [3, 2, 1])
+plt.show()
+```
+
+<img src="img/diagrama-barras-horizontales.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Histogramas
+
+- `hist(x, bins)`: Dibuja un histograma con las frecuencias resultantes de agrupar los datos de la lista `x` en las clases definidas por la lista `bins`.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+x = np.random.normal(5, 1.5, size=1000)
+ax.hist(x, np.arange(0, 11))
+plt.savefig('histograma.png')
+plt.show()
+```
+
+<img src="img/histograma.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Diagramas de sectores
+
+- `pie(x)`: Dibuja un diagrama de sectores con las frecuencias de la lista `x`.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.pie([5, 4, 3, 2, 1]
+plt.savefig('diagrama-sectores.png')
+plt.show()
+```
+
+<img src="img/diagrama-sectores.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Diagramas de caja y bigotes
+
+- `boxplot(x)`: Dibuja un diagrama de caja y bigotes con los datos de la lista `x`.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.boxplot([1, 2, 1, 2, 3, 4, 3, 3, 5, 7])
+plt.savefig('diagrama-sectores.png')
+plt.show()
+```
+
+<img src="img/diagrama-caja.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Diagramas de violín
+
+- `boxplot(x)`: Dibuja un diagrama de caja y bigotes con los datos de la lista `x`.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.violinplot([1, 2, 1, 2, 3, 4, 3, 3, 5, 7])
+plt.savefig('diagrama-sectores.png')
+plt.show()
+```
+
+<img src="img/diagrama-violin.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Diagramas de dispersión o puntos
+
+- `scatter(x, y)`: Dibuja un diagrama de puntos con las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.scatter([1, 2, 3, 4], [1, 2, 0, 0.5])
+plt.show()
+```
+
+<img src="img/diagrama-puntos.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Diagramas de líneas
+
+- `plot(x, y)`: Dibuja un polígono con los vértices dados por las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot([1, 2, 3, 4], [1, 2, 0, 0.5])
+plt.show()
+```
+
+<img src="img/diagrama-lineas.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Diagramas de areas
+
+- `fill_between(x, y)`: Dibuja el area bajo el polígono con los vértices dados por las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.fill_between([1, 2, 3, 4], [1, 2, 0, 0.5])
+plt.show()
+```
+
+<img src="img/diagrama-areas.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Diagramas de contorno
+
+- `contourf(x, y, z)`: Dibuja un diagrama de contorno con las curvas de nivel de la superficie dada por los puntos con las coordenadas de las listas `x`, `y` y `z` en los ejes X, Y y Z respectivamente.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+x = np.linspace(-3.0, 3.0, 100)
+y = np.linspace(-3.0, 3.0, 100)
+x, y = np.meshgrid(x, y)
+z = np.sqrt(x**2 + 2*y**2)
+ax.contourf(x, y, z)
+plt.show()
+```
+
+<img src="img/diagrama-contorno.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Mapas de color
+
+- `imshow(x)`: Dibuja un mapa de color a partir de una matriz (array bidimensiona) `x`.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+x = np.random.random((16, 16))
+ax.imshow(x)
+plt.show()
+```
+
+<img src="img/mapa-calor.png" alt="Gráfico con matplotlib" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Mapas de color
+
+- `hist2d(x, y)`: Dibuja un mapa de color que simula un histograma bidimensional, donde los colores de los cuadrados dependen de las frecuencias de las clases de la muestra dada por las listas `x` e `y`.
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+x, y = np.random.multivariate_normal(mean=[0.0, 0.0], cov=[[1.0, 0.4], [0.4, 0.5]], size=1000).T
+ax.hist2d(x, y)
+plt.show()
+```
+
+<img src="img/histograma2D.png" alt="Gráfico con matplotlib" height="300px">
 </script></section></section><section  data-markdown><script type="text/template">
 ## Referencias
 
 - [Python](https://www.python.org/) Sitio web de Python.
-- [Python tutor] Sitio web que permite visualizar la ejecución el código Python.
+- [Repl.it](https://repl.it/) Entorno de desarrollo web para varios lenguajes, incluido Python.
+- [Python tutor](http://pythontutor.com/) Sitio web que permite visualizar la ejecución el código Python.
 - [Tutorial de Python](https://www.tutorialpython.com/) Tutoría rápido de python.
 - [Python para todos](http://mundogeek.net/tutorial-python/) Libro de introducción a Python con muchos ejemplos. Es de licencia libre.
 - [Python para principiantes](https://www.safecreative.org/work/1207302042960-curso-python-para-principiantes) Libro de introducción Python que abarca orientación a objetos. Es de licencia libre.

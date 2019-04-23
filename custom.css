@@ -293,4 +293,5 @@ td.rotate > div {
 /* Make blokquotes wider */
 .reveal blockquote {
     width: 95%;
+    font-style: normal;
 }
