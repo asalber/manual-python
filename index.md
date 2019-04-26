@@ -482,15 +482,13 @@ del x
 ---
 
 ## Entrada por terminal
-#### `input()`
+#### `input`
 
 Para asignar a una variable un valor introducido por el usuario en la consola se utiliza la instrucción
 
->`input(mensaje)`  
+`input(mensaje)` : Muestra la cadena `mensaje` por la terminal y devuelve una cadena con la entrada del usuario.  
 
-donde `mensaje` es un mensaje que se muestra al usuario solicitándole que introduzca un valor.
-
-<i class="far fa-exclamation-triangle"></i> _El valor obtenido siempre es una cadena, incluso si el usuario introduce un dato numérico._
+<i class="far fa-exclamation-triangle"></i> _El valor devuelto siempre es una cadena, incluso si el usuario introduce un dato numérico._
 
 ```python
 >>> language = input('¿Cuál es tu lenguaje favorito? ')
@@ -508,9 +506,9 @@ donde `mensaje` es un mensaje que se muestra al usuario solicitándole que intro
 ### Salida por terminal
 #### `print()`
 
-Para mostrar un dato por la terminal se utiliza la instrucción 
+Para mostrar un dato por la terminal se utiliza la instrucción
 
-> `print(dato1, ..., sep=' ', end='\n', file=sys.stdout`)
+`print(dato1, ..., sep=' ', end='\n', file=sys.stdout`)
 
 donde
 
@@ -1503,7 +1501,7 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 
 --
 
-### Operar todos los elementos de una secuencia
+### Operar todos los elementos de una colección iterable
 #### `reduce`
 
 `reduce(f, l)` : Aplicar la función `f` a los dos primeros elementos de la secuencia `l`. Con el valor obtenido vuelve a aplicar la función `f` a ese valor y el siguiente de la secuencia, y así hasta que no quedan más elementos en la lista. Devuelve el valor resultado de la última aplicación de la función `f`.
@@ -1529,7 +1527,7 @@ En muchas aplicaciones es habitual aplicar una función o realizar una operació
 
 ### Comprensión de listas
 
-> [_expresion_ **for** _variable_ **in** _lista_ **if** _condicion_]
+> [_expresion_ `for` _variable_ `in` _lista_ `if` _condicion_]
 
 Esta instrucción genera la lista cuyos elementos son el resultado de evaluar la expresión _expresion_, para cada valor que toma la variable _variable_, donde _variable_ toma todos los valores de la lista _lista_ que cumplen la condición _condición_.
 
@@ -1549,7 +1547,7 @@ Esta instrucción genera la lista cuyos elementos son el resultado de evaluar la
 
 ### Comprensión de diccionarios
 
-> {_expresion-clave_:_expresion-valor_ **for** _variables_ **in** _lista_ **if** _condicion_}
+> {_expresion-clave_`:`_expresion-valor_ `for` _variables_ `in` _lista_ `if` _condicion_}
 
 Esta instrucción genera el diccionario formado por los pares cuyas claves son el resultado de evaluar la expresión _expresion-clave_ y cuyos valores son el resultado de evaluar la expresión _expresion-valor_, para cada valor que toma la variable _variable_, donde _variable_ toma todos los valores de la lista _lista_ que cumplen la condición _condición_.
 
@@ -1559,6 +1557,247 @@ Esta instrucción genera el diccionario formado por los pares cuyas claves son e
 >>> notas = {'Carmen':5, 'Antonio':4, 'Juan':8, 'Mónica':9, 'María': 6, 'Pablo':3}
 >>> {nombre: nota +1 for (nombre, nota) in notas.items() if nota >= 5])
 {'Carmen': 6, 'Juan': 9, 'Mónica': 10, 'María': 7}
+```
+
+---
+
+## Ficheros
+
+Hasta ahora hemos visto como interactuar con un programa a través del teclado (entrada de datos) y la terminal (salida), pero en la mayor parte de las aplicaciones reales tendremos que leer y escribir datos en ficheros.
+
+Al utilizar ficheros para guardar los datos estos perdurarán tras la ejecución del programa, pudiendo ser consultados o utilizados más tarde.
+
+Las operaciones más habituales con ficheros son:
+
+- Crear un fichero.
+- Escribir datos en un fichero.
+- Leer datos de un fichero.
+- Borrar un fichero.
+
+--
+
+### Creación y escritura de ficheros
+
+Para crear un fichero nuevo se utiliza la instrucción
+
+> `with open(`_ruta-fichero_, `'w') as` _fichero_:  
+&ensp;&ensp;&ensp;&ensp; _Operaciones con el fichero_
+
+Esta instrucción crea un fichero en la ruta especificada por _ruta-fichero_ y lo abre en modo escritura (el argumento 'w' significa _write_). Hasta que el fichero se cierre, se puede acceder a él a través del objeto _fichero_.
+
+<i class="far fa-exclamation-triangle"></i> Si el fichero indicado por la ruta ya existe en nuestro sistema, se reemplazará por el nuevo.
+
+Una vez creado el fichero, para escribir datos en él se utiliza el método:
+
+`fichero.write(c)` : Escribe la cadena `c` en el fichero referenciado por `fichero`.
+
+```python
+>>> with open('bienvenida.txt', 'w') as f:
+...     f.write('¡Bienvenido a Python!')
+```
+
+--
+
+### Añadir datos a un fichero
+
+Si en lugar de crear un fichero nuevo queremos añadir datos a un fichero existente se debe utilizar la instrucción
+
+> **with open**(_ruta-fichero_, **'a') as** _fichero_:  
+&ensp;&ensp;&ensp;&ensp; _Operaciones con el fichero_
+
+Esta instrucción abre el fichero de la ruta especificada por _ruta-fichero_ en modo añadir (el argumento 'a' significa _append_). Hasta que el fichero se cierre, se puede acceder a él a través del objeto _fichero_.
+
+Una vez abierto el fichero, se utiliza el método de escritura anterior y los datos se añaden al final del fichero.
+
+```python
+>>> with open('bienvenida.txt', 'a') as f:
+...     f.write('\n¡Hasta pronto!')
+```
+
+--
+
+### Leer datos de un fichero
+
+Para abrir un fichero en modo lectura se utiliza la instrucción
+
+> `with open(`_ruta-fichero_, `'r') as` _fichero_:  
+&ensp;&ensp;&ensp;&ensp; _Operaciones con el fichero_
+
+Esta instrucción abre el fichero de la ruta especificada por _ruta-fichero_ en modo lectura (el argumento 'r' significa _read_). Hasta que el fichero se cierre, se puede acceder a él a través del objeto _fichero_.
+
+Una vez abierto el fichero, se puede leer todo el contenido del fichero o se puede leer línea a línea.
+
+--
+
+### Leer datos de un fichero
+
+`fichero.read()` : Devuelve todos los datos contenidos en `fichero` como una cadena de caracteres.
+
+`fichero.readlines()` : Devuelve una lista de cadenas de caracteres donde cada cadena es una linea del fichero referenciado por `fichero`.
+
+```python
+>>> with open('bienvenida.txt', 'r') as f:
+...     print(f.read())
+¡Bienvenido a Python!
+¡Hasta pronto!
+```
+
+```python
+>>> with open('bienvenida.txt', 'r') as f:
+...     lineas = print(f.readlines())
+>>> print(lineas)
+['Bienvenido a Python!\n', '¡Hasta pronto!']
+```
+
+--
+
+### Cerrar un fichero
+
+Para cerrar un fichero se utiliza el método
+
+`fichero.close()` : Cierra el fichero referenciado por el objeto `fichero`.
+
+Cuando se termina de trabajar con un fichero conviene cerrarlo, sobre todo si se abre en modo escritura, ya que mientras está abierto en este modo no se puede abrir por otra aplicación. Si no se cierra explícitamente un fichero, Python intentará cerrarlo cuando estime que ya no se va a usar más.
+
+```python
+>>> with open('bienvenida.txt') as f:
+...     print(f.read())
+...     f.close()  # Cierre del fichero
+...
+¡Bienvenido a Python!
+¡Hasta pronto!
+```
+
+--
+
+### Renombrado y borrado de un fichero o directorio
+
+Para renombra o borrar un fichero se utilizan funciones del módulo `os`.
+
+`os.rename(ruta1, ruta2)` : Renombra y mueve el fichero de la ruta `ruta1` a la ruta `ruta2`.
+
+`os.remove(ruta)` : Borra el fichero de la ruta `ruta`.
+
+`os.rmdir(ruta)` : Borra el directorio de la ruta `ruta`, siempre y cuando esté vacío.
+
+Antes de borrar o renombra un directorio conviene comprobar que existe para que no se produzca un error. Para ello se utiliza la función
+
+`os.path.isfile(ruta)` : Devuelve `True` si existe un fichero en la ruta `ruta` y `False` en caso contrario.
+
+--
+
+### Renombrado y borrado de un fichero o directorio
+
+```python
+>>> import os
+>>> f = 'bienvenida.txt'
+>>> if os.path.isfile(f):
+...     os.rename(f, 'saludo.txt') # renombrado
+... else:
+...     print('¡El fichero', f, 'no existe!')
+...
+>>> f = 'saludo.txt'
+>>> if os.path.isfile(f):
+...     os.remove(f) # borrado
+... else:
+...     print('¡El fichero', f, 'no existe!')
+...
+```
+
+--
+
+### Leer un fichero de internet
+
+Para leer un fichero de internet hay que utilizar la función `urlopen` del módulo `urllib.request`.
+
+`urlopen(url)` : Abre el fichero con la `url` especificada y devuelve un objeto del tipo fichero al que se puede acceder con los métodos de lectura de ficheros anteriores.
+
+```python
+>>> from urllib import request
+>>> f = request.urlopen('https://raw.githubusercontent.com/asalber/asalber.github.io/master/README.md')
+>>> datos = f.read()
+>>> print(datos.decode('utf-8'))
+Aprende con Alf
+===============
+
+Este es el repositorio del sitio web Aprende con Alf: http://aprendeconalf.es
+```
+
+---
+
+## Control de errores mediante excepciones
+
+Python utiliza un objeto especial llamado **excepción** para controlar cualquier error que pueda ocurrir durante la ejecución de un programa.
+
+Cuando ocurre un error durante la ejecución de un programa, Python crea una excepción. Si no se controla esta excepción la ejecución del programa se detiene y se muestra el error (_traceback_).
+
+```python
+>>> print(1 / 0)  # Error al intentar dividir por 0.
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ZeroDivisionError: division by zero
+```
+
+--
+
+### Tipos de excepciones
+
+Los principales excepciones definidas en Python son:
+
+- `TypeError` : Ocurre cuando se aplica una operación o función a un dato del tipo inapropiado.
+- `ZeroDivisionError` : Ocurre cuando se itenta dividir por cero.
+- `OverflowError` : Ocurre cuando un cálculo excede el límite para un tipo de dato numérico.
+- `IndexError` : Ocurre cuando se intenta acceder a una secuencia con un índice que no existe.
+- `KeyError` : Ocurre cuando se intenta acceder a un diccionario con una clave que no existe.
+- `FileNotFoundError` : Ocurre cuando se intenta acceder a un fichero que no existe en la ruta indicada.
+- `ImportError` : Ocurre cuando falla la importación de un módulo.
+
+Consultar la documentaciónde Python para ver la [lista de exepciones predefinidas](https://docs.python.org/3/library/exceptions.html).
+
+--
+
+### Control de excepciones
+#### `try - except - else`
+
+Para evitar la interrución de la ejecución del programa cuando se produce un error, es posible controlar la exepción que se genera con la siguiente instrucción:
+
+> `try:`  
+&ensp;&ensp;&ensp;&ensp; _bloque código 1_  
+`except` _excepción_`:`  
+&ensp;&ensp;&ensp;&ensp; _bloque código 2_  
+`else:`  
+&ensp;&ensp;&ensp;&ensp; _bloque código 3_
+
+Esta instrucción ejecuta el primer bloque de código y si se produce un error que genera una excepción del tipo _excepción_ entonces ejecuta el segundo bloque de código, mientras que si no se produce ningún error, se ejecuta el tercer bloque de código.
+
+--
+
+### Control de excepciones
+
+```python
+>>> def division(a, b):
+...     try:
+...         result = a / b
+...     except ZeroDivisionError:
+...         print('¡No se puede dividir por cero!')
+...     else:
+...         print(result)
+...
+>>> division(1, 0)
+¡No se puede dividir por cero!
+>>> division(1, 2)
+0.5
+```
+
+```python
+>>> try:
+...     with open('fichero.txt') as f:  # El fichero no existe
+...         contenido = f.read()
+... except FileNotFoundError:
+...     print('¡El fichero no existe!')
+... else:
+...     print(contenido)
+¡El fichero no existe!
 ```
 
 ---
