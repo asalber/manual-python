@@ -1580,20 +1580,17 @@ Las operaciones más habituales con ficheros son:
 
 Para crear un fichero nuevo se utiliza la instrucción
 
-> `with open(`_ruta-fichero_, `'w') as` _fichero_:  
-&ensp;&ensp;&ensp;&ensp; _Operaciones con el fichero_
+`open(ruta, 'w')` : Crea el fichero con la ruta `ruta`, lo abre en modo escritura (el argumento 'w' significa _write_) y devuelve un objeto que lo referencia.
 
-Esta instrucción crea un fichero en la ruta especificada por _ruta-fichero_ y lo abre en modo escritura (el argumento 'w' significa _write_). Hasta que el fichero se cierre, se puede acceder a él a través del objeto _fichero_.
+<i class="far fa-exclamation-triangle"></i> Si el fichero indicado por la ruta ya existe en el sistema, se reemplazará por el nuevo.
 
-<i class="far fa-exclamation-triangle"></i> Si el fichero indicado por la ruta ya existe en nuestro sistema, se reemplazará por el nuevo.
-
-Una vez creado el fichero, para escribir datos en él se utiliza el método:
+Una vez creado el fichero, para escribir datos en él se utiliza el método
 
 `fichero.write(c)` : Escribe la cadena `c` en el fichero referenciado por `fichero`.
 
 ```python
->>> with open('bienvenida.txt', 'w') as f:
-...     f.write('¡Bienvenido a Python!')
+>>> f = open('bienvenida.txt', 'w')
+... f.write('¡Bienvenido a Python!')
 ```
 
 --
@@ -1602,16 +1599,13 @@ Una vez creado el fichero, para escribir datos en él se utiliza el método:
 
 Si en lugar de crear un fichero nuevo queremos añadir datos a un fichero existente se debe utilizar la instrucción
 
-> **with open**(_ruta-fichero_, **'a') as** _fichero_:  
-&ensp;&ensp;&ensp;&ensp; _Operaciones con el fichero_
-
-Esta instrucción abre el fichero de la ruta especificada por _ruta-fichero_ en modo añadir (el argumento 'a' significa _append_). Hasta que el fichero se cierre, se puede acceder a él a través del objeto _fichero_.
+`open(ruta, 'a')` : Abre el fichero con la ruta `ruta` en modo añadir (el argumento 'a' significa _append_) y devuelve un objeto que lo referencia.
 
 Una vez abierto el fichero, se utiliza el método de escritura anterior y los datos se añaden al final del fichero.
 
 ```python
->>> with open('bienvenida.txt', 'a') as f:
-...     f.write('\n¡Hasta pronto!')
+>>> f = open('bienvenida.txt', 'a')
+... f.write('\n¡Hasta pronto!')
 ```
 
 --
@@ -1620,10 +1614,7 @@ Una vez abierto el fichero, se utiliza el método de escritura anterior y los da
 
 Para abrir un fichero en modo lectura se utiliza la instrucción
 
-> `with open(`_ruta-fichero_, `'r') as` _fichero_:  
-&ensp;&ensp;&ensp;&ensp; _Operaciones con el fichero_
-
-Esta instrucción abre el fichero de la ruta especificada por _ruta-fichero_ en modo lectura (el argumento 'r' significa _read_). Hasta que el fichero se cierre, se puede acceder a él a través del objeto _fichero_.
+`open(ruta, 'r')` : Abre el fichero con la ruta `ruta` en modo lectura (el argumento 'r' significa _read_) y devuelve un objeto que lo referencia.
 
 Una vez abierto el fichero, se puede leer todo el contenido del fichero o se puede leer línea a línea.
 
@@ -1636,15 +1627,15 @@ Una vez abierto el fichero, se puede leer todo el contenido del fichero o se pue
 `fichero.readlines()` : Devuelve una lista de cadenas de caracteres donde cada cadena es una linea del fichero referenciado por `fichero`.
 
 ```python
->>> with open('bienvenida.txt', 'r') as f:
-...     print(f.read())
+>>> f = open('bienvenida.txt', 'r')
+... print(f.read())
 ¡Bienvenido a Python!
 ¡Hasta pronto!
 ```
 
 ```python
->>> with open('bienvenida.txt', 'r') as f:
-...     lineas = print(f.readlines())
+>>> f = open('bienvenida.txt', 'r')
+... lineas = print(f.readlines())
 >>> print(lineas)
 ['Bienvenido a Python!\n', '¡Hasta pronto!']
 ```
@@ -1660,9 +1651,9 @@ Para cerrar un fichero se utiliza el método
 Cuando se termina de trabajar con un fichero conviene cerrarlo, sobre todo si se abre en modo escritura, ya que mientras está abierto en este modo no se puede abrir por otra aplicación. Si no se cierra explícitamente un fichero, Python intentará cerrarlo cuando estime que ya no se va a usar más.
 
 ```python
->>> with open('bienvenida.txt') as f:
-...     print(f.read())
-...     f.close()  # Cierre del fichero
+>>> f = open('bienvenida.txt'):
+... print(f.read())
+... f.close()  # Cierre del fichero
 ...
 ¡Bienvenido a Python!
 ¡Hasta pronto!
@@ -1670,15 +1661,13 @@ Cuando se termina de trabajar con un fichero conviene cerrarlo, sobre todo si se
 
 --
 
-### Renombrado y borrado de un fichero o directorio
+### Renombrado y borrado de un fichero
 
 Para renombra o borrar un fichero se utilizan funciones del módulo `os`.
 
 `os.rename(ruta1, ruta2)` : Renombra y mueve el fichero de la ruta `ruta1` a la ruta `ruta2`.
 
 `os.remove(ruta)` : Borra el fichero de la ruta `ruta`.
-
-`os.rmdir(ruta)` : Borra el directorio de la ruta `ruta`, siempre y cuando esté vacío.
 
 Antes de borrar o renombra un directorio conviene comprobar que existe para que no se produzca un error. Para ello se utiliza la función
 
@@ -1703,6 +1692,20 @@ Antes de borrar o renombra un directorio conviene comprobar que existe para que 
 ...     print('¡El fichero', f, 'no existe!')
 ...
 ```
+
+--
+
+### Creación, cambio y eliminación de directorios
+
+Para trabajar con directorios también se utilizan funciones del módulo `os`.
+
+`os.mkdir(ruta)` : Crea un nuevo directorio en la ruta `ruta`.
+
+`os.chdir(ruta)` : Cambia el directorio actual al indicado por la ruta `ruta`.
+
+`os.getcwd()` : Devuelve una cadena con la ruta del directorio actual.
+
+`os.rmdir(ruta)` : Borra el directorio de la ruta `ruta`, siempre y cuando esté vacío.
 
 --
 
@@ -1791,18 +1794,17 @@ Esta instrucción ejecuta el primer bloque de código y si se produce un error q
 
 ```python
 >>> try:
-...     with open('fichero.txt') as f:  # El fichero no existe
-...         contenido = f.read()
+...     f = open('fichero.txt')  # El fichero no existe
 ... except FileNotFoundError:
 ...     print('¡El fichero no existe!')
 ... else:
-...     print(contenido)
+...     print(f.read())
 ¡El fichero no existe!
 ```
 
 ---
 
-## El módulo Matplotlib
+## La librería Matplotlib
 
 [Matplotlib](https://matplotlib.org/) es un módulo de Python especializado en la creación de gráficos en dos dimensiones.
 Permite crear y personalizar los tipos de gráficos más comunes, entre ellos:
@@ -2067,6 +2069,66 @@ plt.show()
 ```
 
 <img src="img/histograma2D.png" alt="Gráfico con matplotlib" height="300px">
+
+
+---
+
+## La librería Pandas
+
+[Pandas](https://pandas.pydata.org) es una librería de Python especializada en el manejo y análisis de estructuras de datos.
+
+Las principales características de esta librería son:
+
+- Define el tipo de objetos `DataFrame` para manejar conjuntos de datos.
+- Permite leer y escribir facilmente ficheros en formato CSV, Excel y bases de datos SQL.
+- Ofrece métodos para reordenar, dividir y combinar conjuntos de datos.
+- Permite trabajar con series temporales.
+- Ofrece un rendimiento muy eficiente.
+
+--
+
+### La clase de objetos DataFrame
+
+Un objeto del tipo `DataFrame` define un conjunto de datos estructurado en forma de tabla donde las columnas suelen contener datos de variables, es decir, todos los datos de una misma columna son del mismo tipo, y las filas de individuos que pueden contender datos de distintos tipos.
+
+| Nombre    | Edad | Grado          | Correo              |
+| :-------- | :--- | :------------- | :------------------ |
+| 'María'   | 18   | 'Economía'     | 'maria@gmail.com'   |
+| 'Luis     | 22   | 'Medicina'     | 'luis@yahoo.es'     |
+| 'Carmen'  | 20   | 'Arquitectura' | 'carmen@gmail.com'  |
+| 'Antonio' | 21   | 'Economía'     | 'antonio@gmail.com' |
+
+--
+
+### Creación de un conjunto de datos a partir de una lista o diccionario
+
+`DataFrame(diccionario)` : Crea un objeto del tipo `DataFrame` con los datos del diccionario `diccionario`.
+
+```python
+>>> import pandas as pd
+>>> 'datos' = {nombre:['María', 'Luis', 'Carmen', 'Antonio'],
+... 'edad':[18, 22, 20, 21],
+... 'grado':['Economía', 'Medicina', 'Arquitectura', 'Economía'],
+... 'correo':['maria@gmail.com', 'luis@yahoo.es', 'carmen@gmail.com', 'antonio@gmail.com']
+... }
+>>> df = pd.DataFrame(datos)
+>>> print(df)
+    nombre  edad         grado             correo
+0    María    18      Economía    maria@gmail.com
+1     Luis    22      Medicina      luis@yahoo.es
+2   Carmen    20  Arquitectura   carmen@gmail.com
+3  Antonio    21      Economía  antonio@gmail.com
+```
+
+--
+
+### Creación de un conjunto de datos desde un fichero
+
+Dependiendo del tipo de fichero, existen distintas funciones para crear un conjunto de datos desde un fichero.
+
+`read_csv(fichero.csv, delimitador)` : Devuelve un objeto del tipo DataFrame con los datos del fichero CSV `fichero.csv` usando como separador de los datos la cadena `delimitador`.
+
+`read_excel(fichero.xlsx, hoja)` : Devuelve un objeto del tipo `DataFrame` con los datos de la hoja de cálculo `hoja` del fichero Excel `fichero.xlx`.
 
 ---
 
