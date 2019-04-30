@@ -1804,9 +1804,126 @@ Esta instrucción ejecuta el primer bloque de código y si se produce un error q
 
 ---
 
+## La librería NumPy
+
+[NumPy](https://www.numpy.org) es una librería de Python especializada en el cálculo numérico y el análisis de datos, especialmente para un gran volumen de datos.
+
+Incorpora una nueva clase de objetos llamados **arrays** que permite representar colecciones de datos de un mismo tipo en varias dimensiones, y funciones muy eficientes para su manipulación.
+
+<img src="img/numpy-logo.png" alt="Gráfico con matplotlib" height="200px">
+
+--
+
+## La clase de objetos `array`
+
+Un array es una estructura de datos de un mismo tipo organizada en forma de tabla o cuadrícula de distintas dimensiones.
+
+Las dimensiones de un array también se conocen como **ejes**.
+
+<img src="img/arrays.png" alt="Gráfico con matplotlib" height="400px">
+
+
+--
+
+## Creación de arrays
+
+Para crear un array se utiliza la siguiente función de NumPy
+
+`np.array(secuencia)` : Crea un array a partir de la lista o tupla `lista` y devuelve una referencia a él. El número de dimensiones del array dependerá de las listas o tuplas anidadas en `lista`:
+
+- Para una lista de valores se crea un array de una dimensión, también conocido como **vector**.
+- Para una lista de listas de valores se crea un array de dos dimensiones, también conocido como **matriz**.
+- Para una lista de listas de listas de valores se crea un array de tres dimensiones, también conocido como **cubo**.
+- Y así sucesivamente. No hay límite en el número de dimensiones del array más allá de la memoria disponible en el sistema.
+
+<i class="far fa-exclamation-triangle"></i> Los elementos de la lista o tupla deben ser del mismo tipo.
+
+--
+
+### Creación de arrays
+
+```python
+>>> # Array de una dimensión
+>>> a1 = np.array([1, 2, 3])
+>>> print(a1)
+[1 2 3]
+>>> # Array de dos dimensiones
+>>> a2 = np.array([[1, 2, 3], [4, 5, 6]])
+>>> print(a2)
+[[1 2 3]
+ [4 5 6]]
+>>> # Array de tres dimensiones
+>>> a3 = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+>>> print(a3)
+[[[ 1  2  3]
+  [ 4  5  6]]
+
+ [[ 7  8  9]
+  [10 11 12]]]
+```
+
+--
+
+### Creación de arrays
+
+Otras funciones útiles que permiten generar arrays son:
+
+`np.empty(dimensiones)` : Crea y devuelve una referencia a un array vacío con las dimensiones especificadas en la tupla `dimensiones`.
+
+`np.zeros(dimensiones)` : Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla `dimensiones` cuyos elementos son todos ceros.
+
+`np.ones(dimensiones)` : Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla `dimensiones` cuyos elementos son todos unos.
+
+`np.full(dimensiones, valor)` : Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla `dimensiones` cuyos elementos son todos `valor`.
+
+--
+
+`np.identity(n)` : Crea y devuelve una referencia a la matriz identidad de dimensión `n`.
+
+`np.arange(inicio, fin, salto)` : Crea y devuelve una referencia a un array de una dimensión cuyos elementos son la secuencia desde `inicio` hasta `fin` tomando valores cada `salto`.
+
+`np.linspace(inicio, fin, n)` : Crea y devuelve una referencia a un array de una dimensión cuyos elementos son la secuencia de `n` valores equidistantes desde `inicio` hasta `fin`.
+
+`np.random.random(dimensiones)` : Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla `dimensiones` cuyos elementos son aleatorios.
+
+--
+
+## Creación de arrays
+
+```python
+>>> print(np.zeros(3,2))
+[[0. 0. 0.]
+ [0. 0. 0.]]
+>>> print(np.idendity(3))
+[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+>>> print(np.arange(1, 10, 2))
+[1 3 5 7 9]
+>>> print(np.linspace(0, 10, 5))
+[ 0.   2.5  5.   7.5 10. ]
+```
+
+
+--
+
+### Atributos de un array
+
+Existen varios atributos y funciones que describen las características de un array.
+
+`a.ndi` : Devuelve el número de dimensiones del array `a`.
+
+`a.shape` : Devuelve una tupla con las dimensiones del array `a`.
+
+`a.size` : Devuelve el número de elementos del array `a`.
+
+`a.dtype`: Devuelve el tipo de datos de los elementos del array `a`.
+
+---
+
 ## La librería Matplotlib
 
-[Matplotlib](https://matplotlib.org/) es un módulo de Python especializado en la creación de gráficos en dos dimensiones.
+[Matplotlib](https://matplotlib.org/) es una librería de Python especializada en la creación de gráficos en dos dimensiones.
 Permite crear y personalizar los tipos de gráficos más comunes, entre ellos:
 
 - Diagramas de barras
@@ -2106,7 +2223,7 @@ Un objeto del tipo `DataFrame` define un conjunto de datos estructurado en forma
 
 ```python
 >>> import pandas as pd
->>> 'datos' = {nombre:['María', 'Luis', 'Carmen', 'Antonio'],
+>>> datos = {'nombre':['María', 'Luis', 'Carmen', 'Antonio'],
 ... 'edad':[18, 22, 20, 21],
 ... 'grado':['Economía', 'Medicina', 'Arquitectura', 'Economía'],
 ... 'correo':['maria@gmail.com', 'luis@yahoo.es', 'carmen@gmail.com', 'antonio@gmail.com']
@@ -2122,13 +2239,59 @@ Un objeto del tipo `DataFrame` define un conjunto de datos estructurado en forma
 
 --
 
-### Creación de un conjunto de datos desde un fichero
+### Importación de ficheros
 
-Dependiendo del tipo de fichero, existen distintas funciones para crear un conjunto de datos desde un fichero.
+Dependiendo del tipo de fichero, existen distintas funciones para importar un conjunto de datos desde un fichero.
 
-`read_csv(fichero.csv, delimitador)` : Devuelve un objeto del tipo DataFrame con los datos del fichero CSV `fichero.csv` usando como separador de los datos la cadena `delimitador`.
+`read_csv(fichero.csv, delimitador)` : Devuelve un objeto del tipo `DataFrame` con los datos del fichero CSV `fichero.csv` usando como separador de los datos la cadena `delimitador`.
 
 `read_excel(fichero.xlsx, hoja)` : Devuelve un objeto del tipo `DataFrame` con los datos de la hoja de cálculo `hoja` del fichero Excel `fichero.xlx`.
+
+```python
+>>> import pandas as pd
+>>> # Importación del fichero datos-colesterol.csv
+>>> df = pd.read_csv('datos-colesterol.csv')
+>>> print(df.head())
+                              nombre  edad sexo  peso  altura  colesterol
+0       José Luis Martínez Izquierdo    18    H    85     179         182
+1                     Rosa Díaz Díaz    32    M    65     173         232
+2              Javier García Sánchez    24    H    71     181         191
+3                Carmen López Pinzón    35    M    65     170         200
+4               Marisa López Collado    46    M    51     158         148
+```
+
+--
+
+### Exportación de ficheros
+
+También existen funciones para exportar un conjunto de datos a un fichero con diferentes formatos.
+
+`df.to_csv(fichero.csv, delimitador)` : Exporta el `DataFrame` `df` al fichero `fichero.csv` en formato CSV usando como separador de los datos la cadena `delimitador`.
+
+`df.to_excel(fichero.xlsx, sheet_name = hoja)` : Exporta el `DataFrame` `df` a la hoja de cálculo `hoja` del fichero `fichero.xlsx` en formato Excel.
+
+--
+
+### Mostrar el contenido de un `DataFrame`
+
+Existen varias funciones para ver el contenido de un `DataFrame`.
+
+`df.info()` : Devuelve información (número de filas, número de columnas, nombre y tipo de las columnas y memoria usado) sobre el `DataFrame` `df`.
+
+`df.shape` : Devuelve una tupla con el número de filas y columnas del `DataFrame` `df`.
+
+`df.
+
+`df.head()` : Devuelve las 5 primeras filas del `DataFrame` `df`.
+
+`df.tails()` : Devuelve las 5 últimas filas del `DataFrame` `df`.
+
+
+
+
+--
+
+### 
 
 ---
 
