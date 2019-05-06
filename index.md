@@ -1822,7 +1822,6 @@ Las dimensiones de un array también se conocen como **ejes**.
 
 <img src="img/arrays.png" alt="Gráfico con matplotlib" height="400px">
 
-
 --
 
 ## Creación de arrays
@@ -1904,7 +1903,6 @@ Otras funciones útiles que permiten generar arrays son:
 [ 0.   2.5  5.   7.5 10. ]
 ```
 
-
 --
 
 ### Atributos de un array
@@ -1918,6 +1916,92 @@ Existen varios atributos y funciones que describen las características de un ar
 `a.size` : Devuelve el número de elementos del array `a`.
 
 `a.dtype`: Devuelve el tipo de datos de los elementos del array `a`.
+
+--
+
+### Acceso a los elementos de un array
+
+Para acceder a los elementos contenidos en un array se usan índices al igual que para acceder a los ementos de una lista, pero indicando los índices de cada dimensión separados por comas.
+
+Al igual que para listas, los índices de cada dimensión comienzn en 0.
+
+También es posible obtener subarrays con el operador dos puntos `:` indicando el índice inicial y el siguiente al final para cada dimensión, de nuevo separados por comas.
+
+```python
+>>> a = np.array([[1, 2, 3], [4, 5, 6]])
+>>> print(a[1, 0])  # Acceso al elemento de la fila 1 columna 0
+4
+>>> print(a[1][0])  # Otra forma de acceder al mismo elemento
+4
+>>> print(a[:, 0:2])
+[[1 2]
+ [4 5]]
+```
+
+--
+
+### Filtrado de elementos de un array
+
+Una característica muy útil de los arrays es que es muy fácil obtener otro array con los elementos que cumplen una condición.
+
+`a[condicion]` : Devuelve una lista con los elementos del array `a` que cumplen la condición `condicion`.
+
+```python
+>>> a = np.array([[1, 2, 3], [4, 5, 6]])
+>>> print(a[(a % 2 == 0)])
+[2 4 6]
+>>> print(a[(a % 2 == 0) &  (a > 2)])
+[2 4]
+```
+
+--
+
+### Operaciones matemáticas con arrays
+
+Existen dos formas de realizar operaciones matemáticas con arrays: a nivel de elemento y a nivel de array.
+
+Las operaciones a nivel de elemento operan los elementos que ocupan la misma posición en dos arrays. Se necesitan, por tanto, dos arrays con las mismas dimensiones y el resultado es una array de la misma dimensión.
+
+Los operadores mamemáticos `+`, `-`, `*`, `/`, `%`, `**` se utilizan para la realizar suma, resta, producto, cociente, resto y potencia a nivel de elemento.
+
+```python
+>>> a = np.array([[1, 2, 3], [4, 5, 6]])
+>>> b = np.array([[1, 1, 1], [2, 2, 2]])
+>>> print(a + b )
+[[2 3 4]
+ [6 7 8]]
+>>> print(a / b)
+[[1.  2.  3. ]
+ [2.  2.5 3. ]]
+>>> print(a ** 2)
+[[ 1  4  9]
+ [16 25 36]]
+```
+
+--
+
+### Operaciones matemáticas a nivel de array
+
+Para realizar el producto matricial se utiliza el método
+
+`a.dot(b)` : Devuelve el array resultado del producto matricial de los arrays `a` y `b` siempre y cuando sus dimensiones sean compatibles.
+
+Y para trasponer una matriz se utiliza el método
+
+`a.T` : Devuelve el array resultado de trasponer el array `a`.
+
+
+```python
+>>> a = np.array([[1, 2, 3], [4, 5, 6]])
+>>> b = np.array([[1, 1], [2, 2], [3, 3]])
+>>> print(a.dot(b))
+[[14 14]
+ [32 32]]
+>>> print(a.T)
+[[1 4]
+ [2 5]
+ [3 6]]
+```
 
 ---
 
