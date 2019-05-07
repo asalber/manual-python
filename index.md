@@ -1990,7 +1990,6 @@ Y para trasponer una matriz se utiliza el método
 
 `a.T` : Devuelve el array resultado de trasponer el array `a`.
 
-
 ```python
 >>> a = np.array([[1, 2, 3], [4, 5, 6]])
 >>> b = np.array([[1, 1], [2, 2], [3, 3]])
@@ -2005,9 +2004,141 @@ Y para trasponer una matriz se utiliza el método
 
 ---
 
+## La librería Pandas
+
+[Pandas](https://pandas.pydata.org) es una librería de Python especializada en el manejo y análisis de estructuras de datos.
+
+Las principales características de esta librería son:
+
+- Define el tipo de objetos `DataFrame` para manejar conjuntos de datos.
+- Permite leer y escribir facilmente ficheros en formato CSV, Excel y bases de datos SQL.
+- Ofrece métodos para reordenar, dividir y combinar conjuntos de datos.
+- Permite trabajar con series temporales.
+- Ofrece un rendimiento muy eficiente.
+
+<img src="img/pandas-logo.png" alt="Gráfico con matplotlib" height="150px">
+
+--
+
+### La clase de objetos DataFrame
+
+Un objeto del tipo `DataFrame` define un conjunto de datos estructurado en forma de tabla donde las columnas suelen contener datos de variables, es decir, todos los datos de una misma columna son del mismo tipo, y las filas de individuos que pueden contender datos de distintos tipos.
+
+| Nombre    | Edad | Grado          | Correo              |
+| :-------- | :--- | :------------- | :------------------ |
+| 'María'   | 18   | 'Economía'     | 'maria@gmail.com'   |
+| 'Luis     | 22   | 'Medicina'     | 'luis@yahoo.es'     |
+| 'Carmen'  | 20   | 'Arquitectura' | 'carmen@gmail.com'  |
+| 'Antonio' | 21   | 'Economía'     | 'antonio@gmail.com' |
+
+--
+
+### Creación de un conjunto de datos a partir de un diccionario
+
+`DataFrame(diccionario)` : Crea un objeto del tipo `DataFrame` con los datos del diccionario `diccionario`. Las claves del diccionario serán los nombres de las columnas, mientras que los valores asociados a las claves serán listas con los valores de las columnas. 
+
+```python
+>>> import pandas as pd
+>>> datos = {'nombre':['María', 'Luis', 'Carmen', 'Antonio'],
+... 'edad':[18, 22, 20, 21],
+... 'grado':['Economía', 'Medicina', 'Arquitectura', 'Economía'],
+... 'correo':['maria@gmail.com', 'luis@yahoo.es', 'carmen@gmail.com', 'antonio@gmail.com']
+... }
+>>> df = pd.DataFrame(datos)
+>>> print(df)
+    nombre  edad         grado             correo
+0    María    18      Economía    maria@gmail.com
+1     Luis    22      Medicina      luis@yahoo.es
+2   Carmen    20  Arquitectura   carmen@gmail.com
+3  Antonio    21      Economía  antonio@gmail.com
+```
+
+--
+
+### Importación de ficheros
+
+Dependiendo del tipo de fichero, existen distintas funciones para importar un conjunto de datos desde un fichero.
+
+`read_csv(fichero.csv, delimitador)` : Devuelve un objeto del tipo `DataFrame` con los datos del fichero CSV `fichero.csv` usando como separador de los datos la cadena `delimitador`.
+
+`read_excel(fichero.xlsx, hoja)` : Devuelve un objeto del tipo `DataFrame` con los datos de la hoja de cálculo `hoja` del fichero Excel `fichero.xlx`.
+
+```python
+>>> import pandas as pd
+>>> # Importación del fichero datos-colesterol.csv
+>>> df = pd.read_csv('datos-colesterol.csv')
+>>> print(df.head())
+                              nombre  edad sexo  peso  altura  colesterol
+0       José Luis Martínez Izquierdo    18    H    85     179         182
+1                     Rosa Díaz Díaz    32    M    65     173         232
+2              Javier García Sánchez    24    H    71     181         191
+3                Carmen López Pinzón    35    M    65     170         200
+4               Marisa López Collado    46    M    51     158         148
+```
+
+--
+
+### Exportación de ficheros
+
+También existen funciones para exportar un conjunto de datos a un fichero con diferentes formatos.
+
+`df.to_csv(fichero.csv, delimitador)` : Exporta el `DataFrame` `df` al fichero `fichero.csv` en formato CSV usando como separador de los datos la cadena `delimitador`.
+
+`df.to_excel(fichero.xlsx, sheet_name = hoja)` : Exporta el `DataFrame` `df` a la hoja de cálculo `hoja` del fichero `fichero.xlsx` en formato Excel.
+
+--
+
+### Atributos de un conjunto de datos
+
+Existen varias propiedades o métodos para ver las características de un `DataFrame`.
+
+`df.info()` : Devuelve información (número de filas, número de columnas, nombre y tipo de las columnas y memoria usado) sobre el `DataFrame` `df`.
+
+`df.shape` : Devuelve una tupla con el número de filas y columnas del `DataFrame` `df`.
+
+`df.head()` : Devuelve las 5 primeras filas del `DataFrame` `df`.
+
+`df.tails()` : Devuelve las 5 últimas filas del `DataFrame` `df`.
+
+--
+
+### Acceso a los elementos de un conjunto de datos
+
+Para acceder a los elementos de un `DataFrame` se utilizan los siguientes métodos.
+
+`df.iloc[i][j]` : Devuelve el elemento que se encuentra en la fila `i` y la columna `j` del DataFrame `df`.
+
+`df.iloc[i]` : Devuelve la fila `i` del DataFrame `df`.
+
+`df.loc[i][columna]` : Devuelve el elemento que se encuentra en la fila `i` y la columna de nombre `columna` del DataFrame `df`.
+
+```python
+>>> import pandas as pd
+>>> df = pd.read_csv('datos-colesterol.csv')
+>>> print(df.iloc[1][3])
+65
+>>> print(df.loc[2]['colesterol']
+191
+>>> print(df.iloc[1])
+>>> print(df.loc[:, 'colesterol'])
+
+```
+
+--
+
+
+---
+
 ## La librería Matplotlib
 
 [Matplotlib](https://matplotlib.org/) es una librería de Python especializada en la creación de gráficos en dos dimensiones.
+
+<img src="img/matplotlib-logo.png" alt="Gráfico con matplotlib" height="150px">
+
+--
+
+### Tipos de gráficos
+
 Permite crear y personalizar los tipos de gráficos más comunes, entre ellos:
 
 - Diagramas de barras
@@ -2270,112 +2401,6 @@ plt.show()
 ```
 
 <img src="img/histograma2D.png" alt="Gráfico con matplotlib" height="300px">
-
-
----
-
-## La librería Pandas
-
-[Pandas](https://pandas.pydata.org) es una librería de Python especializada en el manejo y análisis de estructuras de datos.
-
-Las principales características de esta librería son:
-
-- Define el tipo de objetos `DataFrame` para manejar conjuntos de datos.
-- Permite leer y escribir facilmente ficheros en formato CSV, Excel y bases de datos SQL.
-- Ofrece métodos para reordenar, dividir y combinar conjuntos de datos.
-- Permite trabajar con series temporales.
-- Ofrece un rendimiento muy eficiente.
-
---
-
-### La clase de objetos DataFrame
-
-Un objeto del tipo `DataFrame` define un conjunto de datos estructurado en forma de tabla donde las columnas suelen contener datos de variables, es decir, todos los datos de una misma columna son del mismo tipo, y las filas de individuos que pueden contender datos de distintos tipos.
-
-| Nombre    | Edad | Grado          | Correo              |
-| :-------- | :--- | :------------- | :------------------ |
-| 'María'   | 18   | 'Economía'     | 'maria@gmail.com'   |
-| 'Luis     | 22   | 'Medicina'     | 'luis@yahoo.es'     |
-| 'Carmen'  | 20   | 'Arquitectura' | 'carmen@gmail.com'  |
-| 'Antonio' | 21   | 'Economía'     | 'antonio@gmail.com' |
-
---
-
-### Creación de un conjunto de datos a partir de una lista o diccionario
-
-`DataFrame(diccionario)` : Crea un objeto del tipo `DataFrame` con los datos del diccionario `diccionario`.
-
-```python
->>> import pandas as pd
->>> datos = {'nombre':['María', 'Luis', 'Carmen', 'Antonio'],
-... 'edad':[18, 22, 20, 21],
-... 'grado':['Economía', 'Medicina', 'Arquitectura', 'Economía'],
-... 'correo':['maria@gmail.com', 'luis@yahoo.es', 'carmen@gmail.com', 'antonio@gmail.com']
-... }
->>> df = pd.DataFrame(datos)
->>> print(df)
-    nombre  edad         grado             correo
-0    María    18      Economía    maria@gmail.com
-1     Luis    22      Medicina      luis@yahoo.es
-2   Carmen    20  Arquitectura   carmen@gmail.com
-3  Antonio    21      Economía  antonio@gmail.com
-```
-
---
-
-### Importación de ficheros
-
-Dependiendo del tipo de fichero, existen distintas funciones para importar un conjunto de datos desde un fichero.
-
-`read_csv(fichero.csv, delimitador)` : Devuelve un objeto del tipo `DataFrame` con los datos del fichero CSV `fichero.csv` usando como separador de los datos la cadena `delimitador`.
-
-`read_excel(fichero.xlsx, hoja)` : Devuelve un objeto del tipo `DataFrame` con los datos de la hoja de cálculo `hoja` del fichero Excel `fichero.xlx`.
-
-```python
->>> import pandas as pd
->>> # Importación del fichero datos-colesterol.csv
->>> df = pd.read_csv('datos-colesterol.csv')
->>> print(df.head())
-                              nombre  edad sexo  peso  altura  colesterol
-0       José Luis Martínez Izquierdo    18    H    85     179         182
-1                     Rosa Díaz Díaz    32    M    65     173         232
-2              Javier García Sánchez    24    H    71     181         191
-3                Carmen López Pinzón    35    M    65     170         200
-4               Marisa López Collado    46    M    51     158         148
-```
-
---
-
-### Exportación de ficheros
-
-También existen funciones para exportar un conjunto de datos a un fichero con diferentes formatos.
-
-`df.to_csv(fichero.csv, delimitador)` : Exporta el `DataFrame` `df` al fichero `fichero.csv` en formato CSV usando como separador de los datos la cadena `delimitador`.
-
-`df.to_excel(fichero.xlsx, sheet_name = hoja)` : Exporta el `DataFrame` `df` a la hoja de cálculo `hoja` del fichero `fichero.xlsx` en formato Excel.
-
---
-
-### Mostrar el contenido de un `DataFrame`
-
-Existen varias funciones para ver el contenido de un `DataFrame`.
-
-`df.info()` : Devuelve información (número de filas, número de columnas, nombre y tipo de las columnas y memoria usado) sobre el `DataFrame` `df`.
-
-`df.shape` : Devuelve una tupla con el número de filas y columnas del `DataFrame` `df`.
-
-`df.
-
-`df.head()` : Devuelve las 5 primeras filas del `DataFrame` `df`.
-
-`df.tails()` : Devuelve las 5 últimas filas del `DataFrame` `df`.
-
-
-
-
---
-
-### 
 
 ---
 
