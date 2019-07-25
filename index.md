@@ -15,6 +15,9 @@ logoImg: "/img/logo-python.png"
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+
+<!-- TODO: Revisar todo el código para migrarlo a Repl.it -->
+
 # Manual de introducción a Python
 
 <div style="text-align:center">
@@ -365,6 +368,8 @@ True
 - `c.split(delimitador)` : Devuelve la lista formada por las subcadenas que resultan de partir la cadena `c` usando como delimitador la cadena `delimitador`.
 Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
 
+<!-- TODO: Incluir más funciones de cadenas como replace -->
+
 --
 
 ## Funciones de cadenas
@@ -536,9 +541,11 @@ HolaAlf
 Hola Alf!
 ```
 
+<!-- TODO: Incluir cadenas formateadas fstrings * -->
+
 ---
 
-## Concicionales
+## Condicionales
 #### `if`
 
 > `if condición1:`  
@@ -1802,6 +1809,8 @@ Esta instrucción ejecuta el primer bloque de código y si se produce un error q
 ¡El fichero no existe!
 ```
 
+<!-- TODO: Añadir sección de programación orientada a objetos -->
+
 ---
 
 ## La librería NumPy
@@ -2386,9 +2395,57 @@ plt.show()
 
 --
 
+### Diagramas de dispersión o puntos
+
+- `scatter(x, y)`: Dibuja un diagrama de puntos con las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter)
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.scatter([1, 2, 3, 4], [1, 2, 0, 0.5])
+plt.show()
+```
+
+<img src="img/diagrama-puntos.png" alt="Gráfico con matplotlib" height="300px">
+
+--
+
+### Diagramas de líneas
+
+- `plot(x, y)`: Dibuja un polígono con los vértices dados por las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot)
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot([1, 2, 3, 4], [1, 2, 0, 0.5])
+plt.show()
+```
+
+<img src="img/diagrama-lineas.png" alt="Gráfico con matplotlib" height="300px">
+
+--
+
+### Diagramas de areas
+
+- `fill_between(x, y)`: Dibuja el area bajo el polígono con los vértices dados por las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.fill_between.html#matplotlib.pyplot.fill_between)
+
+```python
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.fill_between([1, 2, 3, 4], [1, 2, 0, 0.5])
+plt.show()
+```
+
+<img src="img/diagrama-areas.png" alt="Gráfico con matplotlib" height="300px">
+
+--
+
 ### Diagramas de barras verticales
 
-- `bar(x, y)`: Dibuja un diagrama de barras verticales donde `x` es una lista con la posición de las barras en el eje X, e `y` es una lista con la altura de las barras en el eje Y.
+- `bar(x, y)`: Dibuja un diagrama de barras verticales donde `x` es una lista con la posición de las barras en el eje X, e `y` es una lista con la altura de las barras en el eje Y. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html#matplotlib.pyplot.bar)
 
 ```python
 import matplotlib.pyplot as plt
@@ -2404,7 +2461,7 @@ plt.show()
 
 ### Diagramas de barras horizontales
 
-- `barh(x, y)`: Dibuja un diagrama de barras horizontales donde `x` es una lista con la posición de las barras en el eje Y, y `x` es una lista con la longitud de las barras en el eje X.
+- `barh(x, y)`: Dibuja un diagrama de barras horizontales donde `x` es una lista con la posición de las barras en el eje Y, y `x` es una lista con la longitud de las barras en el eje X. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.barh.html#matplotlib.pyplot.barh)
 
 ```python
 import matplotlib.pyplot as plt
@@ -2420,7 +2477,7 @@ plt.show()
 
 ### Histogramas
 
-- `hist(x, bins)`: Dibuja un histograma con las frecuencias resultantes de agrupar los datos de la lista `x` en las clases definidas por la lista `bins`.
+- `hist(x, bins)`: Dibuja un histograma con las frecuencias resultantes de agrupar los datos de la lista `x` en las clases definidas por la lista `bins`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist)
 
 ```python
 import numpy as np
@@ -2439,7 +2496,7 @@ plt.show()
 
 ### Diagramas de sectores
 
-- `pie(x)`: Dibuja un diagrama de sectores con las frecuencias de la lista `x`.
+- `pie(x)`: Dibuja un diagrama de sectores con las frecuencias de la lista `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html#matplotlib.pyplot.pie)
 
 ```python
 import matplotlib.pyplot as plt
@@ -2456,7 +2513,7 @@ plt.show()
 
 ### Diagramas de caja y bigotes
 
-- `boxplot(x)`: Dibuja un diagrama de caja y bigotes con los datos de la lista `x`.
+- `boxplot(x)`: Dibuja un diagrama de caja y bigotes con los datos de la lista `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html#matplotlib.pyplot.boxplot)
 
 ```python
 import matplotlib.pyplot as plt
@@ -2473,7 +2530,7 @@ plt.show()
 
 ### Diagramas de violín
 
-- `boxplot(x)`: Dibuja un diagrama de caja y bigotes con los datos de la lista `x`.
+- `violinplot(x)`: Dibuja un diagrama de violín con los datos de la lista `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.violinplot.html#matplotlib.pyplot.violinplot)
 
 ```python
 import matplotlib.pyplot as plt
@@ -2488,57 +2545,9 @@ plt.show()
 
 --
 
-### Diagramas de dispersión o puntos
-
-- `scatter(x, y)`: Dibuja un diagrama de puntos con las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y.
-
-```python
-import matplotlib.pyplot as plt
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.scatter([1, 2, 3, 4], [1, 2, 0, 0.5])
-plt.show()
-```
-
-<img src="img/diagrama-puntos.png" alt="Gráfico con matplotlib" height="300px">
-
---
-
-### Diagramas de líneas
-
-- `plot(x, y)`: Dibuja un polígono con los vértices dados por las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y.
-
-```python
-import matplotlib.pyplot as plt
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.plot([1, 2, 3, 4], [1, 2, 0, 0.5])
-plt.show()
-```
-
-<img src="img/diagrama-lineas.png" alt="Gráfico con matplotlib" height="300px">
-
---
-
-### Diagramas de areas
-
-- `fill_between(x, y)`: Dibuja el area bajo el polígono con los vértices dados por las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y.
-
-```python
-import matplotlib.pyplot as plt
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.fill_between([1, 2, 3, 4], [1, 2, 0, 0.5])
-plt.show()
-```
-
-<img src="img/diagrama-areas.png" alt="Gráfico con matplotlib" height="300px">
-
---
-
 ### Diagramas de contorno
 
-- `contourf(x, y, z)`: Dibuja un diagrama de contorno con las curvas de nivel de la superficie dada por los puntos con las coordenadas de las listas `x`, `y` y `z` en los ejes X, Y y Z respectivamente.
+- `contourf(x, y, z)`: Dibuja un diagrama de contorno con las curvas de nivel de la superficie dada por los puntos con las coordenadas de las listas `x`, `y` y `z` en los ejes X, Y y Z respectivamente. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.contourf.html#matplotlib.pyplot.contourf)
 
 ```python
 import matplotlib.pyplot as plt
@@ -2558,7 +2567,7 @@ plt.show()
 
 ### Mapas de color
 
-- `imshow(x)`: Dibuja un mapa de color a partir de una matriz (array bidimensiona) `x`.
+- `imshow(x)`: Dibuja un mapa de color a partir de una matriz (array bidimensiona) `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow)
 
 ```python
 import matplotlib.pyplot as plt
@@ -2569,13 +2578,13 @@ ax.imshow(x)
 plt.show()
 ```
 
-<img src="img/mapa-calor.png" alt="Gráfico con matplotlib" height="300px">
+<img src="img/mapa-calor.png" alt="Gráfico con matplotlib" height="300px"> <i class="fa fa-info-circle" aria-hidden="true">
 
 --
 
 ### Mapas de color
 
-- `hist2d(x, y)`: Dibuja un mapa de color que simula un histograma bidimensional, donde los colores de los cuadrados dependen de las frecuencias de las clases de la muestra dada por las listas `x` e `y`.
+- `hist2d(x, y)`: Dibuja un mapa de color que simula un histograma bidimensional, donde los colores de los cuadrados dependen de las frecuencias de las clases de la muestra dada por las listas `x` e `y`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist2d.html#matplotlib.pyplot.hist2d)
 
 ```python
 import matplotlib.pyplot as plt
@@ -2588,16 +2597,65 @@ plt.show()
 
 <img src="img/histograma2D.png" alt="Gráfico con matplotlib" height="300px">
 
+--
+
+### Colores
+
+--
+
+### Líneas
+
+--
+
+### Títulos
+
+--
+
+### Ejes
+
+--
+
+### Leyenda
+
+--
+
+### Regilla
+
+--
+
+### Texto
+
+--
+
+### Márgenes
+
 ---
 
 ## Referencias
 
+Webs:
+
 - [Python](https://www.python.org/) Sitio web de Python.
 - [Repl.it](https://repl.it/) Entorno de desarrollo web para varios lenguajes, incluido Python.
 - [Python tutor](http://pythontutor.com/) Sitio web que permite visualizar la ejecución el código Python.
-- [Tutorial de Python](https://www.tutorialpython.com/) Tutoría rápido de python.
+
+--
+
+## Referencias
+
+Libros y manuales:
+
+- [Tutorial de Python](https://www.tutorialpython.com/) Tutorial rápido de python.
 - [Python para todos](http://mundogeek.net/tutorial-python/) Libro de introducción a Python con muchos ejemplos. Es de licencia libre.
 - [Python para principiantes](https://www.safecreative.org/work/1207302042960-curso-python-para-principiantes) Libro de introducción Python que abarca orientación a objetos. Es de licencia libre.
 - [Python crash course](https://ehmatthes.github.io/pcc/) Libro de introducción a Python gratuito.
 - [Think python 2e](http://greenteapress.com/wp/think-python-2e/). Libro de introducción a Python que abarca también algoritmos, estructuras de datos y gráficos. Es de licencia libre.
 - [Learning Python](http://shop.oreilly.com/product/0636920028154.do) Libro de introducción a Python con enfoque de programación orientada a objetos.
+
+--
+
+## Referencias
+
+Vídeos:
+
+- [Curso "Python para todos"](https://www.edx.org/course/programming-for-everybody-getting-started-with-python).
