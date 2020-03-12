@@ -15,14 +15,11 @@ logoImg: "/img/logo-python.png"
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-
-<!-- TODO: Revisar todo el código para migrarlo a Repl.it -->
-
 # Manual de introducción a Python
 
 <div style="text-align:center">
-Autor: Alfredo Sánchez Alberca ([asalber@ceu.es](mailto:asalber@ceu.es))  
-http://aprendeconalf.es  
+Autor: Alfredo Sánchez Alberca (<a href="mailto:asalber@ceu.es">asalber@ceu.es</a>)<br/>
+<a href="http://aprendeconalf.es">http://aprendeconalf.es</a>  
 <img data-src="img/logo-python.png" alt="Logo de Python">
 </div>
 
@@ -146,8 +143,7 @@ Estos datos son inmutables, es decir, su valor es constante y no puede cambiar.
 
 --
 
-## Clase de un dato
-#### `type()`
+## Clase de un dato (`type()`)
 
 La clase a la que pertenece un dato se obtiene con el comando `type()`
 
@@ -372,7 +368,7 @@ Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
 
 --
 
-## Funciones de cadenas
+### Funciones de cadenas
 
 ```python
 >>> len('Python')
@@ -387,6 +383,46 @@ Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
 ['A', 'B', 'C']
 >>> 'I love Python'.split()
 ['I', 'love', 'Python']
+```
+
+--
+
+### Cadenas formateadas (`format()`)
+
+- `c.format(valores)`: Devuelve la cadena `c` tras sustituir los valores de la secuencia `valores` en los marcadores de posición de `c`. Los marcadores de posición se indican mediante llaves `{}` en la cadena `c`, y el reemplazo de los valores se puede realizar por posición, indicando en número de orden del valor dentro de las llaves, o por nombre, indicando el nombre del valor, siempre y cuando los valores se pasen con el formato `nombre = valor`.
+
+```python
+>>> 'Un {} vale {} {}'.format('€', 1.12, '$')
+'Un € vale 1.12 $'
+>>> 'Un {2} vale {1} {0}'.format('€', 1.12, '$')
+'Un $ vale 1.12 €'
+>>> 'Un {moneda1} vale {cambio} {moneda2}'.format(moneda1 = '€', cambio = 1.12, moneda2 = '$')
+'Un € vale 1.12 $'
+```
+
+--
+
+### Cadenas formateadas (`format()`)
+
+Los marcadores de posición, a parte de indicar la posición de los valores de reemplazo, pueden indicar también el formato de estos. Para ello se utiliza la siguiente sintaxis:
+
+- `{:n}` : Alinea el valor a la izquierda rellenando con espacios por la derecha hasta los `n` caracteres.
+- `{:>n}` : Alinea el valor a la derecha rellenando con espacios por la izquierda hasta los `n` caracteres.
+- `{:^n}` : Alinea el valor en el centro rellenando con espacios por la izquierda y por la derecha hasta los `n` caracteres.
+- `{:nd}` : Formatea el valor como un número entero con `n` caracteres rellenando con espacios blancos por la izquierda.
+- `{:n.mf}` : Formatea el valor como un número real con un tamaño de `n` caracteres (incluído el separador de decimales) y `m` cifras decimales, rellenando con espacios blancos por la izquierda.
+
+--
+
+### Cadenas formateadas (`format()`)
+
+```python
+>>> 'Hoy es {:^10}, mañana {:10} y pasado {:>10}'.format('lunes', 'martes', 'miércoles')
+'Hoy es   lunes   , mañana martes     y pasado  miércoles'
+>>> 'Cantidad {:5d}'.format(12)'
+'Cantidad    12'
+>>> 'Pi vale {:8.4f}'.format(3.141592)
+'Pi vale   3.1416'
 ```
 
 ---
@@ -486,8 +522,7 @@ del x
 
 ---
 
-## Entrada por terminal
-#### `input`
+## Entrada por terminal (`input()`)
 
 Para asignar a una variable un valor introducido por el usuario en la consola se utiliza la instrucción
 
@@ -508,8 +543,7 @@ Para asignar a una variable un valor introducido por el usuario en la consola se
 
 ---
 
-### Salida por terminal
-#### `print()`
+### Salida por terminal (`print()`)
 
 Para mostrar un dato por la terminal se utiliza la instrucción
 
@@ -524,8 +558,7 @@ donde
 
 --
 
-### Salida por terminal
-#### `print()`
+### Salida por terminal (`print()`)
 
 ```python
 >>> print('Hola')
@@ -541,12 +574,9 @@ HolaAlf
 Hola Alf!
 ```
 
-<!-- TODO: Incluir cadenas formateadas fstrings * -->
-
 ---
 
-## Condicionales
-#### `if`
+## Condicionales (`if`)
 
 > `if condición1:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
@@ -591,8 +621,7 @@ Activo
 
 ---
 
-## Bucles condicionales
-#### `while`
+## Bucles condicionales (`while`)
 
 > `while condición:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
@@ -636,8 +665,7 @@ Introduce un número: 0
 
 ---
 
-## Bucles iterativos
-#### `for`
+## Bucles iterativos (`for`)
 
 > `for i in secuencia:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
@@ -695,12 +723,31 @@ Se caracterizan por:
 
 ```python
 # Lista vacía
-type([])
+>>> type([])
 <class 'list'>
 # Lista con elementos de distintos tipos
-[1, "dos", True]
+>>> [1, "dos", True]
 # Listas anidadas
-[1, [2, 3], 4]
+>>> [1, [2, 3], 4]
+```
+
+--
+
+### Creación de listas mediante la función `list()`
+
+Otra forma de crear listas es mediante la función `list()`.
+
+- `list(c)` : Crea una lista con los elementos de la secuencia o colección `c`.
+
+Se pueden indicar los elementos separados por comas, mediante una cadena, o mediante una colección de elementos iterable.
+
+```python
+>>> list()
+[]
+>>> list(1, 2, 3)
+[1, 2, 3]
+>>> list("Python")
+['P', 'y', 't', 'h', 'o', 'n']
 ```
 
 --
@@ -709,7 +756,7 @@ type([])
 
 Se utilizan los mismos operadores de acceso que para cadenas de caracteres.
 
-- `l[i]` devuelve el elemento de la lista `l` con el índice `i`.
+- `l[i]` : Devuelve el elemento de la lista `l` con el índice `i`.
 
 <i class="far fa-exclamation-triangle"></i> _El índice del primer elemento de la lista es 0._
 
@@ -886,14 +933,35 @@ Se usan habitualmente para representar colecciones de datos una determinada estr
 
 ```python
 # Tupla vacía
-type(())
+>>> type(())
 <class 'tuple'>
 # Tupla con elementos de distintos tipos
-(1, "dos", True)
+>>> (1, "dos", True)
 # Vector
-(1, 2, 3)
+>>> (1, 2, 3)
 # Matriz
-((1, 2, 3), (4, 5, 6))
+>>> ((1, 2, 3), (4, 5, 6))
+```
+
+--
+
+### Creación de tuplas mediante la función `tuple()`
+
+Otra forma de crear tuplas es mediante la función `tuple()`.
+
+- `tuple(c)` : Crea una tupla con los elementos de la secuencia o colección `c`.
+
+Se pueden indicar los elementos separados por comas, mediante una cadena, o mediante una colección de elementos iterable.
+
+```python
+>>> tuple()
+()
+>>> tuple(1, 2, 3)
+(1, 2, 3)
+>>> tuple("Python")
+('P', 'y', 't', 'h', 'o', 'n')
+>>> tuple([1, 2, 3])
+(1, 2, 3)
 ```
 
 --
@@ -1077,8 +1145,7 @@ Existen dos formas de copiar diccionarios:
 
 ---
 
-## Funciones
-#### `def`
+## Funciones (`def`)
 
 Una función es un bloque de código que tiene asociado un nombre, de manera que cada vez que se quiera ejecutar el bloque de código basta con invocar el nombre de la función.
 
@@ -1179,7 +1246,6 @@ Por último, es posible pasar un número variable de argumentos a un parámetro.
 
 - `*parametro`: Se antepone un asterisco al nombre del parámetro y en la invocación de la función se pasa el número variable de argumentos separados por comas. Los argumentos se guardan en una lista que se asocia al parámetro.
 - `**parametro`: Se anteponen dos asteriscos al nombre del parámetro y en la invocación de la función se pasa el número variable de argumentos por pares `nombre = valor`, separados por comas. Los argumentos se guardan en un diccionario que se asocia al parámetro.
-
 
 ```python
 >>> def menu(*platos):
@@ -1340,8 +1406,7 @@ En muchos casos es más eficiente resolver la tarea recursiva de forma iterativa
 
 ---
 
-## Importación de funciones
-#### `import`
+## Importación de funciones (`import`)
 
 Las funciones definidas en un programa o módulo de Python pueden ser importadas y reutilizadas en otros programas.
 
@@ -1353,8 +1418,7 @@ Existen varias formas de importar módulos y funciones:
 
 --
 
-### Importación de funciones
-#### `from import`
+### Importación de funciones (`from import`)
 
 - `from M import *` : Importa el módulo `M` y crea referencias a todos los objetos públicos (aquellos que no empiezan por el carácter `_`) definidos en el módulo. De esta manera para invocar un objeto del módulo no hace falta precederlo por el nombre del módulo, basta con escribir su nombre.
   
@@ -1400,7 +1464,7 @@ No necesitan instalarse porque vienen incluidos en la distribución de Python.
 
 --
 
-## Otros módulos imprescindibles
+### Otros módulos imprescindibles
 
 Necesitan instalarse.
 
@@ -1434,8 +1498,7 @@ En Python las funciones son objetos de primera clase, es decir, que pueden pasar
 
 --
 
-### Funciones anónimas
-#### `lambda`
+### Funciones anónimas (`lambda`)
 
 Existe un tipo especial de funciones que no tienen nombre asociado y se conocen como **funciones anónimas** o **funciones lambda**.
 
@@ -1453,8 +1516,7 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 
 --
 
-### Aplicar una función a todos los elementos de una colección iterable
-#### `map`
+### Aplicar una función a todos los elementos de una colección iterable (`map`)
 
 `map(f, c)` : Devuelve una objeto iterable con los resultados de aplicar la función `f` a los elementos de la colección `c`. Si la función `f` requiere `n` argumentos entonces deben pasarse `n` colecciones con los argumentos. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones `list()`, `tuple()` o `dic()` respectivamente.
 
@@ -1475,8 +1537,7 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 
 --
 
-### Filtrar los elementos de una colección iterable
-#### filter
+### Filtrar los elementos de una colección iterable (filter)
 
 `filter(f, c)` : Devuelve una objeto iterable con los elementos de la colección `c` que devuelven `True` al aplicarles la función `f`. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones `list()`, `tuple()` o `dic()` respectivamente.
 
@@ -1492,8 +1553,7 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 
 --
 
-### Combinar los elementos de varias colecciones iterables
-#### `zip`
+### Combinar los elementos de varias colecciones iterables (`zip`)
 
 `zip(c1, c2, ...)` : Devuelve un objeto iterable cuyos elementos son tuplas formadas por los elementos que ocupan la misma posición en las colecciones `c1`, `c2`, etc. El número de elementos de las tuplas es el número de colecciones que se pasen. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones `list()`, `tuple()` o `dic()` respectivamente.
 
@@ -1508,8 +1568,7 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 
 --
 
-### Operar todos los elementos de una colección iterable
-#### `reduce`
+### Operar todos los elementos de una colección iterable (`reduce`)
 
 `reduce(f, l)` : Aplicar la función `f` a los dos primeros elementos de la secuencia `l`. Con el valor obtenido vuelve a aplicar la función `f` a ese valor y el siguiente de la secuencia, y así hasta que no quedan más elementos en la lista. Devuelve el valor resultado de la última aplicación de la función `f`.
 
@@ -1766,8 +1825,7 @@ Consultar la documentaciónde Python para ver la [lista de exepciones predefinid
 
 --
 
-### Control de excepciones
-#### `try - except - else`
+### Control de excepciones (`try - except - else`)
 
 Para evitar la interrución de la ejecución del programa cuando se produce un error, es posible controlar la exepción que se genera con la siguiente instrucción:
 
@@ -2599,7 +2657,7 @@ plt.show()
 
 --
 
-### Colores
+<!-- TODO ### Colores
 
 --
 
@@ -2629,7 +2687,7 @@ plt.show()
 
 ### Márgenes
 
----
+--- -->
 
 ## Referencias
 
