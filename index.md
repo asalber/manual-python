@@ -2695,7 +2695,7 @@ plt.show()
 
 La depuración es una técnica que permite _trazar_ un programa, es decir, seguir el flujo de ejecución de un programa paso a paso, ejecutando una instrucción en cada paso, y observar el estado de sus variables.
 
-Cuando un programa tiene cierta complejidad, la decuparción es imprescindible pare detectar posibles errores.
+Cuando un programa tiene cierta complejidad, la depuración es imprescindible pare detectar posibles errores.
 
 Python dispone del módulo `pyd` para depurar programas, pero es mucho más cómodo utilizar algún entorno de desarrollo que incorpore la depuración, como por ejemplo Visual Studio Code.
 
@@ -2706,7 +2706,7 @@ Python dispone del módulo `pyd` para depurar programas, pero es mucho más cóm
 - **Establecer punto de parada**: Detiene la ejecución del programa en una línea concreta de código.
 - **Continuar la ejecución**: Continúa la ejecución del programa hasta el siguiente punto de parada o hasta que finalice.
 - **Próximo paso**: Ejecuta la siguiente línea de código y para la ejecución.
-- **Próximo paso con entrada en función**: Ejecuta la siguiente línea de código. Si se trata de una llamada a una función entronces ejecuta la primera instrucción de la función y para la ejecución.
+- **Próximo paso con entrada en función**: Ejecuta la siguiente línea de código. Si se trata de una llamada a una función entonces ejecuta la primera instrucción de la función y para la ejecución.
 - **Próximo paso con salida de función**: Ejecuta lo que queda de la función actual y para la ejecución.
 - **Terminar la depuración**: Termina la depuración.
 
@@ -2722,9 +2722,9 @@ Antes de iniciar la depuración de un programa en VSCode hay que establecer alg�
 
 ### Depuración en Visual Studio Code (Inicio de la depuración)
 
-Para iniciar la depuración de un programa en VSCode hay que hacer clic sobre el botón !(Visual Studio Code debbuger)[img/debug-button.png] o pulsar la combinación de teclas (Ctr+Shift+D).
+Para iniciar la depuración de un programa en VSCode hay que hacer clic sobre el botón ![Visual Studio Code debbuger](img/debug-button.png) o pulsar la combinación de teclas (Ctr+Shift+D).
 
-La primera vez que depuremos un programa tendremos que crear un fichero de configuración del depurador (`launch.json`). Para ello hay que hacer clic en el botón `Run and Debug`. VSCode mostrará los distintos ficheros de configuración disponibles y debe seleccionarse el más adecuado para el tipo de programa a depura. Para programas simples seleccionarermos `Python file`.
+La primera vez que depuremos un programa tendremos que crear un fichero de configuración del depurador (`launch.json`). Para ello hay que hacer clic en el botón `Run and Debug`. VSCode mostrará los distintos ficheros de configuración disponibles y debe seleccionarse el más adecuado para el tipo de programa a depurar. Para programas simples debe seleccionarse `Python file`.
 
 La depuración comenzará iniciando la ejecución del programa desde el inicio hasta el primer punto de parada que encuentre.
 
