@@ -2396,7 +2396,52 @@ plt.show()
 ### Márgenes
 
 --- -->
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Depuración de programas
 
+La depuración es una técnica que permite _trazar_ un programa, es decir, seguir el flujo de ejecución de un programa paso a paso, ejecutando una instrucción en cada paso, y observar el estado de sus variables.
+
+Cuando un programa tiene cierta complejidad, la decuparción es imprescindible pare detectar posibles errores.
+
+Python dispone del módulo `pyd` para depurar programas, pero es mucho más cómodo utilizar algún entorno de desarrollo que incorpore la depuración, como por ejemplo Visual Studio Code.
+</script></section><section data-markdown><script type="text/template">
+### Comandos de depuración
+
+- **Establecer punto de parada**: Detiene la ejecución del programa en una línea concreta de código.
+- **Continuar la ejecución**: Continúa la ejecución del programa hasta el siguiente punto de parada o hasta que finalice.
+- **Próximo paso**: Ejecuta la siguiente línea de código y para la ejecución.
+- **Próximo paso con entrada en función**: Ejecuta la siguiente línea de código. Si se trata de una llamada a una función entronces ejecuta la primera instrucción de la función y para la ejecución.
+- **Próximo paso con salida de función**: Ejecuta lo que queda de la función actual y para la ejecución.
+- **Terminar la depuración**: Termina la depuración.
+</script></section><section data-markdown><script type="text/template">
+### Depuración en Visual Studio Code (Puntos de parada)
+
+Antes de iniciar la depuración de un programa en VSCode hay que establecer algún punto de parada. Para ello basta con hacer click en le margen izquierdo de la ventana con del código a la altura de la línea donde se quiere parar la ejecución del programa.
+
+<img src="img/break-point.png" alt="Punto de parada en Visual Studio Code" height="400px">
+</script></section><section data-markdown><script type="text/template">
+### Depuración en Visual Studio Code (Inicio de la depuración)
+
+Para iniciar la depuración de un programa en VSCode hay que hacer clic sobre el botón !(Visual Studio Code debbuger)[img/debug-button.png] o pulsar la combinación de teclas (Ctr+Shift+D).
+
+La primera vez que depuremos un programa tendremos que crear un fichero de configuración del depurador (`launch.json`). Para ello hay que hacer clic en el botón `Run and Debug`. VSCode mostrará los distintos ficheros de configuración disponibles y debe seleccionarse el más adecuado para el tipo de programa a depura. Para programas simples seleccionarermos `Python file`.
+
+La depuración comenzará iniciando la ejecución del programa desde el inicio hasta el primer punto de parada que encuentre.
+</script></section><section data-markdown><script type="text/template">
+### Depuración en Visual Studio Code (Commandos de depuración)
+
+Una vez iniciado el proceso de depuración, se puede avanzar en la ejecución del programa haciendo uso de la barra de depuración que contiene botones con los principales comandos de depuración.
+
+<img src="img/debbuger-bar.png" alt="Barra de depuración de Visual Studio Code" height="300px">
+</script></section><section data-markdown><script type="text/template">
+### Depuración en Visual Studio Code (Estado de las variables)
+
+Durante la ejecución del programa, se puede ver el contenido de las variables del programa en la ventana del estado de las variables.
+
+El usuario también puede introducir expresiones y ver cómo se evalúan durante la ejecución del programa en la ventana de vista de expresiones.
+
+<img src="img/debbuger-estado-variables.png" alt="Ventana de estado de variables de Visual Studio Code" height="500px">
+</script></section></section><section ><section data-markdown><script type="text/template">
 ## Referencias
 
 Webs:
