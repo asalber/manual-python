@@ -1270,23 +1270,29 @@ En muchos casos es más eficiente resolver la tarea recursiva de forma iterativa
 8
 ```
 </script></section></section><section ><section data-markdown><script type="text/template">
-## Importación de funciones (`import`)
+## Módulos
 
-Las funciones definidas en un programa o módulo de Python pueden ser importadas y reutilizadas en otros programas.
+El código de un programa en Python puede reutilizarse en otro importándolo. Cualquier fichero con código de Python reutilizable se conoce como _módulo_ o _librería_.
 
-Existen varias formas de importar módulos y funciones:
+Los módulos suelen contener funciones reutilizables, pero también pueden definir variables con datos simples o compuestos (listas, diccionarios, etc), o cualquier otro código válido en Python.
 
-- `import M` : Importa el módulo `M` y crea una referencia a él, de manera que pueden invocarse un objeto o función `f` definida en él mediante la sintaxis `M.f`.
-
-- `import M as N` : Importa el módulo `M` y crea una referencia `N` a él, de manera que pueden invocarse un objeto o función `f` definida en él mediante la sintaxis `N.f`. Esta forma es similar a la anterior, pero tiene se suele usar cuando el nombre del módulo es muy largo para utilizar un alias más corto.
+Python permite importar un módulo completo o sólo algunas partes de él. Cuando se importa un módulo completo, el intérprete de Python ejecuta todo el código que contiene el módulo, mientras que si solo se importan algunas partes del módulo, solo se ejecutarán esas partes.
 </script></section><section data-markdown><script type="text/template">
-### Importación de funciones (`from import`)
+### Importación completa de módulos (`import`)
 
-- `from M import *` : Importa el módulo `M` y crea referencias a todos los objetos públicos (aquellos que no empiezan por el carácter `_`) definidos en el módulo. De esta manera para invocar un objeto del módulo no hace falta precederlo por el nombre del módulo, basta con escribir su nombre.
-  
-- `from M import f, g, ...` : Importa el módulo `M` y crea referencias a los objetos `f, g, ...`, de manera que pueden ser invocados por su nombre.
+- `import M` : Ejecuta el código que contiene `M` y crea una referencia a él, de manera que pueden invocarse un objeto o función `f` definida en él mediante la sintaxis `M.f`.
+
+- `import M as N` : Ejecuta el código que contiene `M` y crea una referencia a él con el nombre `N`, de manera que pueden invocarse un objeto o función `f` definida en él mediante la sintaxis `N.f`. Esta forma es similar a la anterior, pero se suele usar cuando el nombre del módulo es muy largo para utilizar un alias más corto.
 </script></section><section data-markdown><script type="text/template">
-### Importación de funciones
+### Importación parcial de módulos (`from import`)
+
+- `from M import f, g, ...` : Ejecuta el código que contiene `M` y crea referencias a los objetos `f, g, ...`, de manera que pueden ser invocados por su nombre. De esta manera para invocar cualquiera de estos objetos no hace falta precederlos por el nombre del módulo, basta con escribir su nombre.
+
+- `from M import *` : Ejecuta el código que contiene `M` y crea referencias a todos los objetos públicos (aquellos que no empiezan por el carácter `_`) definidos en el módulo, de manera que pueden ser invocados por su nombre.
+
+<i class="far fa-exclamation-triangle"></i>Cuando se importen módulos de esta manera hay que tener cuidado de que no haya coincidencias en los nombres de funciones, variables u otros objetos.
+</script></section><section data-markdown><script type="text/template">
+### Importación de módulos
 
 ```python
 >>> import calendar
@@ -1308,7 +1314,7 @@ Mo Tu We Th Fr Sa Su
 </script></section><section data-markdown><script type="text/template">
 ### Módulos de la librería estándar más importantes
 
-No necesitan instalarse porque vienen incluidos en la distribución de Python.
+Python viene con una [biblioteca de módulos predefinidos](https://docs.python.org/3/py-modindex.html) que no necesitan instalarse. Algunos de los más utilizados son:
 
 - [sys](https://docs.python.org/3/library/sys.html): Funciones y parámetros específicos del sistema operativo.
 - [os](https://docs.python.org/3/library/os.html): Interfaz con el sistema operativo.
@@ -2422,7 +2428,7 @@ Antes de iniciar la depuración de un programa en VSCode hay que establecer alg�
 </script></section><section data-markdown><script type="text/template">
 ### Depuración en Visual Studio Code (Inicio de la depuración)
 
-Para iniciar la depuración de un programa en VSCode hay que hacer clic sobre el botón <img src="img/debug-button.png" alt="Visual Studio Code debugger" style="width: 50px;"/> o pulsar la combinación de teclas (Ctr+Shift+D).
+Para iniciar la depuración de un programa en VSCode hay que hacer clic sobre el botón ![Visual Studio Code debbuger](img/debug-button.png) o pulsar la combinación de teclas (Ctr+Shift+D).
 
 La primera vez que depuremos un programa tendremos que crear un fichero de configuración del depurador (`launch.json`). Para ello hay que hacer clic en el botón `Run and Debug`. VSCode mostrará los distintos ficheros de configuración disponibles y debe seleccionarse el más adecuado para el tipo de programa a depurar. Para programas simples debe seleccionarse `Python file`.
 
@@ -2442,25 +2448,6 @@ El usuario también puede introducir expresiones y ver cómo se evalúan durante
 
 <img src="img/debbuger-estado-variables.png" alt="Ventana de estado de variables de Visual Studio Code" height="500px">
 </script></section></section><section ><section data-markdown><script type="text/template">
-## Referencias
-
-Webs:
-
-- [Python](https://www.python.org/) Sitio web de Python.
-- [Repl.it](https://repl.it/) Entorno de desarrollo web para varios lenguajes, incluido Python.
-- [Python tutor](http://pythontutor.com/) Sitio web que permite visualizar la ejecución el código Python.
-</script></section><section data-markdown><script type="text/template">
-## Referencias
-
-Libros y manuales:
-
-- [Tutorial de Python](https://www.tutorialpython.com/) Tutorial rápido de python.
-- [Python para todos](http://mundogeek.net/tutorial-python/) Libro de introducción a Python con muchos ejemplos. Es de licencia libre.
-- [Python para principiantes](https://www.safecreative.org/work/1207302042960-curso-python-para-principiantes) Libro de introducción Python que abarca orientación a objetos. Es de licencia libre.
-- [Python crash course](https://ehmatthes.github.io/pcc/) Libro de introducción a Python gratuito.
-- [Think python 2e](http://greenteapress.com/wp/think-python-2e/). Libro de introducción a Python que abarca también algoritmos, estructuras de datos y gráficos. Es de licencia libre.
-- [Learning Python](http://shop.oreilly.com/product/0636920028154.do) Libro de introducción a Python con enfoque de programación orientada a objetos.
-</script></section><section data-markdown><script type="text/template">
 ## Referencias
 
 Webs:
