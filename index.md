@@ -2684,9 +2684,11 @@ print(edad)
 
 ---
 
-## Operaciones con grupos
+## Agrupación de un DataFrame
 
 En muchas aplicaciones es útil agrupar los datos de un DataFrame de acuerdo a los valores de una o varias columnas (categorías), como por ejemplo el sexo o el país.
+
+![División en grupos de un DataFrame](img/pandas-grupos.png)
 
 --
 

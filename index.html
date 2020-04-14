@@ -1,20 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Manual de Python</title>
-    <link rel="stylesheet" href="./css/reveal.css" />
-    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
-    <link rel="stylesheet" href="./css/highlight/monokai.css" />
-    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="./_assets/custom.css" />
+        <title>Manual de Python</title>
+        <link rel="stylesheet" href="./css/reveal.css">
+        <link rel="stylesheet" href="./css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="./css/highlight/monokai.css">
+        <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">
+        <link rel="stylesheet" href="./_assets/custom.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides"><section  data-markdown><script type="text/template">
+
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides"><section  data-markdown><script type="text/template">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -2386,6 +2389,8 @@ print(edad)
 ## Operaciones con grupos
 
 En muchas aplicaciones es útil agrupar los datos de un DataFrame de acuerdo a los valores de una o varias columnas (categorías), como por ejemplo el sexo o el país.
+
+![División en grupos de un DataFrame](img/pandas-grupos.png)
 </script></section><section data-markdown><script type="text/template">
 ### Dividir un DataFrame en grupos
 
@@ -2825,51 +2830,55 @@ Vídeos:
 - [Curso "Python para todos"](https://www.edx.org/course/programming-for-everybody-getting-started-with-python).</script></section></section></div>
     </div>
 
-    <script src="./js/reveal.js"></script>
+        <script src="./lib/js/head.min.js"></script>
+        <script src="./js/reveal.js"></script>
 
-    <script>
-      function extend() {
-        var target = {};
-        for (var i = 0; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (source.hasOwnProperty(key)) {
-              target[key] = source[key];
+        <script>
+            function extend() {
+              var target = {};
+              for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                  }
+                }
+              }
+              return target;
             }
-          }
-        }
-        return target;
-      }
 
-      // Optional libraries used to extend on reveal.js
-      var deps = [
-        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-        { src: './plugin/zoom-js/zoom.js', async: true },
-        { src: './plugin/notes/notes.js', async: true },
-        { src: './plugin/math/math.js', async: true }
-      ];
+            // Optional libraries used to extend on reveal.js
+            var deps = [
+              { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: './plugin/zoom-js/zoom.js', async: true },
+              { src: './plugin/notes/notes.js', async: true },
+              { src: './plugin/math/math.js', async: true },
+              { src: './plugin/menu/menu.js', async: true }
+            ];
 
-      // default options to init reveal.js
-      var defaultOptions = {
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        transition: 'default', // none/fade/slide/convex/concave/zoom
-        dependencies: deps
-      };
+            // default options to init reveal.js
+            var defaultOptions = {
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'default', // none/fade/slide/convex/concave/zoom
+              dependencies: deps
+            };
 
-      // options from URL query string
-      var queryOptions = Reveal.getQueryHash() || {};
+            // options from URL query string
+            var queryOptions = Reveal.getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"transition":"convex","center":true}, queryOptions);
-    </script>
+            var options = {"transition":"convex","center":true};
+            options = extend(defaultOptions, options, queryOptions);
+        </script>
 
 
-    <script>
-      Reveal.initialize(options);
-    </script>
-  </body>
+        <script>
+          Reveal.initialize(options);
+        </script>
+    </body>
 </html>
