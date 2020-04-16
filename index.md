@@ -2353,7 +2353,7 @@ Para crear un DataFrame a partir de una lista de diccionarios con los datos de l
 
 - `df.index` : Devuelve una lista con los nombres de las filas del DataFrame `df`.
   
-- `df.types` : Devuele una serie con los tipos de datos de las columnas del DataFrame `df`.
+- `df.dtypes` : Devuele una serie con los tipos de datos de las columnas del DataFrame `df`.
 
 - `df.head(n)` : Devuelve las `n` primeras filas del DataFrame `df`.
 
