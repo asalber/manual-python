@@ -1,25 +1,28 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <title>Manual de Python</title>
-        <link rel="stylesheet" href="./css/reveal.css">
-        <link rel="stylesheet" href="./css/theme/black.css" id="theme">
-        <link rel="stylesheet" href="./css/highlight/monokai.css">
-        <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">
-        <link rel="stylesheet" href="./_assets/custom.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Manual de Python</title>
+  <link rel="stylesheet" href="./css/reveal.css">
+  <link rel="stylesheet" href="./css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="./css/highlight/monokai.css">
+  <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">
+  <link rel="stylesheet" href="./_assets/custom.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 
-    </head>
-    <body>
+</head>
 
-        <div class="reveal">
-            <div class="slides"><section  data-markdown><script type="text/template">
+<body>
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown>
+        <script type="text/template">
 
 # Manual de introducción a Python
 
@@ -28,8 +31,11 @@ Autor: Alfredo Sánchez Alberca (<a href="mailto:asalber@ceu.es">asalber@ceu.es<
 <a href="http://aprendeconalf.es">http://aprendeconalf.es</a>  
 <img data-src="img/logo-python.png" alt="Logo de Python">
 </div>
-</script></section><section  data-markdown><script type="text/template">
-## ¿Qué es Python?
+</script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## ¿Qué es Python?
 
 [Python](https://www.python.org/) es un lenguaje de programación de alto nivel multiparadigma que permite:
 - Programación imperativa
@@ -37,8 +43,11 @@ Autor: Alfredo Sánchez Alberca (<a href="mailto:asalber@ceu.es">asalber@ceu.es<
 - Programación orientada a objetos
 
 Fue creado por Guido van Rossum en 1990 aunque actualmente es desarrollado y mantenido por la [Python Software Foundation](https://www.python.org/psf-landing/)
-</script></section><section  data-markdown><script type="text/template">
-## Principales ventajas de Python
+</script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## Principales ventajas de Python
 
 - Es de código abierto (certificado por la OSI).
 - Es interpretable y compilable.
@@ -46,8 +55,12 @@ Fue creado por Guido van Rossum en 1990 aunque actualmente es desarrollado y man
 - Es un lenguaje maduro (29 años).
 - Es fácilmente extensible e integrable en otros lenguajes (C, java).
 - Esta mantenido por una gran comunidad de desarrolladores y hay multitud de recursos para su aprendizaje.
-</script></section><section ><section data-markdown><script type="text/template">
-## Tipos de ejecución
+</script>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Tipos de ejecución
 
 ### Interpretado en la consola de Python
 
@@ -59,8 +72,11 @@ Se ejecuta cada instrucción que introduce el usuario de manera interactiva.
 >>> print("Hola ", name)
 Hola Alf
 ```
-</script></section><section data-markdown><script type="text/template">
-### Interpretado en fichero
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Interpretado en fichero
 
 Se leen y se ejecutan una a una todas las instrucciones del fichero.
 
@@ -88,8 +104,11 @@ print("Hola", name)
 > ./hola.py
 Hola Alf
 ```
-</script></section><section data-markdown><script type="text/template">
-### Compilado a bytecode
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Compilado a bytecode
 
 ```python
 # Fichero hola.py
@@ -113,8 +132,13 @@ Hay distintos paquetes que permiten compilar a un ejecutable del sistema operati
 > ./dist/hola/hola
 Hola Alf
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Tipos de datos primitivos simples
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Tipos de datos primitivos simples
 
 - **Números** (numbers): Secuencia de dígitos (pueden incluir el - para negativos y el . para decimales) que representan números.  
 **Ejemplo**. 0, -1, 3.1415.
@@ -123,8 +147,11 @@ Hola Alf
 - **Booleanos** (boolean): Contiene únicamente dos elementos `True` y `False` que representan los valores lógicos verdadero y falso respectivamente.
 
 Estos datos son inmutables, es decir, su valor es constante y no puede cambiar.
-</script></section><section data-markdown><script type="text/template">
-## Tipos de datos primitivos compuestos (contenedores)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Tipos de datos primitivos compuestos (contenedores)
 
 - **Listas** (lists): Colecciones de objetos que representan secuencias ordenadas de objetos de distintos tipos. Se representan con corchetes y los elementos se separan por comas.  
 **Ejemplo**. [1, "dos", [3, 4], True].
@@ -132,8 +159,11 @@ Estos datos son inmutables, es decir, su valor es constante y no puede cambiar.
 **Ejemplo**. (1, 'dos', 3)
 - **Diccionarios** (dictionaries): Colecciones de objetos con una clave asociada. Se representan con llaves, los pares separados por comas y cada par contiene una clave y un objeto asociado separados por dos puntos.  
 **Ejemplo**. {'pi':3.1416, 'e':2.718}.
-</script></section><section data-markdown><script type="text/template">
-## Clase de un dato (`type()`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Clase de un dato (`type()`)
 
 La clase a la que pertenece un dato se obtiene con el comando `type()`
 
@@ -149,8 +179,13 @@ La clase a la que pertenece un dato se obtiene con el comando `type()`
 >>>type((1, 'dos', 3))
 <class 'tuple'>
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Números (clases `int` y `float`)
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Números (clases `int` y `float`)
 
 Secuencia de dígitos (pueden incluir el - para negativos y el . para decimales) que representan números.
 Pueden ser enteros (`int`) o reales (`float`).
@@ -163,8 +198,11 @@ Pueden ser enteros (`int`) o reales (`float`).
 >>> type(2.3)
 <class 'float'>
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operadores aritméticos
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operadores aritméticos
 
 - Operadores aritméticos: `+` (suma), `-` (resta), `*` (producto), `/` (cociente), `//` (cociente división entera), `%` (resto división entera), `**` (potencia).
 
@@ -192,8 +230,11 @@ Se puede saltar el orden de evaluación utilizando paréntesis `( )`.
 >>> (2+3)**2
 25
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operadores lógicos con números
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operadores lógicos con números
 
 Devuelven un valor lógico o booleano.
 
@@ -207,8 +248,13 @@ False
 >>> -1!=1
 True
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Cadenas (clase `str`)
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Cadenas (clase `str`)
 
 Secuencia de caracteres alfanuméricos que representan texto. Se escriben entre comillas sencillas ' o dobles ".
 
@@ -225,8 +271,11 @@ Secuencia de caracteres alfanuméricos que representan texto. Se escriben entre 
 # Tabulador
 '\t'
 ```
-</script></section><section data-markdown><script type="text/template">
-### Acceso a los elementos de una cadena
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Acceso a los elementos de una cadena
 
 Cada carácter tiene asociado un índice que permite acceder a él.
 
@@ -255,8 +304,11 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 IndexError: string index out of range
 ```
-</script></section><section data-markdown><script type="text/template">
-### Subcadenas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Subcadenas
 
 - `c[i:j:k]` : Devuelve la subcadena de `c` desde el carácter con el índice `i` hasta el carácter anterior al índice `j`, tomando caracteres cada `k`.
 
@@ -274,8 +326,11 @@ IndexError: string index out of range
 >>> 'Python'[0:6:2]
 'Pto'
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones con cadenas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones con cadenas
 
 - `c1 + c2` : Devuelve la cadena resultado de concatenar las cadenas `c1` y `c2`.
 - `c * n` : Devuelve la cadena resultado de concatenar `n` copias de la cadena `c`.
@@ -296,8 +351,11 @@ True
 >>> 'to' not in 'Python'
 True
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones de comparación de cadenas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones de comparación de cadenas
 
 - `c1 == c2` : Devuelve `True` si la cadena `c1` es igual que la cadena `c2` y `False` en caso contrario.
 - `c1 > c2` : Devuelve `True` si la cadena `c1` sucede a la cadena `c2` y `False` en caso contrario.
@@ -307,8 +365,11 @@ True
 - `c1 != c2` : Devuelve `True` si la cadena `c1` es distinta de la cadena `c2` y `False` en caso contrario.
 
 <i class='fa fa-exclamation-triangle' style='color:red'></i> _Utilizan el orden establecido en el [código ASCII](https://www.codigosascii.com/)_.
-</script></section><section data-markdown><script type="text/template">
-### Operaciones de comparación de cadenas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones de comparación de cadenas
 
 ```python
 >>> 'Python' == 'python'
@@ -322,8 +383,11 @@ False
 >>> '' < 'Python'
 True
 ```
-</script></section><section data-markdown><script type="text/template">
-### Funciones de cadenas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Funciones de cadenas
 
 - `len(c)` : Devuelve el número de caracteres de la cadena `c`.
 - `min(c)` : Devuelve el carácter menor de la cadena `c`.
@@ -335,8 +399,11 @@ True
 Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
 
 <!-- TODO: Incluir más funciones de cadenas como replace -->
-</script></section><section data-markdown><script type="text/template">
-### Funciones de cadenas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Funciones de cadenas
 
 ```python
 >>> len('Python')
@@ -352,8 +419,11 @@ Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
 >>> 'I love Python'.split()
 ['I', 'love', 'Python']
 ```
-</script></section><section data-markdown><script type="text/template">
-### Cadenas formateadas (`format()`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Cadenas formateadas (`format()`)
 
 - `c.format(valores)`: Devuelve la cadena `c` tras sustituir los valores de la secuencia `valores` en los marcadores de posición de `c`. Los marcadores de posición se indican mediante llaves `{}` en la cadena `c`, y el reemplazo de los valores se puede realizar por posición, indicando en número de orden del valor dentro de las llaves, o por nombre, indicando el nombre del valor, siempre y cuando los valores se pasen con el formato `nombre = valor`.
 
@@ -365,8 +435,11 @@ Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
 >>> 'Un {moneda1} vale {cambio} {moneda2}'.format(moneda1 = '€', cambio = 1.12, moneda2 = '$')
 'Un € vale 1.12 $'
 ```
-</script></section><section data-markdown><script type="text/template">
-### Cadenas formateadas (`format()`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Cadenas formateadas (`format()`)
 
 Los marcadores de posición, a parte de indicar la posición de los valores de reemplazo, pueden indicar también el formato de estos. Para ello se utiliza la siguiente sintaxis:
 
@@ -375,8 +448,11 @@ Los marcadores de posición, a parte de indicar la posición de los valores de r
 - `{:^n}` : Alinea el valor en el centro rellenando con espacios por la izquierda y por la derecha hasta los `n` caracteres.
 - `{:nd}` : Formatea el valor como un número entero con `n` caracteres rellenando con espacios blancos por la izquierda.
 - `{:n.mf}` : Formatea el valor como un número real con un tamaño de `n` caracteres (incluído el separador de decimales) y `m` cifras decimales, rellenando con espacios blancos por la izquierda.
-</script></section><section data-markdown><script type="text/template">
-### Cadenas formateadas (`format()`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Cadenas formateadas (`format()`)
 
 ```python
 >>> 'Hoy es {:^10}, mañana {:10} y pasado {:>10}'.format('lunes', 'martes', 'miércoles')
@@ -386,21 +462,32 @@ Los marcadores de posición, a parte de indicar la posición de los valores de r
 >>> 'Pi vale {:8.4f}'.format(3.141592)
 'Pi vale   3.1416'
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Datos lógicos o booleanos (clase `bool`)
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Datos lógicos o booleanos (clase `bool`)
 
 Contiene únicamente dos elementos `True` y `False` que representan los valores lógicos verdadero y falso respectivamente.
 
 `False` tiene asociado el valor 0 y `True` tiene asociado el valor 1.
-</script></section><section data-markdown><script type="text/template">
-### Operaciones con valores lógicos
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones con valores lógicos
 
 - Operadores lógicos:  `==` (igual que), `>` (mayor), `<` (menor), `>=` (mayor o igual que), `<=` (menor o igual que), `!=` (distinto de).
 - `not b` (negación) : Devuelve `True` si el dato booleano `b` es `False` , y `False` en caso contrario.
 - `b1 and b2` : Devuelve `True` si los datos booleanos `b1` y `b2` son `True`, y `False` en caso contrario.
 - `b1 or b2` : Devuelve `True` si alguno de los datos booleanos `b1` o `b2` son `True`, y `False` en caso contrario.
-</script></section><section data-markdown><script type="text/template">
-### Tabla de verdad
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Tabla de verdad
 
 |   `x`   |   `y`   | `not x` | `x and y` | `x or y` |
 | :-----: | :-----: | :-----: | :-------: | :------: |
@@ -420,8 +507,12 @@ False
 >>> True and True
 True
 ```
-</script></section></section><section  data-markdown><script type="text/template">
-## Conversión de datos primitivos simples
+</script>
+        </section>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## Conversión de datos primitivos simples
 
 Las siguientes funciones convierten un dato de un tipo en otro, siempre y cuando la conversión sea posible.
 
@@ -441,8 +532,11 @@ Las siguientes funciones convierten un dato de un tipo en otro, siempre y cuando
 `bool('3.14')` <i class="fa fa-arrow-right"></i> `True`  
 `bool('')` <i class="fa fa-arrow-right"></i> `False`   
 `bool('Hola')` <i class="fa fa-arrow-right"></i> `True`
-</script></section><section  data-markdown><script type="text/template">
-## Variables
+</script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## Variables
 
 Una variable es un identificador ligado a algún valor.
 
@@ -471,8 +565,11 @@ x -= 1
 x = None
 del x
 ```
-</script></section><section  data-markdown><script type="text/template">
-## Entrada por terminal (`input()`)
+</script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## Entrada por terminal (`input()`)
 
 Para asignar a una variable un valor introducido por el usuario en la consola se utiliza la instrucción
 
@@ -490,8 +587,12 @@ Para asignar a una variable un valor introducido por el usuario en la consola se
 >>> age
 '20'
 ```
-</script></section><section ><section data-markdown><script type="text/template">
-### Salida por terminal (`print()`)
+</script>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Salida por terminal (`print()`)
 
 Para mostrar un dato por la terminal se utiliza la instrucción
 
@@ -503,8 +604,11 @@ donde
 - `sep` establece el separador entre los datos, que por defecto es un espacio en blanco `' '`.
 - `end` indica la cadena final de la impresión, que por defecto es un cambio de línea `\n`.
 - `file` indica la dirección del flujo de salida, que por defecto es la salida estándar `sys.stdout`.
-</script></section><section data-markdown><script type="text/template">
-### Salida por terminal (`print()`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Salida por terminal (`print()`)
 
 ```python
 >>> print('Hola')
@@ -519,8 +623,13 @@ HolaAlf
 >>> print('Hola', name, end='!\n')
 Hola Alf!
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Condicionales (`if`)
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Condicionales (`if`)
 
 > `if condición1:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
@@ -535,8 +644,11 @@ Evalúa la expresión lógica `condición1` y ejecuta el primer bloque de códig
 Pueden aparecer varios bloques `elif` pero solo uno `else` al final.
 
 <i class='fa fa-exclamation-triangle' style='color:red'></i> _Los bloques de código deben estar indentados por 4 espacios._
-</script></section><section data-markdown><script type="text/template">
-### Condicionales
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Condicionales
 
 La instrucción condicional permite evaluar el estado del programa y tomar decisiones sobre qué código ejecutar en función del mismo.
 
@@ -560,8 +672,13 @@ Menor
 ...
 Activo
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Bucles condicionales (`while`)
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Bucles condicionales (`while`)
 
 > `while condición:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
@@ -571,8 +688,11 @@ Repite la ejecución del bloque de código mientras la expresión lógica `condi
 Se puede interrumpir en cualquier momento la ejecución del bloque de código con la instrucción `break`.
 
 <i class='fa fa-exclamation-triangle' style='color:red'></i> _El bloque de código debe estar indentado por 4 espacios._
-</script></section><section data-markdown><script type="text/template">
-### Bucles condicionales
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Bucles condicionales
 
 ```python
 >>> # Pregunta al usuario por un número hasta que introduce 0.
@@ -600,8 +720,13 @@ Introduce un número: 1
 Introduce un número: 0
 >>>
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Bucles iterativos (`for`)
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Bucles iterativos (`for`)
 
 > `for i in secuencia:`  
 &ensp;&ensp;&ensp;&ensp;_`bloque código`_  
@@ -613,8 +738,11 @@ Se puede interrumpir en cualquier momento la ejecución del bloque de código co
 <i class='fa fa-exclamation-triangle' style='color:red'></i> _El bloque de código debe estar indentado por 4 espacios._
 
 Se utiliza fundamentalmente para recorrer colecciones de objetos como cadenas, listas, tuplas o diccionarios.
-</script></section><section data-markdown><script type="text/template">
-### Bucles iterativos
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Bucles iterativos
 
 A menudo se usan con la instrucción `range`:
 
@@ -640,8 +768,13 @@ n
 ...
 1, 3, 5, 7, 9, >>>
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Listas
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Listas
 
 Una **lista** es una secuencias ordenadas de objetos de distintos tipos.
 
@@ -662,8 +795,11 @@ Se caracterizan por:
 # Listas anidadas
 >>> [1, [2, 3], 4]
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación de listas mediante la función `list()`
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de listas mediante la función `list()`
 
 Otra forma de crear listas es mediante la función `list()`.
 
@@ -679,8 +815,11 @@ Se pueden indicar los elementos separados por comas, mediante una cadena, o medi
 >>> list("Python")
 ['P', 'y', 't', 'h', 'o', 'n']
 ```
-</script></section><section data-markdown><script type="text/template">
-### Acceso a los elementos de una lista
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Acceso a los elementos de una lista
 
 Se utilizan los mismos operadores de acceso que para cadenas de caracteres.
 
@@ -701,8 +840,11 @@ IndexError: list index out of range
 >>> a[-1]
 'n'
 ```
-</script></section><section data-markdown><script type="text/template">
-### Sublistas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Sublistas
 
 - `l[i:j:k]` : Devuelve la sublista desde el elemento de `l` con el índice `i` hasta el elemento anterior al índice `j`, tomando elementos cada `k`.
 
@@ -719,8 +861,11 @@ IndexError: list index out of range
 >>> a[0:6:2]
 ['P', 't', 'o']
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones que no modifican una lista
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones que no modifican una lista
 
 - `len(l)` : Devuelve el número de elementos de la lista `l`.
 - `min(l)` : Devuelve el mínimo elemento de la lista `l` siempre que los datos sean comparables.
@@ -731,8 +876,11 @@ IndexError: list index out of range
 - `l.count(dato)` : Devuelve el número de veces que el valor `dato` está contenido en la lista `l`.
 - `all(l)` : Devuelve `True` si todos los elementos de la lista `l` son `True` y `False` en caso contrario.
 - `any(l)` : Devuelve `True` si algún elemento de la lista `l` es `True` y `False` en caso contrario.
-</script></section><section data-markdown><script type="text/template">
-### Operaciones que no modifican una lista
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones que no modifican una lista
 
 ```python
 >>> a = [1, 2, 2, 3]
@@ -755,8 +903,11 @@ True
 >>> any([0, False, 3<2])
 False
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones que modifican una lista
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones que modifican una lista
 
 - `l1 + l2` : Crea una nueva lista concatenan los elementos de la listas `l1` y `l2`.
 - `l.append(dato)` : Añade `dato` al final de la lista `l`. 
@@ -766,8 +917,11 @@ False
 - `l.pop([índice])` : Devuelve el dato en la posición `índice` y lo elimina de la lista `l`, desplazando los elementos por detrás de él una posición hacia delante.
 - `l.sort()` : Ordena los elementos de la lista `l` de acuerdo al orden predefinido, siempre que los elementos sean comparables.
 - `l.reverse()` : invierte el orden de los elementos de la lista `l`.
-</script></section><section data-markdown><script type="text/template">
-### Operaciones que modifican una lista
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones que modifican una lista
 
 ```python
 >>> a = [1, 3]
@@ -793,15 +947,21 @@ False
 >>> c
 [5, 4, 3, 2, 1]
 ```
-</script></section><section data-markdown><script type="text/template">
-### Copia de listas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Copia de listas
 
 Existen dos formas de copiar listas:
 
 - **Copia por referencia** `l1 = l2`: Asocia la la variable `l1` la misma lista que tiene asociada la variable `l2`, es decir, ambas variables apuntan a la misma dirección de memoria. Cualquier cambio que hagamos a través de `l1` o `l2` afectará a la misma lista.
 - **Copia por valor** `l1 = list(l2)`: Crea una copia de la lista asociada a `l2` en una dirección de memoria diferente y se la asocia a `l1`. Las variables apuntan a direcciones de memoria diferentes que contienen los mismos datos. Cualquier cambio que hagamos a través de `l1` no afectará a la lista de `l2` y viceversa.
-</script></section><section data-markdown><script type="text/template">
-### Copia de listas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Copia de listas
 
 ```python
 >>> a = [1, 2, 3]
@@ -828,8 +988,13 @@ Existen dos formas de copiar listas:
 >>> a
 [1, 2, 3]
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Tuplas
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Tuplas
 
 Una **tupla** es una secuencias ordenadas de objetos de distintos tipos.
 
@@ -854,8 +1019,11 @@ Se usan habitualmente para representar colecciones de datos una determinada estr
 # Matriz
 >>> ((1, 2, 3), (4, 5, 6))
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación de tuplas mediante la función `tuple()`
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de tuplas mediante la función `tuple()`
 
 Otra forma de crear tuplas es mediante la función `tuple()`.
 
@@ -873,8 +1041,11 @@ Se pueden indicar los elementos separados por comas, mediante una cadena, o medi
 >>> tuple([1, 2, 3])
 (1, 2, 3)
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones con tuplas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones con tuplas
 
 El acceso a los elementos de una tupla se realiza del mismo modo que en las listas.
 También se pueden obtener subtuplas de la misma manera que las sublistas.
@@ -897,8 +1068,13 @@ False
 >>> b[1][2]
 6
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Diccionarios
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Diccionarios
 
 Un diccionario es una colección de pares formados por una _clave_ y un _valor_ asociado a la clave.
 
@@ -920,8 +1096,11 @@ type({})
 # Diccionarios anidados
 {'nombre_completo':{'nombre': 'Alfredo', 'Apellidos': 'Sánchez Alberca'}}
 ```
-</script></section><section data-markdown><script type="text/template">
-### Acceso a los elementos de un diccionario
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Acceso a los elementos de un diccionario
 
 - `d[clave]` devuelve el valor del diccionario `d` asociado a la clave `clave`. Si en el diccionario no existe esa clave devuelve un error.
 - `d.get(clave, valor)` devuelve el valor del diccionario `d` asociado a la clave `clave`. Si en el diccionario no existe esa clave devuelve `valor`, y si no se especifica un valor por defecto devuelve `None`.
@@ -938,8 +1117,11 @@ type({})
 >>> a.get('universidad', 'CEU')
 'CEU'
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones que no modifican un diccionario
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones que no modifican un diccionario
 
 - `len(d)` : Devuelve el número de elementos del diccionario `d`.
 - `min(d)` : Devuelve la mínima clave del diccionario `d` siempre que las claves sean comparables.
@@ -949,8 +1131,11 @@ type({})
 - `d.keys()` : Devuelve un iterador sobre las claves de un diccionario.
 - `d.values()` : Devuelve un iterador sobre los valores de un diccionario.
 - `d.items()` : Devuelve un iterador sobre los pares clave-valor de un diccionario.
-</script></section><section data-markdown><script type="text/template">
-### Operaciones que no modifican un diccionario
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones que no modifican un diccionario
 
 ```python
 >>> a = {'nombre':'Alfredo', 'despacho': 218, 'email':'asalber@ceu.es'}
@@ -967,8 +1152,11 @@ dict_values(['Alfredo', 218, 'asalber@ceu.es'])
 >>> a.items()
 dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es')])
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones que modifican un diccionario
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones que modifican un diccionario
 
 - `d[clave] = valor` : Añade al diccionario `d` el par formado por la clave `clave` y el valor `valor`.
 - `d.update(d2)`. Añade los pares del diccionario `d2` al diccionario `d`. 
@@ -976,8 +1164,11 @@ dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es'
 - `d.popitem()` : Devuelve la tupla formada por la clave y el valor del último par añadido al diccionario `d` y lo elimina del diccionario.
 - `del d[clave]` : Elimina del diccionario `d` el par con la clave `clave`.
 - `d.clear()` : Elimina todos los pares del diccionario `d` de manera que se queda vacío.
-</script></section><section data-markdown><script type="text/template">
-### Operaciones que modifican un diccionario
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones que modifican un diccionario
 
 ```python
 >>> a = {'nombre':'Alfredo', 'despacho': 218, 'email':'asalber@ceu.es'}
@@ -999,15 +1190,21 @@ dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es'
 >>> a
 {}
 ```
-</script></section><section data-markdown><script type="text/template">
-### Copia de diccionarios
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Copia de diccionarios
 
 Existen dos formas de copiar diccionarios:
 
 - **Copia por referencia** `d1 = d2`: Asocia la la variable `d1` el mismo diccionario que tiene asociado la variable `d2`, es decir, ambas variables apuntan a la misma dirección de memoria. Cualquier cambio que hagamos a través de `l1` o `l2` afectará al mismo diccionario.
 - **Copia por valor** `d1 = list(d2)`: Crea una copia del diccionario asociado a `d2` en una dirección de memoria diferente y se la asocia a `d1`. Las variables apuntan a direcciones de memoria diferentes que contienen los mismos datos. Cualquier cambio que hagamos a través de `l1` no afectará al diccionario de `l2` y viceversa.
-</script></section><section data-markdown><script type="text/template">
-### Copia de diccionarios
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Copia de diccionarios
 
 ```python
 >>> a = {1:'A', 2:'B', 3:'C'}
@@ -1034,8 +1231,13 @@ Existen dos formas de copiar diccionarios:
 >>> a
 {1:'A', 2:'B', 3:'C'}
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Funciones (`def`)
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Funciones (`def`)
 
 Una función es un bloque de código que tiene asociado un nombre, de manera que cada vez que se quiera ejecutar el bloque de código basta con invocar el nombre de la función.
 
@@ -1055,8 +1257,11 @@ Para declarar una función se utiliza la siguiente sintaxis:
 >>> bienvenida()
 ¡Bienvenido a Python!
 ```
-</script></section><section data-markdown><script type="text/template">
-### Parámetros de una función
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Parámetros de una función
 
 Una función puede recibir valores cuando se invoca a través de unas variables conocidas como _parámetros_ que se definen entre paréntesis en la declaración de la función. En el cuerpo de la función se pueden usar estos parámetros como si fuesen variables.
 
@@ -1070,8 +1275,11 @@ Los valores que se pasan a la función en una invocación concreta de ella se co
 >>> bienvenida('Alf')
 ¡Bienvenido a Python Alf!
 ```
-</script></section><section data-markdown><script type="text/template">
-### Argumentos de la llamada a una función
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Argumentos de la llamada a una función
 
 Los valores que se pasan a la función en una llamada o invocación concreta de ella se conocen como _argumentos_ y se asocian a los parámetros de la declaración de la función.
 
@@ -1090,8 +1298,11 @@ Los argumentos se pueden indicar de dos formas:
 >>> bienvenida(apellido = 'Sánchez', nombre = 'Alfredo')
 ¡Bienvenido a Python Alfredo Sánchez!
 ```
-</script></section><section data-markdown><script type="text/template">
-### Retorno de una función
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Retorno de una función
 
 Una función puede devolver un objeto de cualquier tipo tras su invocación. Para ello el objeto a devolver debe escribirse detrás de la palabra reservada `return`. Si no se indica ningún objeto, la función no devolverá nada.
 
@@ -1104,8 +1315,11 @@ Una función puede devolver un objeto de cualquier tipo tras su invocación. Par
 >>> area_triangulo(4, 5)
 10
 ```
-</script></section><section data-markdown><script type="text/template">
-## Argumentos por defecto
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Argumentos por defecto
 
 En la definición de una función se puede asignar a cada parámetro un argumento por defecto, de manera que si se invoca la función sin proporcionar ningún argumento para ese parámetro, se utiliza el argumento por defecto.
 
@@ -1119,8 +1333,11 @@ En la definición de una función se puede asignar a cada parámetro un argument
 >>> bienvenida('Alf', 'Java')
 ¡Bienvenido a Java Alf!
 ```
-</script></section><section data-markdown><script type="text/template">
-## Pasar un número indeterminado de argumentos
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Pasar un número indeterminado de argumentos
 
 Por último, es posible pasar un número variable de argumentos a un parámetro. Esto se puede hacer de dos formas:
 
@@ -1137,8 +1354,11 @@ Por último, es posible pasar un número variable de argumentos a un parámetro.
 >>> menu('pasta', 'pizza', 'ensalada')
 Hoy tenemos: pasta, pizza, ensalada,
 ```
-</script></section><section data-markdown><script type="text/template">
-## Ámbito de los parámetros y variables de una función
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Ámbito de los parámetros y variables de una función
 Los parámetros y las variables declaradas dentro de una función son de **ámbito local**, mientras que las definidas fuera de ella son de ámbito **ámbito global**.
 
 Tanto los parámetros como las variables del ámbito local de una función sólo están accesibles durante la ejecución de la función, es decir, cuando termina la ejecución de la función estas variables desaparecen y no son accesibles desde fuera de la función.
@@ -1156,8 +1376,11 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'lenguaje' is not defined
 ```
-</script></section><section data-markdown><script type="text/template">
-## Ámbito de los parámetros y variables de una función
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Ámbito de los parámetros y variables de una función
 Si en el ámbito local de una función existe una variable que también existe en el ámbito global, durante la ejecución de la función la variable global queda eclipsada por la variable local y no es accesible hasta que finaliza la ejecución de la función.
 
 ```python
@@ -1172,8 +1395,11 @@ Si en el ámbito local de una función existe una variable que también existe e
 >>> print(lenguaje)
 Java
 ```
-</script></section><section data-markdown><script type="text/template">
-## Paso de argumentos por referencia
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Paso de argumentos por referencia
 
 En Python el paso de argumentos a una función es siempre por referencia, es decir, se pasa una referencia al objeto del argumento, de manera que cualquier cambio que se haga dentro de la función mediante el parámetro asociado afectará al objeto original, siempre y cuando este sea mutable.
 
@@ -1187,8 +1413,11 @@ En Python el paso de argumentos a una función es siempre por referencia, es dec
 >>> print(primer_curso)
 ['Matemáticas', 'Física', 'Química']
 ```
-</script></section><section data-markdown><script type="text/template">
-## Documentación de funciones
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Documentación de funciones
 
 Una práctica muy recomendable cuando se define una función es describir lo que la función hace en un comentario.
 
@@ -1218,8 +1447,13 @@ area_triangulo(base, altura)
     Resultado:
         El área del triángulo con la base y altura especificadas.
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Funciones recursivas
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Funciones recursivas
 
 Una función recursiva es una función que en su cuerpo contiene una llama a si misma.
 
@@ -1237,8 +1471,11 @@ Para garantizar el final de una función recursiva, las sucesivas llamadas tiene
 >>> f(5)
 120
 ```
-</script></section><section data-markdown><script type="text/template">
-### Funciones recursivas múltiples
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Funciones recursivas múltiples
 
 Una función recursiva puede invocarse a si misma tantas veces como quiera en su cuerpo.
 
@@ -1252,8 +1489,11 @@ Una función recursiva puede invocarse a si misma tantas veces como quiera en su
 >>> fibonacci(6)
 8
 ```
-</script></section><section data-markdown><script type="text/template">
-### Los riesgos de la recursión
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Los riesgos de la recursión
 
 Aunque la recursión permite resolver las tareas recursivas de forma más natural, hay que tener cuidado con ella porque suele consumir bastante memoria, ya que cada llamada a la función crea un nuevo ámbito local con las variables y los parámetros de la función.
 
@@ -1269,30 +1509,44 @@ En muchos casos es más eficiente resolver la tarea recursiva de forma iterativa
 >>> fibonacci(6)
 8
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Módulos
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Módulos
 
 El código de un programa en Python puede reutilizarse en otro importándolo. Cualquier fichero con código de Python reutilizable se conoce como _módulo_ o _librería_.
 
 Los módulos suelen contener funciones reutilizables, pero también pueden definir variables con datos simples o compuestos (listas, diccionarios, etc), o cualquier otro código válido en Python.
 
 Python permite importar un módulo completo o sólo algunas partes de él. Cuando se importa un módulo completo, el intérprete de Python ejecuta todo el código que contiene el módulo, mientras que si solo se importan algunas partes del módulo, solo se ejecutarán esas partes.
-</script></section><section data-markdown><script type="text/template">
-### Importación completa de módulos (`import`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Importación completa de módulos (`import`)
 
 - `import M` : Ejecuta el código que contiene `M` y crea una referencia a él, de manera que pueden invocarse un objeto o función `f` definida en él mediante la sintaxis `M.f`.
 
 - `import M as N` : Ejecuta el código que contiene `M` y crea una referencia a él con el nombre `N`, de manera que pueden invocarse un objeto o función `f` definida en él mediante la sintaxis `N.f`. Esta forma es similar a la anterior, pero se suele usar cuando el nombre del módulo es muy largo para utilizar un alias más corto.
-</script></section><section data-markdown><script type="text/template">
-### Importación parcial de módulos (`from import`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Importación parcial de módulos (`from import`)
 
 - `from M import f, g, ...` : Ejecuta el código que contiene `M` y crea referencias a los objetos `f, g, ...`, de manera que pueden ser invocados por su nombre. De esta manera para invocar cualquiera de estos objetos no hace falta precederlos por el nombre del módulo, basta con escribir su nombre.
 
 - `from M import *` : Ejecuta el código que contiene `M` y crea referencias a todos los objetos públicos (aquellos que no empiezan por el carácter `_`) definidos en el módulo, de manera que pueden ser invocados por su nombre.
 
 <i class='fa fa-exclamation-triangle' style='color:red'></i>Cuando se importen módulos de esta manera hay que tener cuidado de que no haya coincidencias en los nombres de funciones, variables u otros objetos.
-</script></section><section data-markdown><script type="text/template">
-### Importación de módulos
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Importación de módulos
 
 ```python
 >>> import calendar
@@ -1311,8 +1565,11 @@ Mo Tu We Th Fr Sa Su
 >>> cos(pi)
 -1.0
 ```
-</script></section><section data-markdown><script type="text/template">
-### Módulos de la librería estándar más importantes
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Módulos de la librería estándar más importantes
 
 Python viene con una [biblioteca de módulos predefinidos](https://docs.python.org/3/py-modindex.html) que no necesitan instalarse. Algunos de los más utilizados son:
 
@@ -1325,8 +1582,11 @@ Python viene con una [biblioteca de módulos predefinidos](https://docs.python.o
 - [math](https://docs.python.org/3/library/math.html): Funciones y constantes matemáticas.
 - [statistics](https://docs.python.org/3/library/statistics.html): Funciones estadísticas.
 - [random](https://docs.python.org/3/library/random.html): Generación de números pseudo-aleatorios.
-</script></section><section data-markdown><script type="text/template">
-### Otros módulos imprescindibles
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Otros módulos imprescindibles
 
 Necesitan instalarse.
 
@@ -1335,8 +1595,13 @@ Necesitan instalarse.
 - [matplotlib](https://matplotlib.org/): Análisis y representación gráfica de datos.
 - [Pandas](https://pandas.pydata.org/): Funciones para el manejo y análisis de estructuras de datos.
 - [Request](http://www.python-requests.org/en/master/): Acceso a internet por http.
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Programación funcional
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Programación funcional
 
 En Python las funciones son objetos de primera clase, es decir, que pueden pasarse como argumentos de una función, al igual que el resto de los tipos de datos.
 
@@ -1355,8 +1620,11 @@ En Python las funciones son objetos de primera clase, es decir, que pueden pasar
 >>> aplica(cubo, 5)
 125
 ```
-</script></section><section data-markdown><script type="text/template">
-### Funciones anónimas (`lambda`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Funciones anónimas (`lambda`)
 
 Existe un tipo especial de funciones que no tienen nombre asociado y se conocen como **funciones anónimas** o **funciones lambda**.
 
@@ -1371,8 +1639,11 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 >>> area(4, 5)
 10
 ```
-</script></section><section data-markdown><script type="text/template">
-### Aplicar una función a todos los elementos de una colección iterable (`map`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Aplicar una función a todos los elementos de una colección iterable (`map`)
 
 `map(f, c)` : Devuelve una objeto iterable con los resultados de aplicar la función `f` a los elementos de la colección `c`. Si la función `f` requiere `n` argumentos entonces deben pasarse `n` colecciones con los argumentos. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones `list()`, `tuple()` o `dic()` respectivamente.
 
@@ -1390,8 +1661,11 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 >>> tuple(map(rectangulo, (1, 2, 3), (4, 5, 6)))
 (4, 10, 18)
 ```
-</script></section><section data-markdown><script type="text/template">
-### Filtrar los elementos de una colección iterable (filter)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Filtrar los elementos de una colección iterable (filter)
 
 `filter(f, c)` : Devuelve una objeto iterable con los elementos de la colección `c` que devuelven `True` al aplicarles la función `f`. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones `list()`, `tuple()` o `dic()` respectivamente.
 
@@ -1404,8 +1678,11 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 >>> list(filter(par, range(10))
 [0, 2, 4, 6, 8]
 ```
-</script></section><section data-markdown><script type="text/template">
-### Combinar los elementos de varias colecciones iterables (`zip`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Combinar los elementos de varias colecciones iterables (`zip`)
 
 `zip(c1, c2, ...)` : Devuelve un objeto iterable cuyos elementos son tuplas formadas por los elementos que ocupan la misma posición en las colecciones `c1`, `c2`, etc. El número de elementos de las tuplas es el número de colecciones que se pasen. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones `list()`, `tuple()` o `dic()` respectivamente.
 
@@ -1417,8 +1694,11 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 >>> dict(zip(asignaturas, notas[:3]))
 {'Matemáticas': 6.0, 'Física': 3.5, 'Química': 7.5}
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operar todos los elementos de una colección iterable (`reduce`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operar todos los elementos de una colección iterable (`reduce`)
 
 `reduce(f, l)` : Aplicar la función `f` a los dos primeros elementos de la secuencia `l`. Con el valor obtenido vuelve a aplicar la función `f` a ese valor y el siguiente de la secuencia, y así hasta que no quedan más elementos en la lista. Devuelve el valor resultado de la última aplicación de la función `f`.
 
@@ -1432,12 +1712,20 @@ La función `reduce` está definida en el módulo `functools`.
 >>> reduce(producto, range(1, 5))
 24
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Comprensión de colecciones
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Comprensión de colecciones
 
 En muchas aplicaciones es habitual aplicar una función o realizar una operación con los elementos de una colección (lista, tupla o diccionario) y obtener una nueva colección de elementos transformados. Aunque esto se puede hacer recorriendo la secuencia con un bucle iterativo, y en programación funcional mediante la función `map`, Python incorpora un mecanismo muy potente que permite esto mismo de manera más simple.
-</script></section><section data-markdown><script type="text/template">
-### Comprensión de listas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Comprensión de listas
 
 > [_expresion_ `for` _variable_ `in` _lista_ `if` _condicion_]
 
@@ -1454,8 +1742,11 @@ Esta instrucción genera la lista cuyos elementos son el resultado de evaluar la
 >>> [nombre for (nombre, nota) in notas.items() if nota >= 5]
 ['Carmen', 'Juan', 'Mónica', 'María']
 ```
-</script></section><section data-markdown><script type="text/template">
-### Comprensión de diccionarios
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Comprensión de diccionarios
 
 > {_expresion-clave_`:`_expresion-valor_ `for` _variables_ `in` _lista_ `if` _condicion_}
 
@@ -1468,8 +1759,13 @@ Esta instrucción genera el diccionario formado por los pares cuyas claves son e
 >>> {nombre: nota +1 for (nombre, nota) in notas.items() if nota >= 5])
 {'Carmen': 6, 'Juan': 9, 'Mónica': 10, 'María': 7}
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Ficheros
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Ficheros
 
 Hasta ahora hemos visto como interactuar con un programa a través del teclado (entrada de datos) y la terminal (salida), pero en la mayor parte de las aplicaciones reales tendremos que leer y escribir datos en ficheros.
 
@@ -1481,8 +1777,11 @@ Las operaciones más habituales con ficheros son:
 - Escribir datos en un fichero.
 - Leer datos de un fichero.
 - Borrar un fichero.
-</script></section><section data-markdown><script type="text/template">
-### Creación y escritura de ficheros
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación y escritura de ficheros
 
 Para crear un fichero nuevo se utiliza la instrucción
 
@@ -1498,8 +1797,11 @@ Una vez creado el fichero, para escribir datos en él se utiliza el método
 >>> f = open('bienvenida.txt', 'w')
 ... f.write('¡Bienvenido a Python!')
 ```
-</script></section><section data-markdown><script type="text/template">
-### Añadir datos a un fichero
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Añadir datos a un fichero
 
 Si en lugar de crear un fichero nuevo queremos añadir datos a un fichero existente se debe utilizar la instrucción
 
@@ -1511,16 +1813,22 @@ Una vez abierto el fichero, se utiliza el método de escritura anterior y los da
 >>> f = open('bienvenida.txt', 'a')
 ... f.write('\n¡Hasta pronto!')
 ```
-</script></section><section data-markdown><script type="text/template">
-### Leer datos de un fichero
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Leer datos de un fichero
 
 Para abrir un fichero en modo lectura se utiliza la instrucción
 
 `open(ruta, 'r')` : Abre el fichero con la ruta `ruta` en modo lectura (el argumento 'r' significa _read_) y devuelve un objeto que lo referencia.
 
 Una vez abierto el fichero, se puede leer todo el contenido del fichero o se puede leer línea a línea.
-</script></section><section data-markdown><script type="text/template">
-### Leer datos de un fichero
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Leer datos de un fichero
 
 `fichero.read()` : Devuelve todos los datos contenidos en `fichero` como una cadena de caracteres.
 
@@ -1539,8 +1847,11 @@ Una vez abierto el fichero, se puede leer todo el contenido del fichero o se pue
 >>> print(lineas)
 ['Bienvenido a Python!\n', '¡Hasta pronto!']
 ```
-</script></section><section data-markdown><script type="text/template">
-### Cerrar un fichero
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Cerrar un fichero
 
 Para cerrar un fichero se utiliza el método
 
@@ -1556,8 +1867,11 @@ Cuando se termina de trabajar con un fichero conviene cerrarlo, sobre todo si se
 ¡Bienvenido a Python!
 ¡Hasta pronto!
 ```
-</script></section><section data-markdown><script type="text/template">
-### Renombrado y borrado de un fichero
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Renombrado y borrado de un fichero
 
 Para renombra o borrar un fichero se utilizan funciones del módulo `os`.
 
@@ -1568,8 +1882,11 @@ Para renombra o borrar un fichero se utilizan funciones del módulo `os`.
 Antes de borrar o renombra un directorio conviene comprobar que existe para que no se produzca un error. Para ello se utiliza la función
 
 `os.path.isfile(ruta)` : Devuelve `True` si existe un fichero en la ruta `ruta` y `False` en caso contrario.
-</script></section><section data-markdown><script type="text/template">
-### Renombrado y borrado de un fichero o directorio
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Renombrado y borrado de un fichero o directorio
 
 ```python
 >>> import os
@@ -1586,8 +1903,11 @@ Antes de borrar o renombra un directorio conviene comprobar que existe para que 
 ...     print('¡El fichero', f, 'no existe!')
 ...
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación, cambio y eliminación de directorios
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación, cambio y eliminación de directorios
 
 Para trabajar con directorios también se utilizan funciones del módulo `os`.
 
@@ -1600,12 +1920,34 @@ Para trabajar con directorios también se utilizan funciones del módulo `os`.
 `os.getcwd()` : Devuelve una cadena con la ruta del directorio actual.
 
 `os.rmdir(ruta)` : Borra el directorio de la ruta `ruta`, siempre y cuando esté vacío.
-</script></section><section data-markdown><script type="text/template">
-### Leer un fichero de internet
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Leer un fichero de internet
 
 Para leer un fichero de internet hay que utilizar la función `urlopen` del módulo `urllib.request`.
 
 `urlopen(url)` : Abre el fichero con la `url` especificada y devuelve un objeto del tipo fichero al que se puede acceder con los métodos de lectura de ficheros anteriores.
+
+```python
+>>> from urllib import request
+>>> f = request.urlopen('https://raw.githubusercontent.com/asalber/asalber.github.io/master/README.md')
+>>> datos = f.read()
+>>> print(datos)
+b'Aprende con Alf\n===============\n\nEste es el repositorio del sitio web Aprende con Alf: http://aprendeconalf.es\n'
+```
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Decodificar un fichero de internet
+
+El fichero que se obtiene con la función `urlopen` está en formato binario y al leerlo se obtiene un objeto de tipo `bytes` con la sequencia de bytes del fichero. Para convertirlo en una cadena hay que decodificar el objeto, y para ello se utiliza la siguiente función:
+
+- `b.decode(codificacion)` : Devuelve la cadena que resulta de decodificar la secuencia de bytes `b` utilizando la codificación `codificacion`.
+
+Existen muchas codificaciones pero las más habituales son `utf8` (normalmente en sistemas Mac y Linux) y `latin1` para lenguas europeas en sistemas Windows. En el siguiente enlace se puede acceder a la [lista de codificaciones](https://docs.python.org/3/library/codecs.html#standard-encodings)
 
 ```python
 >>> from urllib import request
@@ -1617,8 +1959,13 @@ Aprende con Alf
 
 Este es el repositorio del sitio web Aprende con Alf: http://aprendeconalf.es
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Control de errores mediante excepciones
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Control de errores mediante excepciones
 
 Python utiliza un objeto especial llamado **excepción** para controlar cualquier error que pueda ocurrir durante la ejecución de un programa.
 
@@ -1630,8 +1977,11 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ZeroDivisionError: division by zero
 ```
-</script></section><section data-markdown><script type="text/template">
-### Tipos de excepciones
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Tipos de excepciones
 
 Los principales excepciones definidas en Python son:
 
@@ -1644,8 +1994,11 @@ Los principales excepciones definidas en Python son:
 - `ImportError` : Ocurre cuando falla la importación de un módulo.
 
 Consultar la documentaciónde Python para ver la [lista de exepciones predefinidas](https://docs.python.org/3/library/exceptions.html).
-</script></section><section data-markdown><script type="text/template">
-### Control de excepciones (`try - except - else`)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Control de excepciones (`try - except - else`)
 
 Para evitar la interrución de la ejecución del programa cuando se produce un error, es posible controlar la exepción que se genera con la siguiente instrucción:
 
@@ -1657,8 +2010,11 @@ Para evitar la interrución de la ejecución del programa cuando se produce un e
 &ensp;&ensp;&ensp;&ensp; _bloque código 3_
 
 Esta instrucción ejecuta el primer bloque de código y si se produce un error que genera una excepción del tipo _excepción_ entonces ejecuta el segundo bloque de código, mientras que si no se produce ningún error, se ejecuta el tercer bloque de código.
-</script></section><section data-markdown><script type="text/template">
-### Control de excepciones
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Control de excepciones
 
 ```python
 >>> def division(a, b):
@@ -1686,24 +2042,35 @@ Esta instrucción ejecuta el primer bloque de código y si se produce un error q
 ```
 
 <!-- TODO: Añadir sección de programación orientada a objetos -->
-</script></section></section><section ><section data-markdown><script type="text/template">
-## La librería NumPy
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## La librería NumPy
 
 [NumPy](https://www.numpy.org) es una librería de Python especializada en el cálculo numérico y el análisis de datos, especialmente para un gran volumen de datos.
 
 Incorpora una nueva clase de objetos llamados **arrays** que permite representar colecciones de datos de un mismo tipo en varias dimensiones, y funciones muy eficientes para su manipulación.
 
 <img src="img/numpy-logo.png" alt="Gráfico con matplotlib" height="200px">
-</script></section><section data-markdown><script type="text/template">
-## La clase de objetos `array`
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## La clase de objetos `array`
 
 Un array es una estructura de datos de un mismo tipo organizada en forma de tabla o cuadrícula de distintas dimensiones.
 
 Las dimensiones de un array también se conocen como **ejes**.
 
 <img src="img/arrays.png" alt="Gráfico con matplotlib" height="400px">
-</script></section><section data-markdown><script type="text/template">
-## Creación de arrays
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Creación de arrays
 
 Para crear un array se utiliza la siguiente función de NumPy
 
@@ -1715,8 +2082,11 @@ Para crear un array se utiliza la siguiente función de NumPy
 - Y así sucesivamente. No hay límite en el número de dimensiones del array más allá de la memoria disponible en el sistema.
 
 <i class='fa fa-exclamation-triangle' style='color:red'></i> Los elementos de la lista o tupla deben ser del mismo tipo.
-</script></section><section data-markdown><script type="text/template">
-### Creación de arrays
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de arrays
 
 ```python
 >>> # Array de una dimensión
@@ -1737,8 +2107,11 @@ Para crear un array se utiliza la siguiente función de NumPy
  [[ 7  8  9]
   [10 11 12]]]
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación de arrays
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de arrays
 
 Otras funciones útiles que permiten generar arrays son:
 
@@ -1749,16 +2122,22 @@ Otras funciones útiles que permiten generar arrays son:
 `np.ones(dimensiones)` : Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla `dimensiones` cuyos elementos son todos unos.
 
 `np.full(dimensiones, valor)` : Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla `dimensiones` cuyos elementos son todos `valor`.
-</script></section><section data-markdown><script type="text/template">
-`np.identity(n)` : Crea y devuelve una referencia a la matriz identidad de dimensión `n`.
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            `np.identity(n)` : Crea y devuelve una referencia a la matriz identidad de dimensión `n`.
 
 `np.arange(inicio, fin, salto)` : Crea y devuelve una referencia a un array de una dimensión cuyos elementos son la secuencia desde `inicio` hasta `fin` tomando valores cada `salto`.
 
 `np.linspace(inicio, fin, n)` : Crea y devuelve una referencia a un array de una dimensión cuyos elementos son la secuencia de `n` valores equidistantes desde `inicio` hasta `fin`.
 
 `np.random.random(dimensiones)` : Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla `dimensiones` cuyos elementos son aleatorios.
-</script></section><section data-markdown><script type="text/template">
-## Creación de arrays
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Creación de arrays
 
 ```python
 >>> print(np.zeros(3,2))
@@ -1773,8 +2152,11 @@ Otras funciones útiles que permiten generar arrays son:
 >>> print(np.linspace(0, 10, 5))
 [ 0.   2.5  5.   7.5 10. ]
 ```
-</script></section><section data-markdown><script type="text/template">
-### Atributos de un array
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Atributos de un array
 
 Existen varios atributos y funciones que describen las características de un array.
 
@@ -1785,8 +2167,11 @@ Existen varios atributos y funciones que describen las características de un ar
 `a.size` : Devuelve el número de elementos del array `a`.
 
 `a.dtype`: Devuelve el tipo de datos de los elementos del array `a`.
-</script></section><section data-markdown><script type="text/template">
-### Acceso a los elementos de un array
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Acceso a los elementos de un array
 
 Para acceder a los elementos contenidos en un array se usan índices al igual que para acceder a los elementos de una lista, pero indicando los índices de cada dimensión separados por comas.
 
@@ -1804,8 +2189,11 @@ También es posible obtener subarrays con el operador dos puntos `:` indicando e
 [[1 2]
  [4 5]]
 ```
-</script></section><section data-markdown><script type="text/template">
-### Filtrado de elementos de un array
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Filtrado de elementos de un array
 
 Una característica muy útil de los arrays es que es muy fácil obtener otro array con los elementos que cumplen una condición.
 
@@ -1818,8 +2206,11 @@ Una característica muy útil de los arrays es que es muy fácil obtener otro ar
 >>> print(a[(a % 2 == 0) &  (a > 2)])
 [2 4]
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones matemáticas con arrays
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones matemáticas con arrays
 
 Existen dos formas de realizar operaciones matemáticas con arrays: a nivel de elemento y a nivel de array.
 
@@ -1840,8 +2231,11 @@ Los operadores mamemáticos `+`, `-`, `*`, `/`, `%`, `**` se utilizan para la re
 [[ 1  4  9]
  [16 25 36]]
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones matemáticas a nivel de array
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones matemáticas a nivel de array
 
 Para realizar el producto matricial se utiliza el método
 
@@ -1862,14 +2256,22 @@ Y para trasponer una matriz se utiliza el método
  [2 5]
  [3 6]]
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## La librería Pandas
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## La librería Pandas
 
 [Pandas](https://pandas.pydata.org) es una librería de Python especializada en el manejo y análisis de estructuras de datos.
 
 ![Logo librería Pandas](img/pandas-logo.png)
-</script></section><section data-markdown><script type="text/template">
-## Características de Pandas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Características de Pandas
 
 - Define nuevas estructuras de datos basadas en los arrays de la librería NumPy pero con nuevas funcionalidades.
 - Permite leer y escribir fácilmente ficheros en formato CSV, Excel y bases de datos SQL.
@@ -1877,8 +2279,11 @@ Y para trasponer una matriz se utiliza el método
 - Ofrece métodos para reordenar, dividir y combinar conjuntos de datos.
 - Permite trabajar con series temporales.
 - Realiza todas estas operaciones de manera muy eficiente.
-</script></section><section data-markdown><script type="text/template">
-### Tipos de datos de Pandas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Tipos de datos de Pandas
 
 Pandas dispone de tres estructuras de datos diferentes:
 
@@ -1887,16 +2292,24 @@ Pandas dispone de tres estructuras de datos diferentes:
 - Panel: Estructura de tres dimensiones (cubos).
 
 Estas estructuras se construyen a parir de arrays de la librería NumPy, añadiendo nuevas funcionalidades.
-</script></section></section><section ><section data-markdown><script type="text/template">
-## La clase de objetos Series
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## La clase de objetos Series
 
 Son estructuras similares a los arrays de una dimensión. Son homogéneas, es decir, sus elementos tienen que ser del mismo tipo, y su tamaño es inmutable, es decir, no se puede cambiar, aunque si su contenido.
 
 Dispone de un índice que asocia un nombre a cada elemento del la serie, a través de la cuál se accede al elemento.
 
 ![Ejemplo de serie](img/pandas-series.png)
-</script></section><section data-markdown><script type="text/template">
-### Creación de una serie a partir de una lista
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de una serie a partir de una lista
 
 - `Series(data=lista, index=indices, dtype=tipo)` : Devuelve un objeto de tipo Series con los datos de la lista `lista`, las filas especificados en la lista `indices` y el tipo de datos indicado en `tipo`. Si no se pasa la lista de índices se utilizan como índices los enteros del 0 al $n-1$, done $n$ es el tamaño de la serie. Si no se pasa el tipo de dato se infiere.
 
@@ -1911,8 +2324,11 @@ Dispone de un índice que asocia un nombre a cada elemento del la serie, a trav�
 4          Inglés
 dtype: string
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación de una serie a partir de un diccionario
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de una serie a partir de un diccionario
 
 - `Series(data=diccionario, index=indices)`: Devuelve un objeto de tipo Series con los valores del diccionario `diccionario` y las filas especificados en la lista `indices`. Si no se pasa la lista de índices se utilizan como índices las claves del diccionario.
 
@@ -1925,8 +2341,11 @@ Economía        4.5
 Programación    8.5
 dtype: float64
 ```
-</script></section><section data-markdown><script type="text/template">
-### Acceso a los elementos de una serie
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Acceso a los elementos de una serie
 
 El acceso a los elementos de un objeto del tipo Series puede ser a través de posiciones o través de índices (nombres).
 
@@ -1941,8 +2360,11 @@ Acceso por índice:
 
 - `s[nombre]` : Devuelve el elemento con el nombre `nombre` en el índice.
 - `s[nombres]` : Devuelve otra serie con los elementos correspondientes a los nombres indicadas en la lista `nombres` en el índice.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> s[1:3]
 Economía        4.5
 Programación    8.5
@@ -1954,24 +2376,35 @@ Programación    8.5
 Matemáticas     6.0
 dtype: float64
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## La clase de objetos DataFrame
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## La clase de objetos DataFrame
 
 Un objeto del tipo DataFrame define un conjunto de datos estructurado en forma de tabla donde cada columna es un objeto de tipo Series, es decir, todos los datos de una misma columna son del mismo tipo, y las filas con registros que pueden contender datos de distintos tipos.
 
 Un DataFrame contiene dos índices, uno para las filas y otro para las columnas.
 
 ![Ejemplo de DataFrame](img/pandas-dataframe.png)
-</script></section><section data-markdown><script type="text/template">
-### Creación de un DataFrame a partir de un diccionario de listas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de un DataFrame a partir de un diccionario de listas
 
 Para crear un DataFrame a partir de un diccionario cuyas claves son los nombres de las columnas y los valores son listas con los datos de las columnas se utiliza el método:
 
 - `DataFrame(data=diccionario, index=filas, columns=columnas, dtype=tipos)` : Devuelve un objeto del tipo DataFrame cuyas columnas son las listas contenidas en los valores del diccionario `diccionario`, los nombres de filas indicados en la lista `filas`, los nombres de columnas indicados en la lista `columnas` y los tipos indicados en la lista `tipos`. La lista `filas` tiene que tener el mismo tamaño que las listas del diccionario, mientras que las listas `columnas` y `tipos` tienen que tener el mismo tamaño que el diccionario. Si no se pasa la lista de filas se utilizan como nombres los enteros empezando en 0. Si no se pasa la lista de columnas se utilizan como nombres las claves del diccionario. Si no se pasa la lista de tipos, se infiere.
 
 <i class='fa fa-exclamation-triangle' style="color:red"></i> Los valores asociados a las claves del diccionario deben ser listas del mismo tamaño.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> datos = {'nombre':['María', 'Luis', 'Carmen', 'Antonio'],
 ... 'edad':[18, 22, 20, 21],
@@ -1986,16 +2419,22 @@ Para crear un DataFrame a partir de un diccionario cuyas claves son los nombres 
 2   Carmen    20  Arquitectura   carmen@gmail.com
 3  Antonio    21      Economía  antonio@gmail.com
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación de un DataFrame a partir de una lista de listas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de un DataFrame a partir de una lista de listas
 
 Para crear un DataFrame a partir de una lista de listas con los datos de las columnas se utiliza el siguiente método:
 
 - `DataFrame(data=listas, index=filas, columns=columnas, dtype=tipos)` : Devuelve un objeto del tipo DataFrame cuyas columnas son los valores de las listas de la lista `listas`, los nombres de filas indicados en la lista `filas`, los nombres de columnas indicados en la lista `columnas` y los tipos indicados en la lista `tipos`. La lista `filas`, tiene que tener el mismo tamaño que la lista `listas` mientras que las listas `columnas` y `tipos` tienen que tener el mismo tamaño que las listas anidadas en `listas`. Si no se pasa la lista de filas o de columnas se utilizan enteros empezando en 0. Si no se pasa la lista de tipos, se infiere.
 
 <i class='fa fa-exclamation-triangle' style="color:red"></i> Si las listas anidadas en `listas` no tienen el mismo tamaño, las listas menores se rellenan con valores `NaN`.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> df = pd.DataFrame([['María', 18], ['Luis', 22], ['Carmen', 20]], columns=['Nombre', 'Edad'])
 >>> print(df)
@@ -2004,16 +2443,22 @@ Para crear un DataFrame a partir de una lista de listas con los datos de las col
 1    Luis     22
 2  Carmen     20
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación de un DataFrame a partir de una lista de diccionarios
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de un DataFrame a partir de una lista de diccionarios
 
 Para crear un DataFrame a partir de una lista de diccionarios con los datos de las filas, se utiliza el siguiente método:
 
 - `DataFrame(data=diccionarios, index=filas, columns=columnas, dtype=tipos)` : Devuelve un objeto del tipo DataFrame cuyas filas contienen los valores de los diccionarios de la lista `diccionarios`, los nombres de filas indicados en la lista `filas`, los nombres de columnas indicados en la lista `columnas` y los tipos indicados en la lista `tipos`. La lista `filas` tiene que tener el mismo tamaño que la lista `lista`. Si no se pasa la lista de filas se utilizan enteros empezando en 0. Si no se pasa la lista de columnas se utilizan las claves de los diccionarios. Si no se pasa la lista de tipos, se infiere.
 
 <i class='fa fa-exclamation-triangle' style="color:red"></i> Si los diccionarios no tienen las mismas claves, las claves que no aparecen en el diccionario se rellenan con valores `NaN`.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> df = pd.DataFrame([{'Nombre':'María', 'Edad':18}, {'Nombre':'Luis', 'Edad':22}, {'Nombre':'Carmen'}])
 >>> print(df)
@@ -2021,8 +2466,11 @@ Para crear un DataFrame a partir de una lista de diccionarios con los datos de l
 1    Luis  22.0
 2  Carmen   NaN
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación de un DataFrame a partir de un array
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de un DataFrame a partir de un array
 
 - `DataFrame(data=array, index=filas, columns=columnas, dtype=tipo)` : Devuelde un objeto del tipo DataFrame cuyas filas y columnas son las del array `array`, los nombres de filas indicados en la lista `filas`, los nombres de columnas indicados en la lista `columnas` y el tipo indicado en `tipo`. La lista `filas` tiene que tener el mismo tamaño que el número de filas del array y la lista `columnas` el mismo tamaño que el número de columnas del array. Si no se pasa la lista de filas se utilizan enteros empezando en 0. Si no se pasa la lista de columnas se utilizan las claves de los diccionarios. Si no se pasa la lista de tipos, se infiere.
 
@@ -2036,12 +2484,18 @@ Para crear un DataFrame a partir de una lista de diccionarios con los datos de l
 2 -0.805470 -0.629498  0.935066
 3  0.236936 -0.431673 -0.177379
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación de un DataFrame a partir de un fichero CSV
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de un DataFrame a partir de un fichero CSV
 
 - `read_csv(fichero.csv, sep=separador, header=n, index_col=m, na_values=no-validos, decimal=separador-decimal)` : Devuelve un objeto del tipo DataFrame con los datos del fichero CSV `fichero.csv` usando como separador de los datos la cadena `separador`. Como nombres de columnas se utiliza los valores de la fila `n` y como nombres de filas los valores de la columna `m`. Si no se indica `m` se utilizan como nombres de filas los enteros empezando en 0. Los valores incluídos en la lista `no-validos` se convierten en `NaN`. Para los datos numéricos se utiliza como separador de decimales el carácter indicado en `separador-decimal`.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> # Importación del fichero datos-colesteroles.csv
 >>> df = pd.read_csv(
@@ -2054,18 +2508,27 @@ Para crear un DataFrame a partir de una lista de diccionarios con los datos de l
 3                Carmen López Pinzón    35    M    65.0    1.70         200.0
 4               Marisa López Collado    46    M    51.0    1.58         148.0
 ```
-</script></section><section data-markdown><script type="text/template">
-### Creación de un DataFrame a partir de un fichero Excel
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de un DataFrame a partir de un fichero Excel
 
 - `read_excel(fichero.xlsx, sheet_name=hoja, header=n, index_col=m, na_values=no-validos, decimal=separador-decimal)` : Devuelve un objeto del tipo DataFrame con los datos de la hoja de cálculo `hoja` del fichero Excel `fichero.xlsx`. Como nombres de columnas se utiliza los valores de la fila `n` y como nombres de filas los valores de la columna `m`. Si no se indica `m` se utilizan como nombres de filas los enteros empezando en 0. Los valores incluídos en la lista `no-validos` se convierten en `NaN`. Para los datos numéricos se utiliza como separador de decimales el carácter indicado en `separador-decimal`.
-</script></section><section data-markdown><script type="text/template">
-### Exportación de ficheros
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Exportación de ficheros
 
 - `df.to_csv(fichero.csv, sep=separador, columns=booleano, index=booleano)` : Exporta el DataFrame `df` al fichero `fichero.csv` en formato CSV usando como separador de los datos la cadena `separador`. Si se pasa `True` al parámetro `columns` se exporta también la fila con los nombres de columnas y si se pasa `True` al parámetro `index` se exporta también la columna con los nombres de las filas.
 
 - `df.to_excel(fichero.xlsx, sheet_name = hoja, columns=booleano, index=booleano)` : Exporta el DataFrame `df` a la hoja de cálculo `hoja` del fichero `fichero.xlsx` en formato Excel. Si se pasa `True` al parámetro `columns` se exporta también la fila con los nombres de columnas y si se pasa `True` al parámetro `index` se exporta también la columna con los nombres de las filas.
-</script></section><section data-markdown><script type="text/template">
-### Atributos de un DataFrame
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Atributos de un DataFrame
 
 - `df.info()` : Devuelve información (número de filas, número de columnas, índices, tipo de las columnas y memoria usado) sobre el DataFrame `df`.
 
@@ -2082,8 +2545,11 @@ Para crear un DataFrame a partir de una lista de diccionarios con los datos de l
 - `df.head(n)` : Devuelve las `n` primeras filas del DataFrame `df`.
 
 - `df.tail(n)` : Devuelve las `n` últimas filas del DataFrame `df`.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> df = pd.read_csv(
 'https://raw.githubusercontent.com/asalber/manual-python/master/datos/colesterol.csv')
@@ -2118,8 +2584,11 @@ altura        float64
 colesterol    float64
 dtype: object
 ```
-</script></section><section data-markdown><script type="text/template">
-### Renombrar los nombres de las filas y columnas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Renombrar los nombres de las filas y columnas
 
 - `df.rename(columns=columnas, index=filas)`: Devuelve el DataFrame que resulta de renombrar las columnas indicadas en las claves del diccionario `columnas` con sus valores y las filas indicadas en las claves del diccionario `filas` con sus valores en el DataFrame `df`.
 
@@ -2138,8 +2607,11 @@ dtype: object
 4                 Marisa López Collado    46    M    51.0      1.58         148.0
 ...
 ```
-</script></section><section data-markdown><script type="text/template">
-### Reindexar un DataFrame
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Reindexar un DataFrame
 
 Para reordenar los índices de las filas y las columnas de un DataFrame, así como añadir o eliminar índices, se utiliza el siguiente método:
 
@@ -2155,8 +2627,13 @@ Para reordenar los índices de las filas y las columnas de un DataFrame, así co
 3    Carmen López Pinzón      NaN       200.0
 1         Rosa Díaz Díaz      NaN       232.0
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Acceso a los elementos de un DataFrame mediante posiciones
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Acceso a los elementos de un DataFrame mediante posiciones
 
 El acceso a los datos de un DataFrame se puede hacer a través de posiciones o través de los nombres de las filas y columnas.
 
@@ -2165,8 +2642,11 @@ El acceso a los datos de un DataFrame se puede hacer a través de posiciones o t
 - `df.iloc[filas, columnas]` : Devuelve un DataFrame con los elementos de las filas de la lista `filas` y de las columnas de la lista `columnas`.
 
 - `df.iloc[i]` : Devuelve una serie con los elementos de la fila `i` del DataFrame `df`.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> df = pd.read_csv(
 'https://raw.githubusercontent.com/asalber/manual-python/master/datos/colesterol.csv')
@@ -2176,16 +2656,22 @@ El acceso a los datos de un DataFrame se puede hacer a través de posiciones o t
 nombre     Rosa Díaz Díaz
 edad                   32
 ```
-</script></section><section data-markdown><script type="text/template">
-### Acceso a los elementos de un DataFrame mediante nombres
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Acceso a los elementos de un DataFrame mediante nombres
 
 - `df.loc[fila, columna]` : Devuelve el elemento que se encuentra en la fila con nombre `fila` y la columna de con nombre `columna` del DataFrame `df`.
 
 `df.loc[filas, columnas]` : Devuelve un DataFrame con los elemento que se encuentra en las filas con los nombres de la lista `filas` y las columnas con los nombres de la lista `columnas` del DataFrame `df`.
 
 - `df[columna]` : Devuelve una serie con los elementos de la columna de nombre `columna` del DataFrame `df`.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> df = pd.read_csv(
 'https://raw.githubusercontent.com/asalber/manual-python/master/datos/colesterol.csv')
@@ -2203,8 +2689,11 @@ edad                   32
 3     200.0
 ...
 ```
-</script></section><section data-markdown><script type="text/template">
-### Filtrado de las filas de un DataFrame
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Filtrado de las filas de un DataFrame
 
 Una operación bastante común con un DataFrame es obtener las filas que cumplen una determinada condición.
 
@@ -2219,16 +2708,24 @@ Una operación bastante común con un DataFrame es obtener las filas que cumplen
 6   Antonio Fernández Ocaña    51    H    62.0    1.72         276.0
 9   Santiago Reillo Manzano    46    H    75.0    1.85         280.0
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-### Añadir columnas a un DataFrame
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Añadir columnas a un DataFrame
 
 El procedimiento para añadir una nueva columna a un DataFrame es similar al de añadir un nuevo par aun diccionario, pero pasando los valores de la columna en una lista o serie.
 
 - `d[nombre] = lista`: Añade al DataFrame `df` una nueva columna con el nombre `nombre` y los valores de la lista `lista`. La lista debe tener el mismo tamaño que el número de filas de `df`.
 
 - `d[nombre] = serie`: Añade al DataFrame `df` una nueva columna con el nombre `nombre` y los valores de la serie `serie`. Si el tamaño de la serie es menor que el número de filas de `df` se rellena con valores `NaN` mientras que si es mayor se recorta.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> df = pd.read_csv(
 'https://raw.githubusercontent.com/asalber/manual-python/master/datos/colesterol.csv')
@@ -2243,8 +2740,11 @@ El procedimiento para añadir una nueva columna a un DataFrame es similar al de 
 5                  Antonio Ruiz Cruz    68    H    66.0    1.74         249.0      NaN
 ...
 ```
-</script></section><section data-markdown><script type="text/template">
-### Operaciones sobre columnas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Operaciones sobre columnas
 
 Puesto que los datos de una misma columna de un DataFrame son del mismo tipo, es fácil aplicar la misma operación a todos los elementos de la columna.
 
@@ -2265,8 +2765,11 @@ Puesto que los datos de una misma columna de un DataFrame son del mismo tipo, es
 ...
 
 ```
-</script></section><section data-markdown><script type="text/template">
-### Aplicar funciones a columnas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Aplicar funciones a columnas
 
 - `df[columna].apply(f)` : Devuelve una serie con los valores que resulta de aplicar la función `f` a los elementos de la columna con nombre `columna` del DataFrame `df`.
 
@@ -2281,12 +2784,18 @@ Puesto que los datos de una misma columna de un DataFrame son del mismo tipo, es
 2     0.593327
 ...
 ```
-</script></section><section data-markdown><script type="text/template">
-### Resumen descriptivo de un DataFrame
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Resumen descriptivo de un DataFrame
 
 - `df.describe(include = tipo)` : Devuelve un DataFrame con un resumen estadístico de las columnas del DataFrame `df` del tipo `tipo`. Para los datos numéricos (`number`) se calcula la media, la desviación típica, el mínimo, el máximo y los cuartiles de las columnas numéricas. Para los datos no numéricos (`object`) se calcula el número de valores, el número de valores distintos, la moda y su frecuencia. Si no se indica el tipo solo se consideran las columnas numéricas.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> df = pd.read_csv(
 'https://raw.githubusercontent.com/asalber/manual-python/master/datos/colesterol.csv')
@@ -2307,8 +2816,11 @@ unique                        14    2
 top      Antonio Fernández Ocaña    H
 freq                           1    8
 ```
-</script></section><section data-markdown><script type="text/template">
-### Eliminar columnas de un DataFrame
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Eliminar columnas de un DataFrame
 
 - `del d[nombre]` : Elimina la columna con nombre `nombre` del DataFrame `df`.
   
@@ -2332,8 +2844,13 @@ print(edad)
 2     24
 ...
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-### Añadir una fila a un DataFrame
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Añadir una fila a un DataFrame
 
 - `df.append(serie, ignore_index=True)` : Devuelve el DataFrame que resulta de añadir una fila al DataFrame `df` con los valores de la serie `serie`. Los nombres del índice de la serie deben corresponderse con los nombres de las columnas de `df`. Si no se pasa el parámetro `ignore_index` entonces debe pasarse el parámetro `name` a la serie, donde su argumento será el nombre de la nueva fila.
 
@@ -2350,8 +2867,11 @@ print(edad)
 13             Carolina Rubio Moreno    20    M    61.0    1.77         194.0
 14                      Carlos Rivas    28    H    89.0    1.78         245.0
 ```
-</script></section><section data-markdown><script type="text/template">
-### Eliminar filas de un DataFrame
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Eliminar filas de un DataFrame
 
 - `df.drop(filas)` : Devuelve el DataFrame que resulta de eliminar las filas con los nombres indicados en la lista `filas` del DataFrame `df`.
 
@@ -2366,14 +2886,20 @@ print(edad)
 4               Marisa López Collado    46    M   51.0    1.58       148.0
 ...
 ```
-</script></section><section data-markdown><script type="text/template">
-### Ordenar un DataFrame
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Ordenar un DataFrame
 
 - `df.sort_values(columna, ascending=booleano`) : Devuelve el DataFrame que resulta de ordenar las filas del DataFrame `df` según los valores del la columna con nombre `columna`. Si argumento del parámetro `ascending` es `True` el orden es creciente y si es `False` decreciente.
 
 - `df.sort_index(ascending=booleano`) : Devuelve el DataFrame que resulta de ordenar las filas del DataFrame `df` según los nombres de las filas. Si el argumento del parámetro `ascending` es `True` el orden es creciente y si es `False` decreciente.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> df = pd.read_csv(
 'https://raw.githubusercontent.com/asalber/manual-python/master/datos/colesterol.csv')
@@ -2385,14 +2911,22 @@ print(edad)
 13             Carolina Rubio Moreno    20    M   61.0    1.77       194.0
 ...
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Operaciones con grupos
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Agrupación de un DataFrame
 
 En muchas aplicaciones es útil agrupar los datos de un DataFrame de acuerdo a los valores de una o varias columnas (categorías), como por ejemplo el sexo o el país.
 
 ![División en grupos de un DataFrame](img/pandas-grupos.png)
-</script></section><section data-markdown><script type="text/template">
-### Dividir un DataFrame en grupos
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Dividir un DataFrame en grupos
 
 - `df.groupby(columnas).groups` : Devuelve un diccionario con cuyas claves son las tuplas que resultan de todas las combinaciones de los valores de las columnas con nombres en la lista `columnas`, y valores las listas de los nombres de las filas que contienen esos valores en las correspondientes columnas del DataFrame `df`.
 
@@ -2405,8 +2939,11 @@ En muchas aplicaciones es útil agrupar los datos de un DataFrame de acuerdo a l
 >>> print(df.groupby(['sexo','edad']).groups)
 {('H', 18): Int64Index([0], dtype='int64'), ('H', 24): Int64Index([2], dtype='int64'), ('H', 27): Int64Index([12], dtype='int64'), ('H', 35): Int64Index([8], dtype='int64'), ('H', 46): Int64Index([9], dtype='int64'), ('H', 51): Int64Index([6], dtype='int64'), ('H', 58): Int64Index([11], dtype='int64'), ('H', 68): Int64Index([5], dtype='int64'), ('M', 20): Int64Index([13], dtype='int64'), ('M', 22): Int64Index([7], dtype='int64'), ('M', 32): Int64Index([1], dtype='int64'), ('M', 35): Int64Index([3], dtype='int64'), ('M', 46): Int64Index([4], dtype='int64'), ('M', 53): Int64Index([10], dtype='int64')}
 ```
-</script></section><section data-markdown><script type="text/template">
-### Obtener un grupo de un DataFrame dividido
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Obtener un grupo de un DataFrame dividido
 
 - `df.groupby(columnas).get_group(valores)` : Devuelve un DataFrame con las filas del DataFrame `df` que cumplen que las columnas de la lista `columnas` presentan los valores de la tupla `valores`. La lista `columnas` y la tupla `valores` deben tener el mismo tamaño.
 
@@ -2423,8 +2960,11 @@ En muchas aplicaciones es útil agrupar los datos de un DataFrame de acuerdo a l
 10   Macarena Álvarez Luna    53    M    55.0     1.62         262.0
 13   Carolina Rubio Moreno    20    M    61.0     1.77         194.0
 ```
-</script></section><section data-markdown><script type="text/template">
-### Aplicar una función de agregación por grupos
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Aplicar una función de agregación por grupos
 
 - `df.groupby(columnas).agg(funciones)` : Devuelve un DataFrame con el resultado de aplicar las funciones de agregación de la lista `funciones` a cada uno de los DataFrames que resultan de dividir el DataFrame según las columnas de la lista `columnas`.
 
@@ -2436,8 +2976,11 @@ Una función de agregación toma como argumento una lista y devuelve una único 
 - `np.sum` : Devuelve la suma de una lista de valores.
 - `np.mean` : Devuelve la media de una lista de valores.
 - `np.std` : Devuelve la desviación típica de una lista de valores.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> df = pd.read_csv(
 'https://raw.githubusercontent.com/asalber/manual-python/master/datos/colesterol.csv')
@@ -2447,20 +2990,31 @@ sexo
 H     40.875000  80.714286  1.837500     228.375
 M     34.666667  59.500000  1.676667     207.200
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Reestructurar un DataFrame
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Reestructurar un DataFrame
 
 A menudo la disposición de los datos en un DataFrame no es la adecuada para su tratamiento y es necesario reestructurar el DataFrame. Los datos que contiene un DataFrame pueden organizarse en dos formatos: ancho y largo.
 
 ![Formatos de un DataFrame](img/formatos-dataframe.png)
-</script></section><section data-markdown><script type="text/template">
-### Convertir un DataFrame a formato largo
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Convertir un DataFrame a formato largo
 
 Para convertir un DataFrame de formato ancho a formato largo (columnas a filas) se utiliza el siguiente método:
 
 - `df.melt(id_vars=id-columnas, value_vars=columnas, var_name=nombre-columnas, var_value=nombre-valores)` : Devuelve el DataFrame que resulta de convertir el DataFrame `df` de formato ancho a formato largo. Todas las columnas de lista `columnas` se reestructuran en dos nuevas columnas con nombres `nombre-columnas` y `nombre-valores` que contienen los nombres de las columnas originales y sus valores, respectivamente. Las columnas en la lista `id-columnas` se mantienen sin reestructurar. Si no se pasa la lista `columnas` entonces se reestructuran todas las columnas excepto las columnas de la lista `id-columnas`.
-</script></section><section data-markdown><script type="text/template">
-```python
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ```python
 >>> import pandas as pd
 >>> datos = {'nombre':['María', 'Luis', 'Carmen'],
 ... 'edad':[18, 22, 20],
@@ -2481,8 +3035,11 @@ Para convertir un DataFrame de formato ancho a formato largo (columnas a filas) 
 7    Luis    22  Programación   4.0
 8  Carmen    20  Programación   9.0
 ```
-</script></section><section data-markdown><script type="text/template">
-### Convertir un DataFrame a formato ancho
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Convertir un DataFrame a formato ancho
 
 Para convertir un DataFrame de formato largo a formato ancho (filas a columnas) se utiliza el siguiente método:
 
@@ -2497,14 +3054,22 @@ Carmen           5.0          3.5           9.0
 Luis             6.5          7.0           4.0
 María            8.0          8.5           6.5
 ```
-</script></section></section><section ><section data-markdown><script type="text/template">
-## La librería Matplotlib
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## La librería Matplotlib
 
 [Matplotlib](https://matplotlib.org/) es una librería de Python especializada en la creación de gráficos en dos dimensiones.
 
 <img src="img/matplotlib-logo.png" alt="Gráfico con matplotlib" height="150px">
-</script></section><section data-markdown><script type="text/template">
-### Tipos de gráficos
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Tipos de gráficos
 
 Permite crear y personalizar los tipos de gráficos más comunes, entre ellos:
 
@@ -2522,8 +3087,11 @@ Permite crear y personalizar los tipos de gráficos más comunes, entre ellos:
 y combinaciones de todos ellos.
 
 En la siguiente [galería de gráficos](https://matplotlib.org/gallery/index.html) pueden apreciarse todos los tipos de gráficos que pueden crearse con esta librería.
-</script></section><section data-markdown><script type="text/template">
-### Creación de gráficos con matplotlib
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de gráficos con matplotlib
 
 Para crear un gráfico con matplotlib es habitual seguir los siguientes pasos:
 
@@ -2541,8 +3109,11 @@ Para crear un gráfico con matplotlib es habitual seguir los siguientes pasos:
 6. Guardar el gráfico. Para ello se utiliza la función `savefig()`.
 
 7. Mostrar el gráfico. Para ello se utiliza la función `show()`.
-</script></section><section data-markdown><script type="text/template">
-### Creación de gráficos con matplotlib
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Creación de gráficos con matplotlib
 
 ```python
 # Importar el módulo pyplot con el alias plt
@@ -2560,8 +3131,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-dispersion.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Diagramas de dispersión o puntos
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Diagramas de dispersión o puntos
 
 - `scatter(x, y)`: Dibuja un diagrama de puntos con las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter)
 
@@ -2574,8 +3148,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-puntos.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Diagramas de líneas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Diagramas de líneas
 
 - `plot(x, y)`: Dibuja un polígono con los vértices dados por las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot)
 
@@ -2588,8 +3165,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-lineas.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Diagramas de areas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Diagramas de areas
 
 - `fill_between(x, y)`: Dibuja el area bajo el polígono con los vértices dados por las coordenadas de la lista `x` en el eje X y las coordenadas de la lista `y` en el eje Y. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.fill_between.html#matplotlib.pyplot.fill_between)
 
@@ -2602,8 +3182,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-areas.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Diagramas de barras verticales
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Diagramas de barras verticales
 
 - `bar(x, y)`: Dibuja un diagrama de barras verticales donde `x` es una lista con la posición de las barras en el eje X, e `y` es una lista con la altura de las barras en el eje Y. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html#matplotlib.pyplot.bar)
 
@@ -2616,8 +3199,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-barras.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Diagramas de barras horizontales
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Diagramas de barras horizontales
 
 - `barh(x, y)`: Dibuja un diagrama de barras horizontales donde `x` es una lista con la posición de las barras en el eje Y, y `x` es una lista con la longitud de las barras en el eje X. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.barh.html#matplotlib.pyplot.barh)
 
@@ -2630,8 +3216,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-barras-horizontales.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Histogramas
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Histogramas
 
 - `hist(x, bins)`: Dibuja un histograma con las frecuencias resultantes de agrupar los datos de la lista `x` en las clases definidas por la lista `bins`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist)
 
@@ -2647,8 +3236,11 @@ plt.show()
 ```
 
 <img src="img/histograma.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Diagramas de sectores
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Diagramas de sectores
 
 - `pie(x)`: Dibuja un diagrama de sectores con las frecuencias de la lista `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html#matplotlib.pyplot.pie)
 
@@ -2662,8 +3254,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-sectores.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Diagramas de caja y bigotes
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Diagramas de caja y bigotes
 
 - `boxplot(x)`: Dibuja un diagrama de caja y bigotes con los datos de la lista `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html#matplotlib.pyplot.boxplot)
 
@@ -2677,8 +3272,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-caja.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Diagramas de violín
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Diagramas de violín
 
 - `violinplot(x)`: Dibuja un diagrama de violín con los datos de la lista `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.violinplot.html#matplotlib.pyplot.violinplot)
 
@@ -2692,8 +3290,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-violin.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Diagramas de contorno
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Diagramas de contorno
 
 - `contourf(x, y, z)`: Dibuja un diagrama de contorno con las curvas de nivel de la superficie dada por los puntos con las coordenadas de las listas `x`, `y` y `z` en los ejes X, Y y Z respectivamente. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.contourf.html#matplotlib.pyplot.contourf)
 
@@ -2710,8 +3311,11 @@ plt.show()
 ```
 
 <img src="img/diagrama-contorno.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Mapas de color
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Mapas de color
 
 - `imshow(x)`: Dibuja un mapa de color a partir de una matriz (array bidimensiona) `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow)
 
@@ -2725,8 +3329,11 @@ plt.show()
 ```
 
 <img src="img/mapa-calor.png" alt="Gráfico con matplotlib" height="300px"> <i class="fa fa-info-circle" aria-hidden="true">
-</script></section><section data-markdown><script type="text/template">
-### Mapas de color
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Mapas de color
 
 - `hist2d(x, y)`: Dibuja un mapa de color que simula un histograma bidimensional, donde los colores de los cuadrados dependen de las frecuencias de las clases de la muestra dada por las listas `x` e `y`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist2d.html#matplotlib.pyplot.hist2d)
 
@@ -2740,8 +3347,11 @@ plt.show()
 ```
 
 <img src="img/histograma2D.png" alt="Gráfico con matplotlib" height="300px">
-</script></section><section data-markdown><script type="text/template">
-<!-- TODO ### Colores
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            <!-- TODO ### Colores
 </script></section><section data-markdown><script type="text/template">
 ### Líneas
 </script></section><section data-markdown><script type="text/template">
@@ -2758,16 +3368,24 @@ plt.show()
 ### Márgenes
 
 --- -->
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Depuración de programas
+          </script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Depuración de programas
 
 La depuración es una técnica que permite _trazar_ un programa, es decir, seguir el flujo de ejecución de un programa paso a paso, ejecutando una instrucción en cada paso, y observar el estado de sus variables.
 
 Cuando un programa tiene cierta complejidad, la depuración es imprescindible pare detectar posibles errores.
 
 Python dispone del módulo `pyd` para depurar programas, pero es mucho más cómodo utilizar algún entorno de desarrollo que incorpore la depuración, como por ejemplo Visual Studio Code.
-</script></section><section data-markdown><script type="text/template">
-### Comandos de depuración
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Comandos de depuración
 
 - **Establecer punto de parada**: Detiene la ejecución del programa en una línea concreta de código.
 - **Continuar la ejecución**: Continúa la ejecución del programa hasta el siguiente punto de parada o hasta que finalice.
@@ -2775,44 +3393,64 @@ Python dispone del módulo `pyd` para depurar programas, pero es mucho más cóm
 - **Próximo paso con entrada en función**: Ejecuta la siguiente línea de código. Si se trata de una llamada a una función entonces ejecuta la primera instrucción de la función y para la ejecución.
 - **Próximo paso con salida de función**: Ejecuta lo que queda de la función actual y para la ejecución.
 - **Terminar la depuración**: Termina la depuración.
-</script></section><section data-markdown><script type="text/template">
-### Depuración en Visual Studio Code (Puntos de parada)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Depuración en Visual Studio Code (Puntos de parada)
 
 Antes de iniciar la depuración de un programa en VSCode hay que establecer algún punto de parada. Para ello basta con hacer click en le margen izquierdo de la ventana con del código a la altura de la línea donde se quiere parar la ejecución del programa.
 
 <img src="img/break-point.png" alt="Punto de parada en Visual Studio Code" height="400px">
-</script></section><section data-markdown><script type="text/template">
-### Depuración en Visual Studio Code (Inicio de la depuración)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Depuración en Visual Studio Code (Inicio de la depuración)
 
 Para iniciar la depuración de un programa en VSCode hay que hacer clic sobre el botón ![Visual Studio Code debbuger](img/debug-button.png) o pulsar la combinación de teclas (Ctr+Shift+D).
 
 La primera vez que depuremos un programa tendremos que crear un fichero de configuración del depurador (`launch.json`). Para ello hay que hacer clic en el botón `Run and Debug`. VSCode mostrará los distintos ficheros de configuración disponibles y debe seleccionarse el más adecuado para el tipo de programa a depurar. Para programas simples debe seleccionarse `Python file`.
 
 La depuración comenzará iniciando la ejecución del programa desde el inicio hasta el primer punto de parada que encuentre.
-</script></section><section data-markdown><script type="text/template">
-### Depuración en Visual Studio Code (Commandos de depuración)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Depuración en Visual Studio Code (Commandos de depuración)
 
 Una vez iniciado el proceso de depuración, se puede avanzar en la ejecución del programa haciendo uso de la barra de depuración que contiene botones con los principales comandos de depuración.
 
 <img src="img/debbuger-bar.png" alt="Barra de depuración de Visual Studio Code" height="300px">
-</script></section><section data-markdown><script type="text/template">
-### Depuración en Visual Studio Code (Estado de las variables)
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ### Depuración en Visual Studio Code (Estado de las variables)
 
 Durante la ejecución del programa, se puede ver el contenido de las variables del programa en la ventana del estado de las variables.
 
 El usuario también puede introducir expresiones y ver cómo se evalúan durante la ejecución del programa en la ventana de vista de expresiones.
 
 <img src="img/debbuger-estado-variables.png" alt="Ventana de estado de variables de Visual Studio Code" height="500px">
-</script></section></section><section ><section data-markdown><script type="text/template">
-## Referencias
+</script>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Referencias
 
 Webs:
 
 - [Python](https://www.python.org/) Sitio web de Python.
 - [Repl.it](https://repl.it/) Entorno de desarrollo web para varios lenguajes, incluido Python.
 - [Python tutor](http://pythontutor.com/) Sitio web que permite visualizar la ejecución el código Python.
-</script></section><section data-markdown><script type="text/template">
-## Referencias
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Referencias
 
 Libros y manuales:
 
@@ -2822,63 +3460,106 @@ Libros y manuales:
 - [Python crash course](https://ehmatthes.github.io/pcc/) Libro de introducción a Python gratuito.
 - [Think python 2e](http://greenteapress.com/wp/think-python-2e/). Libro de introducción a Python que abarca también algoritmos, estructuras de datos y gráficos. Es de licencia libre.
 - [Learning Python](http://shop.oreilly.com/product/0636920028154.do) Libro de introducción a Python con enfoque de programación orientada a objetos.
-</script></section><section data-markdown><script type="text/template">
-## Referencias
+</script>
+        </section>
+        <section data-markdown>
+          <script type="text/template">
+            ## Referencias
 
 Vídeos:
 
-- [Curso "Python para todos"](https://www.edx.org/course/programming-for-everybody-getting-started-with-python).</script></section></section></div>
+- [Curso "Python para todos"](https://www.edx.org/course/programming-for-everybody-getting-started-with-python).
+          </script>
+        </section>
+      </section>
     </div>
+  </div>
 
-        <script src="./lib/js/head.min.js"></script>
-        <script src="./js/reveal.js"></script>
+  <script src="./lib/js/head.min.js"></script>
+  <script src="./js/reveal.js"></script>
 
-        <script>
-            function extend() {
-              var target = {};
-              for (var i = 0; i < arguments.length; i++) {
-                var source = arguments[i];
-                for (var key in source) {
-                  if (source.hasOwnProperty(key)) {
-                    target[key] = source[key];
-                  }
-                }
-              }
-              return target;
-            }
+  <script>
+    function extend() {
+      var target = {};
+      for (var i = 0; i < arguments.length; i++) {
+        var source = arguments[i];
+        for (var key in source) {
+          if (source.hasOwnProperty(key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    }
 
-            // Optional libraries used to extend on reveal.js
-            var deps = [
-              { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
-              { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-              { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-              { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-              { src: './plugin/zoom-js/zoom.js', async: true },
-              { src: './plugin/notes/notes.js', async: true },
-              { src: './plugin/math/math.js', async: true },
-              { src: './plugin/menu/menu.js', async: true }
-            ];
+    // Optional libraries used to extend on reveal.js
+    var deps = [{
+        src: './lib/js/classList.js',
+        condition: function () {
+          return !document.body.classList;
+        }
+      },
+      {
+        src: './plugin/markdown/marked.js',
+        condition: function () {
+          return !!document.querySelector('[data-markdown]');
+        }
+      },
+      {
+        src: './plugin/markdown/markdown.js',
+        condition: function () {
+          return !!document.querySelector('[data-markdown]');
+        }
+      },
+      {
+        src: './plugin/highlight/highlight.js',
+        async: true,
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      },
+      {
+        src: './plugin/zoom-js/zoom.js',
+        async: true
+      },
+      {
+        src: './plugin/notes/notes.js',
+        async: true
+      },
+      {
+        src: './plugin/math/math.js',
+        async: true
+      },
+      {
+        src: './plugin/menu/menu.js',
+        async: true
+      }
+    ];
 
-            // default options to init reveal.js
-            var defaultOptions = {
-              controls: true,
-              progress: true,
-              history: true,
-              center: true,
-              transition: 'default', // none/fade/slide/convex/concave/zoom
-              dependencies: deps
-            };
+    // default options to init reveal.js
+    var defaultOptions = {
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'default', // none/fade/slide/convex/concave/zoom
+      dependencies: deps
+    };
 
-            // options from URL query string
-            var queryOptions = Reveal.getQueryHash() || {};
+    // options from URL query string
+    var queryOptions = Reveal.getQueryHash() || {};
 
-            var options = {"transition":"convex","center":true};
-            options = extend(defaultOptions, options, queryOptions);
-        </script>
+    var options = {
+      "transition": "convex",
+      "center": true
+    };
+    options = extend(defaultOptions, options, queryOptions);
+  </script>
 
 
-        <script>
-          Reveal.initialize(options);
-        </script>
-    </body>
+  <script>
+    Reveal.initialize(options);
+  </script>
+</body>
+
 </html>

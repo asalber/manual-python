@@ -1795,6 +1795,24 @@ Para leer un fichero de internet hay que utilizar la función `urlopen` del mód
 >>> from urllib import request
 >>> f = request.urlopen('https://raw.githubusercontent.com/asalber/asalber.github.io/master/README.md')
 >>> datos = f.read()
+>>> print(datos)
+b'Aprende con Alf\n===============\n\nEste es el repositorio del sitio web Aprende con Alf: http://aprendeconalf.es\n'
+```
+
+--
+
+### Decodificar un fichero de internet
+
+El fichero que se obtiene con la función `urlopen` está en formato binario y al leerlo se obtiene un objeto de tipo `bytes` con la sequencia de bytes del fichero. Para convertirlo en una cadena hay que decodificar el objeto, y para ello se utiliza la siguiente función:
+
+- `b.decode(codificacion)` : Devuelve la cadena que resulta de decodificar la secuencia de bytes `b` utilizando la codificación `codificacion`.
+
+Existen muchas codificaciones pero las más habituales son `utf8` (normalmente en sistemas Mac y Linux) y `latin1` para lenguas europeas en sistemas Windows. En el siguiente enlace se puede acceder a la [lista de codificaciones](https://docs.python.org/3/library/codecs.html#standard-encodings)
+
+```python
+>>> from urllib import request
+>>> f = request.urlopen('https://raw.githubusercontent.com/asalber/asalber.github.io/master/README.md')
+>>> datos = f.read()
 >>> print(datos.decode('utf-8'))
 Aprende con Alf
 ===============
