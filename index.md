@@ -2124,7 +2124,7 @@ Pandas dispone de tres estructuras de datos diferentes:
 - DataFrame: Estructura de dos dimensiones (tablas).
 - Panel: Estructura de tres dimensiones (cubos).
 
-Estas estructuras se construyen a parir de arrays de la librería NumPy, añadiendo nuevas funcionalidades.
+Estas estructuras se construyen a partir de arrays de la librería NumPy, añadiendo nuevas funcionalidades.
 
 ---
 
@@ -2213,6 +2213,8 @@ Acceso por índice:
 
 --
 
+### Acceso a los elementos de una serie
+
 ```python
 >>> s[1:3]
 Economía        4.5
@@ -2243,6 +2245,8 @@ Las siguientes funciones permiten resumir varios aspectos de una serie:
 - `s.describe()`: Devuelve una serie con un resumen descriptivo que incluye el número de datos, su suma, el mínimo, el máximo, la media, la desviación típica y los cuartiles.
 
 --
+
+### Resumen descriptivo de una serie
 
 ```python
 >>> import pandas as pd
@@ -2352,6 +2356,48 @@ dtype: object
 
 --
 
+### Filtrar una serie
+
+Para filtrar una serie y quedarse con los valores que cumplen una determinada condición se utiliza el siguiente método:
+
+- `s[condicion]` : Devuelve una serie con los elementos de la serie `s` que se corresponden con el valor `True` de la lista booleana `condicion`. `condicion` debe ser una lista de valores booleanos de la misma longitud que la serie.
+
+```python
+>>> import pandas as pd
+>>> s = pd.Series({'Matemáticas': 6.0,  'Economía': 4.5, 'Programación': 8.5})
+>>> print(s[s > 5])
+Matemáticas     6.0
+Programación    8.5
+dtype: float64
+```
+
+-- 
+
+### Ordenar una serie
+
+Para ordenar una serie se utilizan los siguientes métodos:
+
+- `s.sort_values(ascending=booleano`) : Devuelve la serie que resulta de ordenar los valores la serie `s`. Si argumento del parámetro `ascending` es `True` el orden es creciente y si es `False` decreciente.
+
+- `df.sort_index(ascending=booleano`) : Devuelve la serie que resulta de ordenar el índice de la serie `s`. Si el argumento del parámetro `ascending` es `True` el orden es creciente y si es `False` decreciente.
+
+```python
+>>> import pandas as pd
+>>> s = pd.Series({'Matemáticas': 6.0,  'Economía': 4.5, 'Programación': 8.5})
+>>> print(s.sort_values())
+Economía        4.5
+Matemáticas     6.0
+Programación    8.5
+dtype: float64
+>>> print(s.sort_index(ascending = False))
+Programación    8.5
+Matemáticas     6.0
+Economía        4.5
+dtype: float64
+```
+
+--
+
 ### Eliminar los dados desconocidos en una serie
 
 Los datos desconocidos representan en Pandas por `NaN` y los nulos por `None`. Tanto unos como otros suelen ser un problema a la hora de realizar algunos análisis de datos, por lo que es habitual eliminarlos. Para eliminarlos de una serie se utiliza el siguiente método:
@@ -2400,6 +2446,8 @@ Para crear un DataFrame a partir de un diccionario cuyas claves son los nombres 
 
 --
 
+### Creación de un DataFrame a partir de un diccionario de listas
+
 ```python
 >>> import pandas as pd
 >>> datos = {'nombre':['María', 'Luis', 'Carmen', 'Antonio'],
@@ -2428,6 +2476,8 @@ Para crear un DataFrame a partir de una lista de listas con los datos de las col
 
 --
 
+### Creación de un DataFrame a partir de una lista de listas
+
 ```python
 >>> import pandas as pd
 >>> df = pd.DataFrame([['María', 18], ['Luis', 22], ['Carmen', 20]], columns=['Nombre', 'Edad'])
@@ -2449,6 +2499,8 @@ Para crear un DataFrame a partir de una lista de diccionarios con los datos de l
 <i class='fa fa-exclamation-triangle' style="color:red"></i> Si los diccionarios no tienen las mismas claves, las claves que no aparecen en el diccionario se rellenan con valores `NaN`.
 
 --
+
+### Creación de un DataFrame a partir de una lista de diccionarios
 
 ```python
 >>> import pandas as pd
@@ -2483,6 +2535,8 @@ Para crear un DataFrame a partir de una lista de diccionarios con los datos de l
 - `read_csv(fichero.csv, sep=separador, header=n, index_col=m, na_values=no-validos, decimal=separador-decimal)` : Devuelve un objeto del tipo DataFrame con los datos del fichero CSV `fichero.csv` usando como separador de los datos la cadena `separador`. Como nombres de columnas se utiliza los valores de la fila `n` y como nombres de filas los valores de la columna `m`. Si no se indica `m` se utilizan como nombres de filas los enteros empezando en 0. Los valores incluídos en la lista `no-validos` se convierten en `NaN`. Para los datos numéricos se utiliza como separador de decimales el carácter indicado en `separador-decimal`.
 
 --
+
+### Creación de un DataFrame a partir de un fichero CSV
 
 ```python
 >>> import pandas as pd
@@ -2533,6 +2587,8 @@ Para crear un DataFrame a partir de una lista de diccionarios con los datos de l
 - `df.tail(n)` : Devuelve las `n` últimas filas del DataFrame `df`.
 
 --
+
+### Atributos de un DataFrame
 
 ```python
 >>> import pandas as pd
@@ -2613,7 +2669,7 @@ Para reordenar los índices de las filas y las columnas de un DataFrame, así co
 
 ---
 
-## Acceso a los elementos de un DataFrame mediante posiciones
+### Acceso a los elementos de un DataFrame mediante posiciones
 
 El acceso a los datos de un DataFrame se puede hacer a través de posiciones o través de los nombres de las filas y columnas.
 
@@ -2624,6 +2680,8 @@ El acceso a los datos de un DataFrame se puede hacer a través de posiciones o t
 - `df.iloc[i]` : Devuelve una serie con los elementos de la fila `i` del DataFrame `df`.
 
 --
+
+### Acceso a los elementos de un DataFrame mediante posiciones
 
 ```python
 >>> import pandas as pd
@@ -2650,6 +2708,8 @@ edad                   32
 
 --
 
+### Acceso a los elementos de un DataFrame mediante nombres
+
 ```python
 >>> import pandas as pd
 >>> df = pd.read_csv(
@@ -2669,24 +2729,6 @@ edad                   32
 ...
 ```
 
---
-
-### Filtrado de las filas de un DataFrame
-
-Una operación bastante común con un DataFrame es obtener las filas que cumplen una determinada condición.
-
-- `df[condicion]` : Devuelve un DataFrame con las filas del DataFrame `df` que se corresponden con el valor `True` de la lista booleana `condicion`. `condicion` debe ser una lista de valores booleanos de la misma longitud que el número de filas del DataFrame.
-
-```python
->>> import pandas as pd
->>> df = pd.read_csv(
-'https://raw.githubusercontent.com/asalber/manual-python/master/datos/colesterol.csv')
->>> print(df[(df['sexo']=='H') & (df['colesterol'] > 260)])
-                     nombre  edad sexo    peso  altura    colesterol
-6   Antonio Fernández Ocaña    51    H    62.0    1.72         276.0
-9   Santiago Reillo Manzano    46    H    75.0    1.85         280.0
-```
-
 ---
 
 ### Añadir columnas a un DataFrame
@@ -2698,6 +2740,8 @@ El procedimiento para añadir una nueva columna a un DataFrame es similar al de 
 - `d[nombre] = serie`: Añade al DataFrame `df` una nueva columna con el nombre `nombre` y los valores de la serie `serie`. Si el tamaño de la serie es menor que el número de filas de `df` se rellena con valores `NaN` mientras que si es mayor se recorta.
 
 --
+
+### Añadir columnas a un DataFrame
 
 ```python
 >>> import pandas as pd
@@ -2774,6 +2818,8 @@ Al igual que para las series, los siguientes métodos permiten resumir la inform
 - `df.describe(include = tipo)` : Devuelve un DataFrame con un resumen estadístico de las columnas del DataFrame `df` del tipo `tipo`. Para los datos numéricos (`number`) se calcula la media, la desviación típica, el mínimo, el máximo y los cuartiles de las columnas numéricas. Para los datos no numéricos (`object`) se calcula el número de valores, el número de valores distintos, la moda y su frecuencia. Si no se indica el tipo solo se consideran las columnas numéricas.
 
 --
+
+### Resumen descriptivo de un DataFrame
 
 ```python
 >>> import pandas as pd
@@ -2864,13 +2910,29 @@ print(edad)
 
 --
 
+### Filtrar las filas de un DataFrame
+
+Para filtrar las filas de un DataFrame que cumplen una determinada condición se utiliza el siguiente método:
+
+- `df[condicion]` : Devuelve un DataFrame con las filas del DataFrame `df` que se corresponden con el valor `True` de la lista booleana `condicion`. `condicion` debe ser una lista de valores booleanos de la misma longitud que el número de filas del DataFrame.
+
+```python
+>>> import pandas as pd
+>>> df = pd.read_csv(
+'https://raw.githubusercontent.com/asalber/manual-python/master/datos/colesterol.csv')
+>>> print(df[(df['sexo']=='H') & (df['colesterol'] > 260)])
+                     nombre  edad sexo    peso  altura    colesterol
+6   Antonio Fernández Ocaña    51    H    62.0    1.72         276.0
+9   Santiago Reillo Manzano    46    H    75.0    1.85         280.0
+```
+
+--
+
 ### Ordenar un DataFrame
 
 - `df.sort_values(columna, ascending=booleano`) : Devuelve el DataFrame que resulta de ordenar las filas del DataFrame `df` según los valores del la columna con nombre `columna`. Si argumento del parámetro `ascending` es `True` el orden es creciente y si es `False` decreciente.
 
 - `df.sort_index(ascending=booleano`) : Devuelve el DataFrame que resulta de ordenar las filas del DataFrame `df` según los nombres de las filas. Si el argumento del parámetro `ascending` es `True` el orden es creciente y si es `False` decreciente.
-
---
 
 ```python
 >>> import pandas as pd
@@ -2967,6 +3029,8 @@ Una función de agregación toma como argumento una lista y devuelve una único 
 
 --
 
+### Aplicar una función de agregación por grupos
+
 ```python
 >>> import pandas as pd
 >>> df = pd.read_csv(
@@ -2995,6 +3059,8 @@ Para convertir un DataFrame de formato ancho a formato largo (columnas a filas) 
 - `df.melt(id_vars=id-columnas, value_vars=columnas, var_name=nombre-columnas, var_value=nombre-valores)` : Devuelve el DataFrame que resulta de convertir el DataFrame `df` de formato ancho a formato largo. Todas las columnas de lista `columnas` se reestructuran en dos nuevas columnas con nombres `nombre-columnas` y `nombre-valores` que contienen los nombres de las columnas originales y sus valores, respectivamente. Las columnas en la lista `id-columnas` se mantienen sin reestructurar. Si no se pasa la lista `columnas` entonces se reestructuran todas las columnas excepto las columnas de la lista `id-columnas`.
 
 --
+
+### Convertir un DataFrame a formato largo
 
 ```python
 >>> import pandas as pd
