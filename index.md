@@ -3493,7 +3493,7 @@ Los gráficos creados con Matplotlib son personalizables y puede cambiarse el as
 - Títulos
 - Ejes
 - Leyenda
-- Regilla
+- Rejilla
 
 --
 
@@ -3626,13 +3626,13 @@ plt.show()
 
 --
 
-### Regilla
+### Rejilla
 
-`ax.grid(axis=ejes, color=color, linestyle=estilo)` : Dibuja una regilla en los ejes de `ax`. El parámetro `axis` indica los ejes sobre los que se dibuja la regilla y puede ser `'x'` (eje x), `'y'` (eje y) o `'both'` (ambos). Los parámetros `color` y `linestyle` establecen el color y el estilo de las líneas de la rejilla, y pueden tomar los mismos valores vistos en los apartados de colores y líneas.
+`ax.grid(axis=ejes, color=color, linestyle=estilo)` : Dibuja una rejilla en los ejes de `ax`. El parámetro `axis` indica los ejes sobre los que se dibuja la rejilla y puede ser `'x'` (eje x), `'y'` (eje y) o `'both'` (ambos). Los parámetros `color` y `linestyle` establecen el color y el estilo de las líneas de la rejilla, y pueden tomar los mismos valores vistos en los apartados de colores y líneas.
 
 --
 
-### Regilla
+### Rejilla
 
 ```python
 import matplotlib.pyplot as plt
@@ -3701,7 +3701,7 @@ plt.show()
 
 ### Integración con Pandas
 
-Si no se indican los parámetros `x` e `y` se representa el índice de las filas en el eje x y una serie por cada columna del Dataframe. Las columnas no númericas se ignoran.
+Si no se indican los parámetros `x` e `y` se representa el índice de las filas en el eje x y una serie por cada columna del Dataframe. Las columnas no numéricas se ignoran.
 
 ```python
 import pandas as pd 
