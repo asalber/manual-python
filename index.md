@@ -3264,7 +3264,7 @@ Para crear un gráfico con matplotlib es habitual seguir los siguientes pasos:
 
 1. Importar el módulo `pyplot`.
 
-2. Definir la figura que contendrá el gráfico, que es la region (ventana o página) donde se dibujará y los ejes sobre los que se dibujarán los datos. Para ello se utiliza la función `subplot()`.
+2. Definir la figura que contendrá el gráfico, que es la region (ventana o página) donde se dibujará y los ejes sobre los que se dibujarán los datos. Para ello se utiliza la función `subplots()`.
   
 3. Dibujar los datos sobre los ejes. Para ello se utilizan distintas funciones dependiendo del tipo de gráfico que se quiera.
 
@@ -3282,7 +3282,7 @@ Para crear un gráfico con matplotlib es habitual seguir los siguientes pasos:
 # Importar el módulo pyplot con el alias plt
 import matplotlib.pyplot as plt
 # Crear la figura y los ejes
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 # Dibujar puntos
 ax.scatter(x = [1, 2, 3], y = [3, 2, 1])
 # Guardar el gráfico en formato png
@@ -3301,7 +3301,7 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 ax.scatter([1, 2, 3, 4], [1, 2, 0, 0.5])
 plt.show()
 ```
@@ -3316,7 +3316,7 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 ax.plot([1, 2, 3, 4], [1, 2, 0, 0.5])
 plt.show()
 ```
@@ -3331,7 +3331,7 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 ax.fill_between([1, 2, 3, 4], [1, 2, 0, 0.5])
 plt.show()
 ```
@@ -3346,7 +3346,7 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 ax.bar([1, 2, 3], [3, 2, 1])
 plt.show()
 ```
@@ -3361,7 +3361,7 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 ax.barh([1, 2, 3], [3, 2, 1])
 plt.show()
 ```
@@ -3377,10 +3377,9 @@ plt.show()
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 x = np.random.normal(5, 1.5, size=1000)
 ax.hist(x, np.arange(0, 11))
-plt.savefig('histograma.png')
 plt.show()
 ```
 
@@ -3394,9 +3393,8 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
-ax.pie([5, 4, 3, 2, 1]
-plt.savefig('diagrama-sectores.png')
+fig, ax = plt.subplots()
+ax.pie([5, 4, 3, 2, 1])
 plt.show()
 ```
 
@@ -3410,9 +3408,8 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 ax.boxplot([1, 2, 1, 2, 3, 4, 3, 3, 5, 7])
-plt.savefig('diagrama-sectores.png')
 plt.show()
 ```
 
@@ -3426,9 +3423,8 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 ax.violinplot([1, 2, 1, 2, 3, 4, 3, 3, 5, 7])
-plt.savefig('diagrama-sectores.png')
 plt.show()
 ```
 
@@ -3442,7 +3438,7 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 x = np.linspace(-3.0, 3.0, 100)
 y = np.linspace(-3.0, 3.0, 100)
 x, y = np.meshgrid(x, y)
@@ -3457,11 +3453,11 @@ plt.show()
 
 ### Mapas de color
 
-- `imshow(x)`: Dibuja un mapa de color a partir de una matriz (array bidimensiona) `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow)
+- `imshow(x)`: Dibuja un mapa de color a partir de una matriz (array bidimensional) `x`. [<i class="fa fa-info-circle" aria-hidden="true"></i>](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow)
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 x = np.random.random((16, 16))
 ax.imshow(x)
 plt.show()
@@ -3477,7 +3473,7 @@ plt.show()
 
 ```python
 import matplotlib.pyplot as plt
-fig, ax = plt.subplot()
+fig, ax = plt.subplots()
 x, y = np.random.multivariate_normal(mean=[0.0, 0.0], cov=[[1.0, 0.4], [0.4, 0.5]], size=1000).T
 ax.hist2d(x, y)
 plt.show()
@@ -3705,7 +3701,7 @@ plt.show()
 
 ### Integración con Pandas
 
-Si no se indican los parámetros `x` e `y` se representa el índice de las filas en el eje x y una serie por cada columna del Dataframe. Las columnas no númericas se ignoran. 
+Si no se indican los parámetros `x` e `y` se representa el índice de las filas en el eje x y una serie por cada columna del Dataframe. Las columnas no númericas se ignoran.
 
 ```python
 import pandas as pd 
@@ -3715,12 +3711,11 @@ df = pd.DataFrame({'Días':['L', 'M', 'X', 'J', 'V', 'S', 'D'],
                    'Barcelona':[24.5, 25.5, 26.5, 25, 26.5, 24.5, 25]})
 df = df.set_index('Días')
 fig, ax = plt.subplots()
-df.plot()
+df.plot(ax = ax)
 plt.show()
 ```
 
 <img src="img/matplotlib-pandas2.png" alt="Gráfico con matplotlib" height="300px">
-
 
 ---
 
