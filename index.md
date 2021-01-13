@@ -358,11 +358,8 @@ True
 - `max(c)` : Devuelve el carácter mayor de la cadena `c`.
 - `c.upper()` : Devuelve la cadena con los mismos caracteres que la cadena `c` pero en mayúsculas.
 - `c.lower()` : Devuelve la cadena con los mismos caracteres que la cadena `c` pero en minúsculas.
-- `c.title()` : Devuelve la cadena con los mismos caracteres que la cadena `c` con el primer carácter en mayúsculas y el resto en minúsculas.
-- `c.split(delimitador)` : Devuelve la lista formada por las subcadenas que resultan de partir la cadena `c` usando como delimitador la cadena `delimitador`.
-Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
-
-<!-- TODO: Incluir más funciones de cadenas como replace -->
+- `c.capitalize()` : Devuelve la cadena con los mismos caracteres que la cadena `c` con el primer carácter en mayúsculas y el resto en minúsculas.
+- `c.title()` : Devuelve la cadena con los mismos caracteres que la cadena `c` con el primer carácter de cada palabra en mayúsculas y el resto en minúsculas. Es similar a `capitalize` pero afecta a cada palabra en la cadena.
 
 --
 
@@ -377,10 +374,46 @@ Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
 'y'
 >>> 'Python'.upper()
 'PYTHON'
->>> 'A,B,C'.split(',')
-['A', 'B', 'C']
->>> 'I love Python'.split()
-['I', 'love', 'Python']
+>>> c = 'me gusta pYhThOn'
+>>> c.capitalize()
+'Me gusta python'
+>>> c.title()
+'Me Gusta Python'
+```
+
+--
+
+## Más funcione de cadenas
+
+- `c.find(subcadena)` : Devuelve la posición de la primera ocurrencia de la subcadena `subcadena` en la cadena `c`. Si la cadena `c` no contiene la subcadena devuelve -1. A la hora de comparar cadenas Python distingue entre mayúsculas y minúsculas.
+- `c.replace(subcadena_antigua, subcadena_nueva)` : Devuelve la cadena que resulta de reemplazar la subcadena `subcadena_antigua` por la subcadena `subcadena_nueva` en la cadena `c`. 
+- `c.count(subcadena, inicio, fin)` : Devuelve un entero con el número de veces que aparece la subcadena `subcadena` en la cadena `c` desde la posición `inicio` hasta la posición `fin`. Si no se indican las posiciones de inicio y fin, se cuenta desde el inicio hasta el final de la cadena
+- `c.split(delimitador)` : Devuelve la lista formada por las subcadenas que resultan de partir la cadena `c` usando como delimitador la cadena `delimitador`.
+Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
+- `c.join(lista_cadenas)` : Devuelve la cadena de unir las cadenas de la lista `lista_cadenas` utilizando con nexo de unión la cadena `c`. Los elementos de la lista deben de ser cadenas.
+
+--
+
+### Más funciones de cadenas
+
+```python
+>>> c = 'A mi gato le gustan los gatos'  
+>>> c.find('gato')
+5
+>>> c.find('gatos')
+24
+>>> c.replace('gato', 'perro')
+'A mi perro le gustan los perros'
+>>> c.replace('gatos', 'perros')
+'A mi gato le gustan los perros'
+>>> c.count('gato')
+2
+>>> c.split(' ')
+['A', 'mi', 'gato', 'le', 'gustan', 'los', 'gatos']
+>>> ' '.join(['A', 'mi', 'gato', 'le', 'gustan', 'los', 'gatos'])
+'A mi gato le gustan los gatos'
+>>> '--'.join(['A', 'mi', 'gato', 'le', 'gustan', 'los', 'gatos'])
+'A--mi--gato--le--gustan--los--gatos'
 ```
 
 --
@@ -402,7 +435,7 @@ Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
 
 ### Cadenas formateadas (`format()`)
 
-Los marcadores de posición, a parte de indicar la posición de los valores de reemplazo, pueden indicar también el formato de estos. Para ello se utiliza la siguiente sintaxis:
+Los marcadores de posición, aparte de indicar la posición de los valores de reemplazo, pueden indicar también el formato de estos. Para ello se utiliza la siguiente sintaxis:
 
 - `{:n}` : Alinea el valor a la izquierda rellenando con espacios por la derecha hasta los `n` caracteres.
 - `{:>n}` : Alinea el valor a la derecha rellenando con espacios por la izquierda hasta los `n` caracteres.
