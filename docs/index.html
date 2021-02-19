@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="./css/highlight/monokai.css" />
     <link rel="stylesheet" href="./_assets/custom.css" />
+    <script src="https://kit.fontawesome.com/c743eb3668.js" crossorigin="anonymous"></script>
 
   </head>
   <body>
@@ -3748,6 +3749,9 @@ Vídeos:
     <script src="./plugin/zoom/zoom.js"></script>
     <script src="./plugin/notes/notes.js"></script>
     <script src="./plugin/math/math.js"></script>
+    <script src="./plugin/chalkboard/plugin.js"></script>
+    <script src="./plugin/menu/menu.js"></script>
+
     <script>
       function extend() {
         var target = {};
@@ -3774,8 +3778,11 @@ Vídeos:
           RevealHighlight,
           RevealZoom,
           RevealNotes,
-          RevealMath
-        ]
+          RevealMath,
+          RevealChalkboard,
+          RevealMenu,
+        ],
+        chalkboard: {theme: "whiteboard"},
       };
 
       // options from URL query string
